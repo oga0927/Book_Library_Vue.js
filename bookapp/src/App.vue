@@ -4,7 +4,8 @@
     <v-main>
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
-        <router-view />
+        <router-view 
+        @add-book-list="addBook"/>
       </v-container>
     </v-main>
     <Footer/>
@@ -42,14 +43,23 @@ export default {
     }
   },
   methods: {
-    addBook() {
-      // 実際に何かしたことを入力する
-      if (!this.newBook) {
-        return;
-      }
+    // (e)で子コンポーネントからデータを受け取る
+    addBook(e) {
+      
       // 追加があればpushして
-      this.books.push(this.newBook);
-      this.newBook = '';
+      this.books.push({
+        id: this.books.length,
+        // 子ーコンポーネント
+        title: e.title,
+        image: e.image,
+        // 説明
+        discription: e.discription,
+        // 読んだ日、感想
+        readDate: '',
+        // メモ
+        memo: ''
+      });
+      // this.newBook = '';
       // this.saveBooksに保存する
       this.saveBooks();
     },

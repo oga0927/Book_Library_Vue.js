@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BookIndex from '@/pages/BookIndex'
-import BookSearch from '@/pages/Search'
+import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
 
 Vue.use(VueRouter)
