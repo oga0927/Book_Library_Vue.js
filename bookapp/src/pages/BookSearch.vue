@@ -74,6 +74,7 @@ export default {
   },
   methods:{
     addBookList(index) {
+      // クリックした箇所を指定
       this.$emit('add-book-list',this.searchResults[index])
     },
     async search(keyword){
@@ -86,7 +87,6 @@ export default {
     }
     const queryParams = new URLSearchParams(params)
     console.log(baseUrl + queryParams)
-
     // fetchでJSON取得
     const response = await fetch(baseUrl + queryParams)
     .then( response => response.json())

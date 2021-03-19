@@ -5,6 +5,7 @@
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
         <router-view 
+        :books = "books"
         @add-book-list="addBook"/>
       </v-container>
     </v-main>
@@ -49,7 +50,7 @@ export default {
       // 追加があればpushして
       this.books.push({
         id: this.books.length,
-        // 子ーコンポーネント
+        // 子コンポーネント
         title: e.title,
         image: e.image,
         // 説明
@@ -62,6 +63,11 @@ export default {
       // this.newBook = '';
       // this.saveBooksに保存する
       this.saveBooks();
+      // 最後に追加したid取得コード
+      // console.log(this.books.splice(-1)[0].id);
+
+      // 最新のidが入った状態
+      this.goToEditPage(this.books.splice(-1)[0].id)
     },
     removeBook(x) {
       this.books.splice(x, 1);
@@ -70,6 +76,11 @@ export default {
     saveBooks() {
       const parsed = JSON.stringify(this.books);
       localStorage.setItem('STORAGE_KEY', parsed);
+    },
+    // 最新のid
+    goToEditPage(id) {
+      // ページの切り替え
+      this.$router.push(`/edit/${id}`)
     }
   }
 };

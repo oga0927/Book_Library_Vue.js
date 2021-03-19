@@ -18,7 +18,7 @@ const routes = [
     component: BookSearch
   },
   {
-    path: '/edit',
+    path: '/edit/:id',
     name: 'BookEdit',
     component: BookEdit 
   },
@@ -27,7 +27,6 @@ const routes = [
     path: '*',
     redirect: '/', 
   },
-  
 ]
 
 const router = new VueRouter({
