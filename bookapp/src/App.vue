@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <Header/>
+    <Header
+      @delete-local-storage="deleteLocalStorage"
+      />
     <v-main>
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
@@ -17,7 +19,7 @@
 <script>
 import Header from '@/global/Header';
 import Footer from '@/global/Footer';
-// const STORAGE_KEY = 'books'
+const STORAGE_KEY = 'books'
 
 export default {
   name: 'App',
@@ -35,12 +37,12 @@ export default {
   },
   mounted() {
     // ローカルストレージにアイテムがあれば
-    if (localStorage.getItem('STORAGE_KEY')) {
+    if (localStorage.getItem(STORAGE_KEY)) {
       try {
         // JSON.parseで値を持ってきて、this.booksにデータを渡す
-        this.books = JSON.parse(localStorage.getItem('STORAGE_KEY'));
+        this.books = JSON.parse(localStorage.getItem(STORAGE_KEY));
       } catch(e) {
-        localStorage.removeItem('STORAGE_KEY');
+        localStorage.removeItem(STORAGE_KEY);
       }
     }
   },
@@ -76,7 +78,7 @@ export default {
     },
     saveBooks() {
       const parsed = JSON.stringify(this.books);
-      localStorage.setItem('STORAGE_KEY', parsed);
+      localStorage.setItem(STORAGE_KEY, parsed);
     },
     updateBookInfo(e) {
       // book:[]の中身を置き換える処理
@@ -99,6 +101,18 @@ export default {
     goToEditPage(id) {
       // ページの切り替え
       this.$router.push(`/edit/${id}`)
+    },
+    deleteLocalStorage() {
+      // メッセージ:削除しますか？を追加
+        const isDeleted = 'deleteLocalStorageのデータを削除してもいいですか？'
+        if(window.confirm(isDeleted)) {
+          // 2つ目の引数を空にすれば空のデータで上書きされる
+          localStorage.setItem(STORAGE_KEY, '');
+          // 完全に消える
+          localStorage.removeItem(STORAGE_KEY);
+          this.books = []
+          window.location.reload()
+        }
     }
   }
 };
