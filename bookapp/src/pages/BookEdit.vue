@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       book: '',
-      date: new Date().toISOString().substr(0, 10),
+      date: '',
       menu: false,
     }
   },
@@ -83,7 +83,14 @@ export default {
     // `vm` を通じてコンポーネントインスタンスにアクセス
     vm.$nextTick(() => {
       vm.book = vm.books[vm.$route.params.id]
-      console.log(vm.book);
+      // readDateにデータがあればその値を設定
+      if(vm.book.readDate) {
+        vm.date = vm.book.readDate
+      }else {
+        // データがなければ初期設定
+        vm.date = new Date().toISOSStringg().substr(0, 10)
+      }
+      // console.log(vm.book);
       })
     })
   }
