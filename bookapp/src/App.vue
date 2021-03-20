@@ -6,7 +6,8 @@
       <v-container>
         <router-view 
         :books = "books"
-        @add-book-list="addBook"/>
+        @add-book-list="addBook"
+        @update-book-info="updateBookInfo"/>
       </v-container>
     </v-main>
     <Footer/>
@@ -76,6 +77,23 @@ export default {
     saveBooks() {
       const parsed = JSON.stringify(this.books);
       localStorage.setItem('STORAGE_KEY', parsed);
+    },
+    updateBookInfo(e) {
+      // book:[]の中身を置き換える処理
+      const updateInfo = {
+        id: e.id,
+        readDate: e.readDate,
+        memo: e.memo,
+        title:this.books[e.id].title,
+        image: this.books[e.id].image,
+        description: this.books[e.id].description
+      }
+      // e.idの1つ目が置き換わる
+      this.books.splice(e.id, 1, updateInfo)
+      // saveBooksにアクセスして保存
+      this.saveBooks()
+      // 保存した後にトップページに戻る
+      this.$router.push('/')
     },
     // 最新のid
     goToEditPage(id) {
