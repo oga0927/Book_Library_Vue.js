@@ -10,6 +10,7 @@
         <v-card>
           <v-row>
             <v-col cols="4">
+              <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
             <v-col cols="8">
@@ -34,8 +35,8 @@
 
 <script>
 export default {
-  props:{
-    books:Array
+  props: {
+    books: Array
   }
 }
 </script>

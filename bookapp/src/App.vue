@@ -6,19 +6,19 @@
     <v-main>
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
-        <router-view 
-        :books = "books"
+        <router-view
+        :books="books"
         @add-book-list="addBook"
         @update-book-info="updateBookInfo"/>
       </v-container>
     </v-main>
-    <Footer/>
+  <Footer/>
   </v-app>
 </template>
 
 <script>
-import Header from '@/global/Header';
-import Footer from '@/global/Footer';
+import Header from '@/global/Header'
+import Footer from '@/global/Footer'
 const STORAGE_KEY = 'books'
 
 export default {
@@ -29,7 +29,7 @@ export default {
     Footer
   },
 
-  data() {
+  data(){
     return {
       books: [],
       newBook: null
@@ -62,15 +62,14 @@ export default {
         readDate: '',
         // メモ
         memo: ''
-      });
-      // this.newBook = '';
+      })
       // this.saveBooksに保存する
       this.saveBooks();
       // 最後に追加したid取得コード
       // console.log(this.books.splice(-1)[0].id);
 
       // 最新のidが入った状態
-      this.goToEditPage(this.books.splice(-1)[0].id)
+      this.goToEditPage(this.books.slice(-1)[0].id)
     },
     removeBook(x) {
       this.books.splice(x, 1);
@@ -86,7 +85,7 @@ export default {
         id: e.id,
         readDate: e.readDate,
         memo: e.memo,
-        title:this.books[e.id].title,
+        title: this.books[e.id].title,
         image: this.books[e.id].image,
         description: this.books[e.id].description
       }
@@ -111,8 +110,9 @@ export default {
           // 完全に消える
           localStorage.removeItem(STORAGE_KEY);
           this.books = []
+          // spliceなら this.books.splice(0, this.books.length)
           window.location.reload()
-        }
+      }
     }
   }
 };
