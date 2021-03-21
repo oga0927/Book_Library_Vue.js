@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="6">
-        <v-btn color="primary" to="/search">検索する</v-btn>
+        <v-btn color="primary" to="/search">本を投稿する</v-btn>
       </v-col>
     </v-row>
     <v-row>
