@@ -19,6 +19,7 @@
 <script>
 import Header from '@/global/Header'
 import Footer from '@/global/Footer'
+// import Home from '@/pages/Home.vue'
 const STORAGE_KEY = 'books'
 
 export default {
@@ -26,7 +27,8 @@ export default {
 
   components: {
     Header,
-    Footer
+    Footer,
+    // Home
   },
 
   data(){

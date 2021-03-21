@@ -6,10 +6,10 @@
       dark
     >
       <v-spacer></v-spacer>
-      <v-btn 
+      <!-- <v-btn 
       color="error"
       @click="deleteLocalStorage"
-      >削除する</v-btn>
+      >削除する</v-btn> -->
     </v-app-bar>
     </div>
 </template>
