@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-    <v-app-bar app dark color="blue">
+    <!-- <v-app-bar app dark color="blue">
       <v-toolebar-title>
         <div class="logo" @click="logoClick">Logo</div>
       </v-toolebar-title>
@@ -15,23 +15,22 @@
       <v-btn text>ユーザー登録</v-btn>
       
     </v-app-bar>
+
+    <v-contents>
+      <v-card>
+        <v-title></v-title>
+      </v-card>
+    </v-contents> -->
       
-      <!-- <v-btn 
-      color="error"
-      @click="deleteLocalStorage"
-      >削除する</v-btn> -->
+      
     </v-app-bar>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Header',
-  methods: {
-    deleteLocalStorage() {
-      this.$emit('delete-local-storage')
-    }
-  }
+  name: 'AppHeader',
+  
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header
+    <AppHeader
       @delete-local-storage="deleteLocalStorage"
       />
     <v-main>
@@ -12,13 +12,13 @@
         @update-book-info="updateBookInfo"/>
       </v-container>
     </v-main>
-  <Footer/>
+  <AppFooter/>
   </v-app>
 </template>
 
 <script>
-import Header from '@/global/Header'
-import Footer from '@/global/Footer'
+import AppHeader from '@/global/AppHeader'
+import AppFooter from '@/global/AppFooter'
 // import Home from '@/pages/Home.vue'
 const STORAGE_KEY = 'books'
 
@@ -26,8 +26,8 @@ export default {
   name: 'App',
 
   components: {
-    Header,
-    Footer,
+    AppHeader,
+    AppFooter,
     // Home
   },
 
