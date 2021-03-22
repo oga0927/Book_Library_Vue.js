@@ -1,18 +1,19 @@
 <template>
   <v-app>
-    <AppHeader
-      @delete-local-storage="deleteLocalStorage"
-      />
+    <app-header/>
+
     <v-main>
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
         <router-view
         :books="books"
         @add-book-list="addBook"
-        @update-book-info="updateBookInfo"/>
+        @update-book-info="updateBookInfo"
+        @delete-local-storage="deleteLocalStorage"/>
       </v-container>
     </v-main>
   <AppFooter/>
+
   </v-app>
 </template>
 

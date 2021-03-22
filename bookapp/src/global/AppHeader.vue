@@ -1,30 +1,14 @@
 <template>
   <div>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-    <!-- <v-app-bar app dark color="blue">
-      <v-toolebar-title>
-        <div class="logo" @click="logoClick">Logo</div>
-      </v-toolebar-title>
-
-      <v-spacer></v-spacer>
+    <v-toolbar app dark class="primary">
+    <v-toolbar-title>aaaaa</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
       <v-btn text>ログイン</v-btn>
-      <v-btn text>ユーザー登録</v-btn>
-      
-    </v-app-bar>
-
-    <v-contents>
-      <v-card>
-        <v-title></v-title>
-      </v-card>
-    </v-contents> -->
-      
-      
-    </v-app-bar>
-    </div>
+      <v-btn text>新規登録</v-btn>
+    </v-toolbar-items>
+    </v-toolbar>
+  </div>
 </template>
 
 <script>
