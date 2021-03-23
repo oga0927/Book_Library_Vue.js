@@ -12,7 +12,7 @@
         @delete-local-storage="deleteLocalStorage"/>
       </v-container>
     </v-main>
-  <AppFooter/>
+  <app-footer/>
 
   </v-app>
 </template>
