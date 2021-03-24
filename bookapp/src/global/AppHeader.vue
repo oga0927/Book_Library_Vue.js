@@ -1,20 +1,20 @@
 <template>
   <span>
+    <!-- ログインした状態のdrwerナビゲーション -->
     <v-navigation-drawer app v-model="drawer" class="brown darken-4" dark>
       <v-list>
         <div v-if="!isAuthenticated">
-          <v-btn text to="/sign-in" data-cy="signinBtn">ログイン</v-btn>
+          <v-btn text to="/sign-in">ログイン</v-btn>
           <v-btn
             text
-            to="/join"
+            to="/signup"
             class="nav-join"
-            data-cy="joinBtn"
             >ユーザー登録</v-btn
           >
         </div>
         <div v-else>
           <v-btn text to="/profile">プロフィール</v-btn>
-          <v-btn outline color="gray" @click="logout" data-cy="logout"
+          <v-btn outline color="gray" @click="logout"
             >ログアウト</v-btn
           >
         </div>
@@ -37,18 +37,17 @@
         <v-btn text @click="drawer = !drawer">Menu</v-btn>
       </div>
       <div v-if="!isAuthenticated" class="hidden-sm-and-down">
-        <v-btn text to="/sign-in" data-cy="signinBtn">ログイン</v-btn>
+        <v-btn text to="/sign-in">ログイン</v-btn>
         <v-btn
-          color="brown lighten-3"
-          to="/join"
-          class="nav-join"
-          data-cy="joinBtn"
+          text
+          to="/register"
+          class="register"
           >ユーザー登録</v-btn
         >
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn text to="/profile">プロフィール</v-btn>
-        <v-btn outline color="gray" @click="logout" data-cy="logout"
+        <v-btn outline color="gray" @click="logout"
           >ログアウト</v-btn
         >
       </div>
@@ -58,10 +57,10 @@
 
 <script>
   export default {
-  name: "HellowWorld",
+  name: "AppHeader",
   data() {
     return {
-      appTitle: "くすり",
+      appTitle: "ROGO",
       drawer: false
     };
   },
