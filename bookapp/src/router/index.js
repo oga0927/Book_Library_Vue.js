@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
+import LogIn from '@/pages/LogIn'
+import Register from '@/pages/Register'
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,16 @@ const routes = [
     path: '/edit/:id',
     name: 'BookEdit',
     component: BookEdit 
+  },
+  {
+    path: '/login',
+    name: 'LogIn',
+    component: LogIn
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     // 存在しないURL(path)はホームに戻る

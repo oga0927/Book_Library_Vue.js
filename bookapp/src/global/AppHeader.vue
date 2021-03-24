@@ -4,11 +4,11 @@
     <v-navigation-drawer app v-model="drawer" class="brown darken-4" dark>
       <v-list>
         <div v-if="!isAuthenticated">
-          <v-btn text to="/sign-in">ログイン</v-btn>
+          <v-btn text to="/login">ログイン</v-btn>
           <v-btn
             text
-            to="/signup"
-            class="nav-join"
+            to="/register"
+            class="register"
             >ユーザー登録</v-btn
           >
         </div>
@@ -37,7 +37,7 @@
         <v-btn text @click="drawer = !drawer">Menu</v-btn>
       </div>
       <div v-if="!isAuthenticated" class="hidden-sm-and-down">
-        <v-btn text to="/sign-in">ログイン</v-btn>
+        <v-btn text to="/login">ログイン</v-btn>
         <v-btn
           text
           to="/register"
@@ -52,6 +52,7 @@
         >
       </div>
     </v-app-bar>
+    <v-img src="../assets/書籍MV.png"></v-img>
   </span>
 </template>
 
