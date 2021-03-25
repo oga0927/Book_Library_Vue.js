@@ -16,6 +16,20 @@ const routes = [
   //   component: Home,
   // },
   {
+    // 存在しないURL(path)はホームに戻る
+    path: '*',
+    redirect: '/login', 
+  },
+  // {
+  //   path: '/login',
+  //   redirect: '/login',
+  // },
+  {
+    path: '/login',
+    name: 'LogIn',
+    component: LogIn
+  },
+  {
     path: '/',
     name: 'BookIndex',
     component: BookIndex
@@ -31,21 +45,13 @@ const routes = [
     component: BookEdit 
   },
   {
-    path: '/login',
-    name: 'LogIn',
-    component: LogIn
-  },
-  {
     path: '/register',
     name: 'Register',
     component: Register
-  },
-  {
-    // 存在しないURL(path)はホームに戻る
-    path: '*',
-    redirect: '/', 
-  },
-]
+  }
+];
+
+
 
 const router = new VueRouter({
   mode: 'history',

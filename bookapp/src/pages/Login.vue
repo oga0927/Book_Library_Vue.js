@@ -48,11 +48,7 @@ export default {
       showPassword: false
     }
   },
-  computed: {
-    
-  },
   methods: {
-    
     login() {
       this.$router.replace('/')
       firebase
