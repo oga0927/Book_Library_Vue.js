@@ -17,7 +17,6 @@
             label="Email"
             type="email"
             v-model="email"
-            
             prepend-icon="mdi-email"
             required/>
             
@@ -48,6 +47,7 @@
 
 
 <script>
+import firebase from 'firebase'
 export default {
   name: 'Register',
   data() {
@@ -59,8 +59,19 @@ export default {
     }
   },
   methods: {
+    // register() {
+      // },
     register() {
       this.$router.replace('/')
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.email, this.password)
+      .then(function() {
+            alert('成功しました');
+          },
+          function(err) {
+            alert('失敗しました' + err.message);
+          });
     }
   }
 }

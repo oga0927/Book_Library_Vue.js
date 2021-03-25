@@ -11,8 +11,6 @@
             type="email"
             v-model="email"
             prepend-icon="mdi-email"
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
             required />
 
           <v-text-field
@@ -21,8 +19,6 @@
             prepend-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="showPassword = !showPassword"
-            @input="$v.password.$touch()"
-            @blur="$v.password.$touch()"
             required/>
         </v-card-text>
 
@@ -41,20 +37,10 @@
 
 
 <script>
-// import { validationMixin } from 'vuelidate'
-// import { required, maxLength, email } from 'vuelidate/lib/validators'
-
+import firebase from 'firebase'
 export default {
   name: 'LogIn',
-  // mixins: [validationMixin],
-
-  // validations: {
-  //   email: { required, email },
-  //   password: { required, maxLength: maxLength(10) },
-      
-      
-  //     },
-
+  
   data() {
     return {
       email: '',
@@ -63,32 +49,22 @@ export default {
     }
   },
   computed: {
-    // emailErrors () {
-    //   const errors = []
-    //   if (!this.$v.email.$dirty) return errors
-    //   !this.$v.email.email && errors.push('Must be valid e-mail')
-    //   !this.$v.email.required && errors.push('E-mail is required')
-    //   return errors
-    // },
-    // passwordErrors () {
-    //   const errors = []
-    //   if (!this.$v.password.$dirty) return errors
-    //   !this.$v.password.email && errors.push('Must be valid password')
-    //   !this.$v.password.required && errors.push('password is required')
-    //   return errors
-    // },
+    
   },
   methods: {
-    // submit() {
-    //     this.$v.$touch()
-    // },
-    // clear () {
-    //     this.$v.$reset()
-    //     this.email = ''
-    //     this.password = ''
-    //   },
+    
     login() {
       this.$router.replace('/')
+      firebase
+      .auth()
+      .signInWithEmailAndPassword(this.email, this.password)
+      .then(
+        function() {
+          alert('ログイン成功')
+        },
+        function(err) {
+          alert('あー残念！！' + err.message);
+        })
     },
   },
 }
