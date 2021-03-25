@@ -14,9 +14,10 @@
 
           <v-text-field
             name="email"
-            label="Email"
+            label="E-mail"
             type="email"
             v-model="email"
+            :rules="emailRules"
             prepend-icon="mdi-email"
             required/>
             
@@ -24,7 +25,7 @@
             name="pasword"
             label="password" 
             v-model="password"
-            
+            :rules="passwordRules"
             required
             :type="showPassword ? 'text' : 'password'" 
             prepend-icon="mdi-lock"
@@ -52,10 +53,19 @@ export default {
   name: 'Register',
   data() {
     return {
-      username: '',
-      email: '',
-      password: '',
-      showPassword: false
+      showPassword: false,
+      valid: false,
+      username: "",
+      email: "",
+      password: "",
+      emailRules: [
+        v => !!v || "メールアドレスを入力してください",
+        v => /.+@.+/.test(v) || "正しいメールアドレスを入力してください"
+      ],
+      passwordRules: [
+        v => !!v || "パスワードを入力してください",
+        v => v.length >= 8 || "パスワードは8文字以上で入力してください"
+      ]
     }
   },
   methods: {
@@ -66,12 +76,12 @@ export default {
       firebase
       .auth()
       .createUserWithEmailAndPassword(this.email, this.password)
-      .then(function() {
-            alert('成功しました');
-          },
-          function(err) {
-            alert('失敗しました' + err.message);
-          });
+      .then(() => {
+        alert('成功しました');
+      },
+      function(err) {
+        alert('失敗しました' + err.message);
+      });
     }
   }
 }
