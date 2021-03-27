@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
+    drawer: false,
     email: "",
     status: false,
   },

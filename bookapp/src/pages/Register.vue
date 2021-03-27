@@ -36,8 +36,12 @@
         <v-divider></v-divider>
         <v-card-actions>
           <!-- <v-btn color="success">ログイン</v-btn> -->
+          <v-btn text @click="$refs.form.reset()"></v-btn>
+          <v-spacer></v-spacer>
           <v-btn 
           color="info"
+          :loading="isloading" 
+          despressed 
           @click="register">登録</v-btn>
         </v-card-actions>
       </v-card>
