@@ -7,23 +7,28 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
-    email: "",
-    status: false,
-  },
-  getters: {
-    email(state) {
-      return state.email
-    },
-    isSignedIn(state) {
-      return state.status
-    },
+    // email: "",
+    // status: false,
   },
   mutations: {
-    onAuthEmailChanged(state, email) {
-      state.email = email; //firebase user情報
-    },
-    onUserStatusChanged(state, status) {
-      state.status = status;
+    // onAuthEmailChanged(state, email) {
+    //   state.email = email; //firebase user情報
+    // },
+    // onUserStatusChanged(state, status) {
+    //   state.status = status;
+    // }
+  },
+  getters: {
+    // email(state) {
+    //   return state.email
+    // },
+    // isSignedIn(state) {
+    //   return state.status
+    // },
+  },
+  actions: {
+    toggleSideMenu({ commit }) {
+      commit('toggleSideMenu')
     }
   },
 });

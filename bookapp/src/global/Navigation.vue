@@ -1,6 +1,6 @@
 <template>
   <span>
-    <!-- drawerナビゲーション -->
+    <!-- ログインした状態のdrwerナビゲーション -->
     <v-navigation-drawer app v-model="drawer" class="brown darken-4" dark>
       <v-list>
         <div v-if="!isAuthenticated">
@@ -19,7 +19,6 @@
         </div>
       </v-list>
     </v-navigation-drawer>
-
     <v-app-bar app color="grey darken-4" dark>
       <v-icon
         class="hidden-md-and-up"
@@ -30,6 +29,7 @@
       <router-link to="/">
         <v-toolbar-title to="/">
           {{ appTitle }}
+          
         </v-toolbar-title>
       </router-link>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
