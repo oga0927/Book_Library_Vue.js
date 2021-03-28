@@ -37,14 +37,14 @@
 
 
 <script>
-import firebase from 'firebase'
+// import firebase from 'firebase'
 export default {
   name: 'LogIn',
   
   data() {
     return {
-      showPassword: false,
       valid: false,
+      showPassword: false,
       username: "",
       email: "",
       password: "",
@@ -60,17 +60,23 @@ export default {
   },
   methods: {
     login() {
-      this.$router.replace('/')
-      firebase
-      .auth()
-      .signInWithEmailAndPassword(this.email, this.password)
-      .then(
-        function() {
-          alert('ログイン成功')
-        },
-        function(err) {
-          alert('あー残念！！' + err.message);
-        })
+      // this.$router.replace('/')
+      // firebase
+      // .auth()
+      // .signInWithEmailAndPassword(this.email, this.password)
+      // .then(
+      //   function() {
+      //     alert('ログイン成功')
+      //   },
+      //   function(err) {
+      //     alert('あー残念！！' + err.message);
+      //   })
+      if (this.$refs.form.validate()) {
+      this.$store.dispatch("userLogin", {
+        email: this.email,
+        password: this.password
+        });
+      }
     },
   },
 }

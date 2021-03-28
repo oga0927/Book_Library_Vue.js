@@ -57,8 +57,8 @@ export default {
   name: 'Register',
   data() {
     return {
-      showPassword: false,
       valid: false,
+      showPassword: false,
       username: "",
       email: "",
       password: "",
@@ -68,7 +68,7 @@ export default {
       ],
       passwordRules: [
         v => !!v || "パスワードを入力してください",
-        v => v.length >= 6 || "パスワードは8文字以上で入力してください"
+        v => v.length >= 8 || "パスワードは8文字以上で入力してください"
       ]
     }
   },

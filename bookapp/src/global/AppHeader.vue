@@ -21,10 +21,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app color="grey darken-4" dark>
-      <v-icon
-        class="hidden-md-and-up"
-        @click="drawer = !drawer"
-      >
+      <v-icon class="hidden-md-and-up" @click="drawer = !drawer">
       </v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <router-link to="/">
@@ -49,7 +46,9 @@
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn text to="/profile">プロフィール</v-btn>
-        <v-btn outline color="gray" @click="logout"
+        <v-btn 
+          outline color="gray" 
+          @click="logout"
           >ログアウト</v-btn
         >
       </div>
