@@ -43,9 +43,19 @@ export default {
   
   data() {
     return {
-      email: '',
-      password: '',
-      showPassword: false
+      showPassword: false,
+      valid: false,
+      username: "",
+      email: "",
+      password: "",
+      emailRules: [
+        v => !!v || "メールアドレスを入力してください",
+        v => /.+@.+/.test(v) || "正しいメールアドレスを入力してください"
+      ],
+      passwordRules: [
+        v => !!v || "パスワードを入力してください",
+        v => v.length >= 6 || "パスワードは6文字以上で入力してください"
+      ]
     }
   },
   methods: {
