@@ -12,7 +12,7 @@
                 タイトル：{{ book.title }}
               </v-card-title>
               読んだ日：
-               <v-menu
+              <v-menu
                 v-model="menu"
                 :close-on-content-click="false"
                 :nudge-right="40"
@@ -20,26 +20,26 @@
                 offset-y
                 min-width="290px"
               >
-                <template v-slot:activator="{ on, attrs }">
-                  <v-text-field
-                    v-model="date"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker 
-                  v-model="date" 
-                  @input="menu = false"
-                  locale="jp-ja"
-                  :day-format="date => new Date(date).getDate()">
-                </v-date-picker>
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="date"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+              >
+              </v-text-field>
+              </template>
+              <v-date-picker 
+                v-model="date" 
+                @input="menu = false"
+                locale="jp-ja"
+                :day-format="date => new Date(date).getDate()">
+              </v-date-picker>
               </v-menu>
-              感想：<v-textarea
-              class="mx-2" v-model="book.memo">
-              {{book.memo }}
+                感想：<v-textarea
+                class="mx-2" v-model="book.memo">
+                {{book.memo }}
               </v-textarea>
-              
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
                 <v-btn color="info" 

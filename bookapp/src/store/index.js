@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import firebase from "firebase"
 import router from "@/router/index.js"
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
@@ -19,9 +20,6 @@ export default new Vuex.Store({
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
-  },
-  getters: {
-
   },
   actions: {
     userRegister({ commit }, { email, password }) {
@@ -54,5 +52,33 @@ export default new Vuex.Store({
           router.push('/login');
         });
     },
+    userSignOut({ commit }) {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        })
+        .catch(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/');
+        });
+    },
   },
+  getters: {
+    isAuthenticated(state) {
+      return state.user !== null && state.user !== undefined;
+    },
+    getStateUser(state) {
+      return state.user;
+    },
+  },
+  plugins: [
+    createPersistedState({key: 'example',
+    storage: window.sessionStorage
+  })]
+  
 });
