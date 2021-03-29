@@ -45,7 +45,6 @@
         >
       </div>
       <div v-else class="hidden-sm-and-down">
-        <v-btn text to="/profile">プロフィール</v-btn>
         <v-btn 
           outline color="gray" 
           @click="logout"

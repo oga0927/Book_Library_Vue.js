@@ -20,10 +20,6 @@ const routes = [
     path: '*',
     redirect: '/login', 
   },
-  // {
-  //   path: '/login',
-  //   redirect: '/login',
-  // },
   {
     path: '/login',
     name: 'LogIn',

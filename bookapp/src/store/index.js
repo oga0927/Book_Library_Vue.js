@@ -31,12 +31,27 @@ export default new Vuex.Store({
         .then(user => {
           commit('setUser', user);
           commit('setIsAuthenticated', true);
-          router.push('/search');
+          router.push('/edit/:id');
         })
         .catch(() => {
           commit('setUser', null);
           commit('setIsAuthenticated', false);
           router.push('/register');
+        });
+    },
+    userLogin({ commit }, { email, password }) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(user => {
+          commit('setUser', user);
+          commit('setIsAuthenticated', true);
+          router.push('/edit/:id');
+        })
+        .catch(() => {
+          commit('setUser', null);
+          commit('setIsAuthenticated', false);
+          router.push('/login');
         });
     },
   },
