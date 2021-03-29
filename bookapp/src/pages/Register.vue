@@ -38,7 +38,7 @@
               @click="submit"
               :disabled="!valid"
               data-cy="registerSubmitBtn"
-            >ログイン</v-btn
+            >登録</v-btn
           >
         </v-card-actions>
       </v-card>

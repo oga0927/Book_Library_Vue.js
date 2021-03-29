@@ -1,6 +1,5 @@
 import firebase from 'firebase/app'
 
-Vue.config.productionTip = false
 
 const firebaseConfig = {
   apiKey: "AIzaSyC9Nxu5MjTts_FnRYnIeqAvNc_Xo3WMtnU",
