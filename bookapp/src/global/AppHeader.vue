@@ -78,3 +78,18 @@
   }
 };
 </script>
+
+<style scoped>
+a {
+  color: white;
+  text-decoration: none;
+}
+.router-link-exact-active {
+  color: white;
+  text-decoration: none;
+}
+.v-toolbar__title {
+  color: white;
+  text-decoration: none;
+}
+</style>

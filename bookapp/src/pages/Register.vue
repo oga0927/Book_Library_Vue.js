@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid">
+  <v-form ref="form" v-model="valid" lazy-validation>
     <v-main>
       <v-card width="500" class="mx-auto mt-5">
         <v-toolbar dark color="primary">
@@ -37,7 +37,7 @@
               color="info"
               @click="submit"
               :disabled="!valid"
-              data-cy="loginSubmitBtn"
+              data-cy="registerSubmitBtn"
             >ログイン</v-btn
           >
         </v-card-actions>
@@ -47,11 +47,9 @@
 </template>
 
 
-
 <script>
-// import firebase from 'firebase'
 export default {
-  name: 'LogIn',
+  name: 'Register',
   
   data() {
     return {
