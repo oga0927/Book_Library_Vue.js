@@ -1,8 +1,10 @@
 <template>
-  <v-form>
+  <v-form ref="form" v-model="valid">
     <v-main>
       <v-card width="500" class="mx-auto mt-5">
+        <v-toolbar dark color="primary">
         <v-card-title>ログインフォーム</v-card-title>
+        </v-toolbar>
         <v-card-text>
           
           <v-text-field
@@ -34,6 +36,8 @@
           <v-btn 
               color="info"
               @click="submit"
+              :disabled="!valid"
+              data-cy="loginSubmitBtn"
             >ログイン</v-btn
           >
         </v-card-actions>
@@ -53,9 +57,8 @@ export default {
     return {
       valid: false,
       showPassword: false,
-      username: "",
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       emailRules: [
         v => !!v || "メールアドレスを入力してください",
         v => /.+@.+/.test(v) || "正しいメールアドレスを入力してください"
