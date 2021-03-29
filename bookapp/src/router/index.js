@@ -5,7 +5,6 @@ import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
 import LogIn from '@/pages/LogIn'
-import LogOut from '@/pages/LogOut'
 import Register from '@/pages/Register'
 
 Vue.use(VueRouter)
@@ -29,11 +28,6 @@ const routes = [
     path: '/login',
     name: 'LogIn',
     component: LogIn
-  },
-  {
-    path: '/logout',
-    name: 'LogOut',
-    component: LogOut
   },
   {
     path: '/',

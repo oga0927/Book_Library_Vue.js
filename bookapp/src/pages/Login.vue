@@ -1,87 +1,82 @@
 <template>
-  <v-form>
-    <v-main>
-      <v-card width="500" class="mx-auto mt-5">
-        <v-card-title>ログインフォーム</v-card-title>
-        <v-card-text>
-          
-          <v-text-field
-            name="email"
-            label="Email"
-            type="email"
-            v-model="email"
-            prepend-icon="mdi-email"
-            required />
-
-          <v-text-field
-            label="Password" 
-            :type="showPassword ? 'text' : 'password'" 
-            prepend-icon="mdi-lock"
-            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="showPassword = !showPassword"
-            required/>
-        </v-card-text>
-
-        <v-divider></v-divider>
-        <v-card-actions>
-          <!-- <v-btn color="success">ログイン</v-btn> -->
-          <v-btn 
-          color="info"
-          @click="login">ログイン</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-main>
-  </v-form>
+  <v-container fill-height>
+    <v-layout align-center justify-center>
+      <v-flex xs12 sm8 md4>
+        <v-card class="elevation-12">
+          <v-toolbar dark color="primary">
+              <v-toolbar-title>ログイン</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text>
+            <v-form ref="form" v-model="valid">
+            <v-text-field
+              name="email"
+              label="Email"
+              type="email"
+              v-model="email"
+              :rules="emailRules"
+              required
+              data-cy="loginEmailField"
+            >
+            </v-text-field>
+            <v-text-field
+              name="password"
+              label="Password"
+              type="password"
+              data-cy="loginPasswordField"
+              v-model="password"
+              :rules="passwordRules"
+              required
+            >
+            </v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              :disabled="!valid"
+              @click="submit"
+              data-cy="signinSubmitBtn"
+              >Login</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
-
-
 <script>
-// import firebase from 'firebase'
 export default {
-  name: 'LogIn',
-  
-  data() {
-    return {
-      valid: false,
-      showPassword: false,
-      username: "",
-      email: "",
-      password: "",
-      emailRules: [
-        v => !!v || "メールアドレスを入力してください",
-        v => /.+@.+/.test(v) || "正しいメールアドレスを入力してください"
-      ],
-      passwordRules: [
-        v => !!v || "パスワードを入力してください",
-        v => v.length >= 6 || "パスワードは6文字以上で入力してください"
-      ]
-    }
-  },
-  methods: {
-    login() {
-      // this.$router.replace('/')
-      // firebase
-      // .auth()
-      // .signInWithEmailAndPassword(this.email, this.password)
-      // .then(
-      //   function() {
-      //     alert('ログイン成功')
-      //   },
-      //   function(err) {
-      //     alert('あー残念！！' + err.message);
-      //   })
-      if (this.$refs.form.validate()) {
-      this.$store.dispatch("userLogin", {
-        email: this.email,
-        password: this.password
-        });
-      }
+    name: 'Signin',
+    data() {
+        return {
+            valid: false,
+            email: '',
+            password: '',
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+/.test(v) || 'E-mail must be valid'
+            ],
+            passwordRules: [
+                v => !!v || 'Password is required',
+                v =>
+                    v.length >= 6 ||
+                    'Password must be greater than 6 characters'
+            ]
+        };
     },
-  },
-}
+    methods: {
+        submit() {
+            if (this.$refs.form.validate()) {
+                this.$store.dispatch('userLogin', {
+                    email: this.email,
+                    password: this.password
+                });
+            }
+        }
+    }
+};
 </script>
 
-<style>
-
-</style>
+<style scoped></style>
