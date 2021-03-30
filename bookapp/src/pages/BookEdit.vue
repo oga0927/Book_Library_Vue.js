@@ -68,6 +68,7 @@ export default {
   },
   methods:{
     updateBookInfo(){
+      // 本の情報を更新する
       this.$emit('update-book-info',{
         id: this.$route.params.id,
         readDate: this.date,

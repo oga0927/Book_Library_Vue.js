@@ -34,6 +34,7 @@ export default new Vuex.Store({
         .catch(() => {
           commit('setUser', null);
           commit('setIsAuthenticated', false);
+          alert('既に登録済みです')
           router.push('/register');
         });
     },

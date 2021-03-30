@@ -13,8 +13,9 @@
             >
         </div>
         <div v-else>
-          <v-btn text to="/profile">プロフィール</v-btn>
-          <v-btn outlined color="gray" @click="logout"
+          <v-btn text to="/" dark>ホーム</v-btn>
+          <v-btn text to="/" dark>投稿する</v-btn>
+          <v-btn text @click="logout"
             >ログアウト</v-btn>
         </div>
       </v-list>
