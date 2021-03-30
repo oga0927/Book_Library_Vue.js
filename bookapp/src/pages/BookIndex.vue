@@ -33,8 +33,10 @@
                   <v-btn
                     icon
                     color="pink"
+                    @click="addCount"
                   >
                   <v-icon>mdi-heart</v-icon>
+                  {{ $store.state.count }}
                 </v-btn>
               </v-card-actions>
             </v-col>
@@ -51,11 +53,19 @@ export default {
   props: {
     books: Array
   },
-  data() {
-    return {
-      count: 1
-    }
-  },
+
+  methods: {
+    increment() {
+      // mutationの呼び出し
+      this.$store.commit('increment')
+    },
+    addCount() {
+      // mutationの呼び出し
+      this.$store.commit('addCount', { 
+        value: 0
+      })
+    },
+  }
 }
 </script>
 

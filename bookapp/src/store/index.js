@@ -14,15 +14,18 @@ export default new Vuex.Store({
     isAuthenticated: false,
     count: 0
   },
-  mutations: {
+  mutations: { //第一引数には必ずstateを書く
     setUser(state, payload) {
       state.user = payload;
     },
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
-    // {
-
+    addCount(state) { //引数にstateを必ず書く。stateで値を変える
+      state.count++;
+    },
+    // addCount( state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
+    //   state.count += payload.value
     // }
   },
   actions: {
