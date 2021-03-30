@@ -27,12 +27,14 @@
                 >
                 <v-icon>mdi-pencil</v-icon>
                 </v-btn>
+
                 <!-- いいねボタン -->
-                <v-btn
-                  icon
-                  color="pink"
-                >
-                <v-icon>mdi-heart</v-icon>
+                  <v-btn
+                    icon
+                    color="pink"
+                    @click="addCount(index)"
+                  >
+                  <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-card-actions>
             </v-col>
@@ -44,9 +46,33 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   props: {
     books: Array
+  },
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    addCount(index) {
+      firebase
+        .database()
+        .ref("messages")
+        .child(index)
+        .child("content/data3")
+        .on("value", data => (this.count = data.val()));
+      const addCountData = this.count + 1;
+      this.$store.dispatch("addCount", { index, addCountData });
+    }
+  },
+  mounted() {
+    firebase
+      .database()
+      .ref("messages")
+      .on("value", data => (this.messages = data.val()));
   }
 }
 </script>
