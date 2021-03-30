@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">
-        <v-btn color="primary" to="/search">本を投稿する</v-btn>
+      <v-col cols="12">
+        <v-btn color="primary" to="/search" block>本を投稿する</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -19,11 +19,21 @@
               感想：{{book.memo}}
               <v-spacer></v-spacer>
               <v-card-actions>
-                <v-btn :to="{name: 'BookEdit', params: {id: book.id}}"
-                color="indigo" fab small dark
+                <!-- 書き込み -->
+                <v-btn 
+                  :to="{name: 'BookEdit', params: {id: book.id}}"
+                  color="indigo" 
+                  fab small dark
                 >
                 <v-icon>mdi-pencil</v-icon>
-                </v-btn>           
+                </v-btn>
+                <!-- いいねボタン -->
+                <v-btn
+                  icon
+                  color="pink"
+                >
+                <v-icon>mdi-heart</v-icon>
+                </v-btn>
               </v-card-actions>
             </v-col>
           </v-row>
