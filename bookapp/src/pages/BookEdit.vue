@@ -85,7 +85,6 @@ export default {
       } else {
         vm.date = new Date().toISOString().substr(0, 10)
       }
-      // console.log(vm.book)
     })
   })
 }

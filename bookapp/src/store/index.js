@@ -44,7 +44,7 @@ export default new Vuex.Store({
         .then(user => {
           commit('setUser', user);
           commit('setIsAuthenticated', true);
-          router.push('/edit/:id');
+          router.push('/search');
         })
         .catch(() => {
           commit('setUser', null);
@@ -64,7 +64,7 @@ export default new Vuex.Store({
         .catch(() => {
           commit('setUser', null);
           commit('setIsAuthenticated', false);
-          router.push('/');
+          router.push('/register');
         });
     },
   },

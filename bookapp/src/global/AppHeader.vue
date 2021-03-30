@@ -14,7 +14,7 @@
         </div>
         <div v-else>
           <v-btn text to="/profile">プロフィール</v-btn>
-          <v-btn outline color="gray" @click="logout"
+          <v-btn outlined color="gray" @click="logout"
             >ログアウト</v-btn>
         </div>
       </v-list>
@@ -46,7 +46,7 @@
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn 
-          outline color="gray" 
+          outlined color="gray" 
           @click="logout"
           >ログアウト</v-btn
         >
