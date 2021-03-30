@@ -11,6 +11,7 @@
         @update-book-info="updateBookInfo"
         @delete-local-storage="deleteLocalStorage"
         />
+        {{ $store.state.count}}
       </v-container>
     </v-main>
   <app-footer/>

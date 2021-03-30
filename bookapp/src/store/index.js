@@ -12,6 +12,7 @@ export default new Vuex.Store({
     drawer: false,
     user: null,
     isAuthenticated: false,
+    count: 0
   },
   mutations: {
     setUser(state, payload) {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
+    // {
+
+    // }
   },
   actions: {
     userRegister({ commit }, { email, password }) {
