@@ -25,6 +25,11 @@ const routes = [
     name: 'LogIn',
     component: LogIn
   },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home,
+  // },
   {
     path: '/',
     name: 'BookIndex',
