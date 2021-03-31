@@ -65,7 +65,9 @@ export default {
         // 読んだ日、感想
         readDate: '',
         // メモ
-        memo: ''
+        memo: '',
+        start: '',
+        learn: ''
       })
       // this.saveBooksに保存する
       this.saveBooks();
@@ -89,6 +91,8 @@ export default {
         id: e.id,
         readDate: e.readDate,
         memo: e.memo,
+        start: e.start,
+        learn: e.learn,
         title: this.books[e.id].title,
         image: this.books[e.id].image,
         description: this.books[e.id].description

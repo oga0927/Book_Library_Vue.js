@@ -23,13 +23,11 @@
                 <v-btn 
                   :to="{name: 'BookEdit', params: {id: book.id}}"
                   color="primary" 
-                  
+                  class="mx-1"
                 >
-                <!-- <v-icon>mdi-pencil</v-icon> -->
                 投稿をみる
-                <v-spacer></v-spacer>
                 </v-btn>
-
+                <v-spacer></v-spacer>
                 <!-- いいねボタン -->
                   <v-btn
                     icon

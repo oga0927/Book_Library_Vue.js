@@ -21,11 +21,11 @@
                 min-width="290px"
               >
               <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="date"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
+              <v-text-field
+                v-model="date"
+                readonly
+                v-bind="attrs"
+                v-on="on"
               >
               </v-text-field>
               </template>
@@ -36,9 +36,23 @@
                 :day-format="date => new Date(date).getDate()">
               </v-date-picker>
               </v-menu>
-                感想：<v-textarea
-                class="mx-2" v-model="book.memo">
+                問題意識は何か：<v-textarea
+                class="mx-2" 
+                v-model="book.memo"
+                rows="3">
                 {{book.memo }}
+              </v-textarea>
+                どのように始まりどのように終わったか：<v-textarea
+                class="mx-2" 
+                v-model="book.start"
+                rows="3">
+                {{ book.start }}
+              </v-textarea>
+                自分はこの本から何を学んだか：<v-textarea
+                class="mx-2" 
+                v-model="book.learn"
+                rows="3">
+                {{ book.learn }}
               </v-textarea>
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
@@ -72,7 +86,9 @@ export default {
       this.$emit('update-book-info',{
         id: this.$route.params.id,
         readDate: this.date,
-        memo: this.book.memo
+        memo: this.book.memo,
+        start: this.book.start,
+        learn: this.book.learn
       })
     }
   },
