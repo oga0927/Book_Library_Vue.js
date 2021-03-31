@@ -2,7 +2,12 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <v-btn color="primary" to="/search" block>本を投稿する</v-btn>
+        <v-btn 
+        
+        to="/search" 
+        block
+        color="orange lighten-1"
+        >おすすめの一冊を投稿</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -22,7 +27,7 @@
                 <!-- 書き込み -->
                 <v-btn 
                   :to="{name: 'BookEdit', params: {id: book.id}}"
-                  color="primary" 
+                  color="primary"
                   class="mx-1"
                 >
                 投稿をみる
@@ -67,6 +72,6 @@ export default {
 }
 </script>
 
-<styl scoped>
+<style scoped>
   
 </style>
