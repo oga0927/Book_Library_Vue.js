@@ -15,17 +15,18 @@
             </v-col>
             <v-col cols="8">
               <v-card-title>{{ book.title }}</v-card-title>
-              読んだ日：{{book.readDate}}
-              感想：{{book.memo}}
+              <!-- 読んだ日：{{book.readDate}}
+              感想：{{book.memo}} -->
               <v-spacer></v-spacer>
               <v-card-actions>
                 <!-- 書き込み -->
                 <v-btn 
                   :to="{name: 'BookEdit', params: {id: book.id}}"
-                  color="indigo" 
-                  fab small dark
+                  color="primary" 
+                  
                 >
-                <v-icon>mdi-pencil</v-icon>
+                <!-- <v-icon>mdi-pencil</v-icon> -->
+                投稿をみる
                 <v-spacer></v-spacer>
                 </v-btn>
 
@@ -53,22 +54,21 @@ export default {
   props: {
     books: Array
   },
+  data() {
+    return {
+      count: 0
+    }
+  },
 
   methods: {
-    increment() {
-      // mutationの呼び出し
-      this.$store.commit('increment')
-    },
     addCount() {
       // mutationの呼び出し
-      this.$store.commit('addCount', { 
-        value: 0
-      })
+      this.$store.commit('addCount')
     },
   }
 }
 </script>
 
-<style>
-
+<styl scoped>
+  
 </style>
