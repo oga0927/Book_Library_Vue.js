@@ -10,19 +10,20 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
-    user: null,
+    // user: null,
     isAuthenticated: false,
     count: 0
   },
   mutations: { //第一引数には必ずstateを書く
-    setUser(state, payload) {
-      state.user = payload;
-    },
+    // setUser(state, payload) {
+    //   state.user = payload;
+    // },
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
-    addCount(state) { //引数にstateを必ず書く。stateで値を変える
-      state.count++;
+    addCount(state, payload) { //引数にstateを必ず書く。stateで値を変える
+      console.log(payload);
+      state.likes;
     },
     // addCount( state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count += payload.value
@@ -34,12 +35,13 @@ export default new Vuex.Store({
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
-          commit('setUser', user);
+          console.log(user);
+          // commit('setUser', user);
           commit('setIsAuthenticated', true);
           router.push('/edit/:id');
         })
         .catch(() => {
-          commit('setUser', null);
+          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('既に登録済みです')
           router.push('/register');
@@ -50,12 +52,13 @@ export default new Vuex.Store({
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(user => {
-          commit('setUser', user);
+          console.log(user);
+          // commit('setUser', user);
           commit('setIsAuthenticated', true);
           router.push('/search');
         })
         .catch(() => {
-          commit('setUser', null);
+          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('ログインに失敗しました')
           router.push('/login');
@@ -66,12 +69,12 @@ export default new Vuex.Store({
         .auth()
         .signOut()
         .then(() => {
-          commit('setUser', null);
+          // commit('setUser', null);
           commit('setIsAuthenticated', false);
-          router.push('/');
+          router.push('/login');
         })
         .catch(() => {
-          commit('setUser', null);
+          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('ユーザー登録に失敗しました')
           router.push('/login');
@@ -79,9 +82,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    isAuthenticated(state) {
-      return state.user !== null && state.user !== undefined;
-    },
+    // isAuthenticated(state) {
+    //   return state.user !== null && state.user !== undefined;
+    // },
     getStateUser(state) {
       return state.user;
     },

@@ -3,7 +3,7 @@
     <!-- drawerナビゲーション -->
     <v-navigation-drawer app v-model="drawer" class="brown darken-4" dark>
       <v-list>
-        <div v-if="!isAuthenticated">
+        <div v-if="!$store.state.isAuthenticated">
           <v-btn text to="/login">ログイン</v-btn>
           <v-btn
             text
@@ -36,7 +36,7 @@
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <!-- <v-btn text @click="drawer = !drawer">Menu</v-btn> -->
       </div>
-      <div v-if="!isAuthenticated" class="hidden-sm-and-down">
+      <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
         <v-btn text to="/login">ログイン</v-btn>
         <v-btn
           text
@@ -65,11 +65,6 @@
       appTitle: "ROGO",
       drawer: false
     };
-  },
-  computed: {
-    isAuthenticated() {
-      return this.$store.getters.isAuthenticated;
-    }
   },
   methods: {
     logout() {
