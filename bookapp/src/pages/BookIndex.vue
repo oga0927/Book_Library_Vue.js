@@ -37,10 +37,11 @@
                   <v-btn
                     icon
                     color="pink"
-                    @click="addCount(book.id)"
+                    @click="addCount()"
                   >
                   <v-icon>mdi-heart</v-icon>
-                  {{ $store.state.count }}
+                  <!-- {{ $store.state.count }} -->
+                  {{ counts }}
                 </v-btn>
               </v-card-actions>
             </v-col>
@@ -59,14 +60,14 @@ export default {
   },
   data() {
     return {
-      count: 0
+      counts: 0
     }
   },
 
   methods: {
-    addCount(bookId) {
+    addCount() {
       // mutationの呼び出し
-      this.$store.commit('addCount', bookId)
+      // this.$store.commit('addCount', bookId)
       // this.$store.dispatch('addCount', bookId)
     },
   }

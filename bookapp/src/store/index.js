@@ -22,11 +22,11 @@ export default new Vuex.Store({
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
-    addCount(state, payload) { //引数にstateを必ず書く。stateで値を変える
-      state.bookLikes += payload.count
-    },
-    // addCount( state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
-    //   state.count += payload.value
+    addCount(state) {
+      state.count++;
+    }
+    // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
+    //   state.count = payload.count
     // }
   },
   // 非同期処理の開始
@@ -72,7 +72,7 @@ export default new Vuex.Store({
         .then(() => {
           // commit('setUser', null);
           commit('setIsAuthenticated', false);
-          router.push('/login');
+          router.push('app');
         })
         .catch(() => {
           // commit('setUser', null);
@@ -81,11 +81,7 @@ export default new Vuex.Store({
           router.push('/login');
         });
     },
-    // bookLikes({ commit }, bookId) {
-    //   bookId = this.bookId
-    //   // count = this.count
-    //   commit('addCount', bookId)
-    // }
+
   },
   getters: {
     // isAuthenticated(state) {
