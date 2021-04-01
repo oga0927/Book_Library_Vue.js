@@ -14,6 +14,7 @@ export default new Vuex.Store({
     isAuthenticated: false,
     count: 0
   },
+  // stateを更新する関数が書かれる場所
   mutations: { //第一引数には必ずstateを書く
     // setUser(state, payload) {
     //   state.user = payload;
@@ -22,14 +23,14 @@ export default new Vuex.Store({
       state.isAuthenticated = payload;
     },
     addCount(state, payload) { //引数にstateを必ず書く。stateで値を変える
-      console.log(payload);
-      state.likes;
+      state.bookLikes += payload.count
     },
     // addCount( state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count += payload.value
     // }
   },
-  actions: {
+  // 非同期処理の開始
+  actions: { 
     userRegister({ commit }, { email, password }) {
       firebase
         .auth()
@@ -80,6 +81,11 @@ export default new Vuex.Store({
           router.push('/login');
         });
     },
+    // bookLikes({ commit }, bookId) {
+    //   bookId = this.bookId
+    //   // count = this.count
+    //   commit('addCount', bookId)
+    // }
   },
   getters: {
     // isAuthenticated(state) {

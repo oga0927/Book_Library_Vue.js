@@ -67,6 +67,7 @@ export default {
     addCount(bookId) {
       // mutationの呼び出し
       this.$store.commit('addCount', bookId)
+      // this.$store.dispatch('addCount', bookId)
     },
   }
 }
