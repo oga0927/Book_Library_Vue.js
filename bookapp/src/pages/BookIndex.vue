@@ -70,7 +70,7 @@ export default {
         counts: 0 
         })
         this.booklikes.counts ++  
-        console.log(this.addCount);
+        console.log(this.booklikes.counts);
     },
   },
 }

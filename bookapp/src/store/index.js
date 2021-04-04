@@ -10,7 +10,8 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
-    user: null,
+    user: {},
+    status: false,
     isAuthenticated: false,
     count: 0
   },
@@ -19,6 +20,13 @@ export default new Vuex.Store({
     // setUser(state, payload) {
     //   state.user = payload;
     // },
+    onAuthStateChanged(state, user) {
+      state.user = user; //firebaseが返したユーザー情報
+    },
+    onUserStatusChanged(state, status) {
+      state.status = status; //ログインしてるかどうか true or false
+    },
+
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
     },
@@ -44,7 +52,7 @@ export default new Vuex.Store({
         .catch(() => {
           // commit('setUser', null);
           commit('setIsAuthenticated', false);
-          alert('既に登録済みです')
+          alert('登録済みです')
           router.push('/register');
         });
     },
@@ -56,7 +64,7 @@ export default new Vuex.Store({
           console.log(user);
           // commit('setUser', user);
           commit('setIsAuthenticated', true);
-          router.push('/search');
+          router.push('/');
         })
         .catch(() => {
           // commit('setUser', null);
@@ -90,6 +98,13 @@ export default new Vuex.Store({
     getStateUser(state) {
       return state.user;
     },
+
+    user(state) {
+      return state.user;
+    },
+    isSignedIn(state) {
+      return state.status;
+    }
   },
   plugins: [
     createPersistedState({key: 'example',

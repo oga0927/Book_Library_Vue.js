@@ -34,7 +34,8 @@
           {{ appTitle }}
         </v-toolbar-title>
       </router-link>
-      <span></span>
+      
+      
 
 
       <v-spacer class="hidden-sm-and-down"></v-spacer>
