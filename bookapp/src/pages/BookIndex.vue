@@ -60,26 +60,18 @@ export default {
   },
   data() {
     return {
-      booklikes: {
-        counts: '',
-        bookLikesid: ''
-      }
+      booklikes: [],
     }
   },
   methods: {
     addCount() {
-      this.booklikes = {id: 0, counts: 0}
-      // this.booklikes.counts ++ 
-      
-
-
-      // this.counts++;
-      // mutationの呼び出し
-      // this.$store.commit('addCount', bookId)
-      // this.$store.dispatch('addCount', bookId)
+      this.booklikes.push({ id: 0, counts: 0 })
+      this.booklikes.counts ++ 
+      console.log(this.booklikes);
     },
   },
 }
+  
 
 </script>
 
