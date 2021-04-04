@@ -2,6 +2,20 @@
   <div>
     <v-row>
       <v-col cols="12">
+    <p class="error-message">
+      ※投稿するには
+      <v-btn 
+      small outlined 
+      color="primary" 
+      to="/login">
+      ログイン</v-btn
+      >または
+      <v-btn 
+      small outlined 
+      color="error" 
+      to="/signin">
+      ユーザー登録</v-btn>が必要です
+    </p>
         <v-card class="mx-auto">
           <v-row>
             <v-col cols="4">
@@ -69,7 +83,7 @@
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
                 <v-btn color="info" 
-                @click="updateBookInfo">保存する</v-btn>
+                @click="updateBookInfo">投稿する</v-btn>
               </v-card-actions> 
             </v-col>
           </v-row>
@@ -120,6 +134,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .error-message {
+    text-align: center;
+  }
 </style>

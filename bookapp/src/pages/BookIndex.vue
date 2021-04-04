@@ -65,9 +65,12 @@ export default {
   },
   methods: {
     addCount() {
-      this.booklikes.push({ id: 0, counts: 0 })
-      this.booklikes.counts ++ 
-      console.log(this.booklikes);
+      this.booklikes.push({ 
+        id: 0, 
+        counts: 0 
+        })
+        this.booklikes.counts ++  
+        console.log(this.addCount);
     },
   },
 }
