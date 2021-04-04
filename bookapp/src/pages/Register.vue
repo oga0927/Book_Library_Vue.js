@@ -34,11 +34,16 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn 
-              color="info"
-              @click="submit"
-              :disabled="!valid"
-              data-cy="registerSubmitBtn"
-            >登録</v-btn
+            to="/"
+            color="primary"
+          >トップへ戻る</v-btn
+          >
+          <v-btn 
+            color="error"
+            @click="submit"
+            :disabled="!valid"
+            data-cy="registerSubmitBtn"
+          >登録</v-btn
           >
         </v-card-actions>
       </v-card>
