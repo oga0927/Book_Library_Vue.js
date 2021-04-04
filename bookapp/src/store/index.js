@@ -10,7 +10,7 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
-    // user: null,
+    user: null,
     isAuthenticated: false,
     count: 0
   },

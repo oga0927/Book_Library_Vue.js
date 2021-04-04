@@ -1,7 +1,11 @@
 <template>
   <span>
     <!-- drawerナビゲーション -->
-    <v-navigation-drawer app v-model="drawer" class="brown darken-4" dark>
+    <v-navigation-drawer 
+      app 
+      v-model="drawer" 
+      class="brown darken-4" 
+      dark>
       <v-list>
         <div v-if="!$store.state.isAuthenticated">
           <v-btn text to="/login">ログイン</v-btn>
@@ -30,6 +34,9 @@
           {{ appTitle }}
         </v-toolbar-title>
       </router-link>
+      <span></span>
+
+
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div class="hidden-md-and-up">
         <!-- ハンバーガーメニュー -->

@@ -34,12 +34,21 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn 
-              color="info"
-              @click="submit"
-              :disabled="!valid"
-              data-cy="loginSubmitBtn"
-            >ログイン</v-btn
-          >
+            to="/"
+            color="primary"
+            >
+            トップへ戻る
+            </v-btn
+            >
+          <v-btn 
+            color="info"
+            @click="submit"
+            :disabled="!valid"
+            data-cy="loginSubmitBtn"
+            >
+            ログイン
+            </v-btn
+            >
         </v-card-actions>
       </v-card>
     </v-main>
