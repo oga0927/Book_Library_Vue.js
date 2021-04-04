@@ -6,6 +6,7 @@ import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
 import LogIn from '@/pages/LogIn'
 import Register from '@/pages/Register'
+import Profile from '@/pages/Profile'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   }
 ];
 

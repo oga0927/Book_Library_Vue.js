@@ -19,6 +19,7 @@
         <div v-else>
           <v-btn text to="/" dark>ホーム</v-btn>
           <v-btn text to="/search" dark>投稿する</v-btn>
+          <v-btn text to="/profile" dark>プロフィール</v-btn>
           <v-btn text @click="logout"
           >ログアウト</v-btn>
         </div>
@@ -34,6 +35,7 @@
           {{ appTitle }}
         </v-toolbar-title>
       </router-link>
+      
       
       
 
@@ -54,11 +56,11 @@
         >
       </div>
       <div v-else class="hidden-sm-and-down">
-        <v-btn 
-          outlined color="gray" 
-          @click="logout"
-          >ログアウト</v-btn
-        >
+        <v-btn text to="/" dark>ホーム</v-btn>
+          <v-btn text to="/search" dark>投稿する</v-btn>
+          <v-btn text to="/profile" dark>プロフィール</v-btn>
+          <v-btn text @click="logout"
+          >ログアウト</v-btn>
       </div>
     </v-app-bar>
     <v-img src="../assets/書籍MV.png"></v-img>
