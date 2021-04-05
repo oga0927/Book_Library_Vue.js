@@ -10,7 +10,7 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
-    user: {},
+    userName: '',
     status: false,
     isAuthenticated: false,
     count: 0
@@ -32,6 +32,9 @@ export default new Vuex.Store({
     },
     addCount(state) {
       state.count++;
+    },
+    setUserName(state, payload) {
+      state.userName = payload;
     }
     // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count = payload.count
@@ -89,22 +92,39 @@ export default new Vuex.Store({
           router.push('/login');
         });
     },
+    userDelete({ commit }) {
+      firebase
+        .auth()
+        .currentUser.delete()
+        .then(() => {
+          // commit("setUser", null);
+          commit("setIsAuthenticated", false);
+          router.push("/");
+        })
+        .catch(() => {
+          // commit("setUser", null);
+          commit("setIsAuthenticated", false);
+          router.push("/");
+        });
+    },
 
   },
   getters: {
     // isAuthenticated(state) {
     //   return state.user !== null && state.user !== undefined;
     // },
-    getStateUser(state) {
-      return state.user;
-    },
-
     user(state) {
       return state.user;
     },
     isSignedIn(state) {
       return state.status;
-    }
+    },
+    getStateUser(state) {
+      return state.user;
+    },
+    getUserName(state) {
+      return state.userName;
+    },
   },
   plugins: [
     createPersistedState({key: 'example',
