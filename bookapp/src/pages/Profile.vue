@@ -12,9 +12,7 @@
           @click="deleteUser">
           アカウントを削除
           </v-btn>
-
       </v-col>
-
     </v-row>
   </div>
 </template>

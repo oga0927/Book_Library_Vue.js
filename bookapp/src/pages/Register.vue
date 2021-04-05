@@ -7,6 +7,15 @@
         </v-toolbar>
         <v-card-text>
           <v-text-field
+            name="username"
+            label="userName"
+            type="text"
+            v-model="username"
+            prepend-icon="mdi-account"
+            required
+            data-cy="userNameField"
+          />
+          <v-text-field
             name="email"
             label="Email"
             type="email"
@@ -15,8 +24,7 @@
             prepend-icon="mdi-email"
             required
             data-cy="registerEmailField"
-            />
-
+          />
           <v-text-field
             name="password"
             label="Password" 
@@ -27,7 +35,8 @@
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="showPassword = !showPassword"
             data-cy="registerPasswordField"
-            required/>
+            required
+          />
         </v-card-text>
 
         <v-divider></v-divider>

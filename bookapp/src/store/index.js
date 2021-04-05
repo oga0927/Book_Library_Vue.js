@@ -47,7 +47,7 @@ export default new Vuex.Store({
           console.log(user);
           // commit('setUser', user);
           commit('setIsAuthenticated', true);
-          router.push('/edit/:id');
+          router.push('/');
         })
         .catch(() => {
           // commit('setUser', null);
