@@ -72,7 +72,7 @@ export default new Vuex.Store({
         .catch(() => {
           // commit('setUser', null);
           commit('setIsAuthenticated', false);
-          alert('ログインに失敗しました')
+
           router.push('/login');
         });
     },
@@ -99,6 +99,7 @@ export default new Vuex.Store({
         .then(() => {
           // commit("setUser", null);
           commit("setIsAuthenticated", false);
+          // alert('アカウントを削除しました')
           router.push("/");
         })
         .catch(() => {

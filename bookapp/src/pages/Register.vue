@@ -69,6 +69,7 @@ export default {
     return {
       valid: false,
       showPassword: false,
+      username: '',
       email: '',
       password: '',
       emailRules: [
