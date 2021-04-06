@@ -10,6 +10,7 @@ export default new Vuex.Store({
   strict: true,
   state: {
     drawer: false,
+    user: null,
     userName: '',
     status: false,
     isAuthenticated: false,
@@ -47,7 +48,6 @@ export default new Vuex.Store({
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(result => {
-          // console.log(user);
           result.user.updateProfile({
             displayName: userName
           })
