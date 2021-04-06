@@ -42,13 +42,15 @@ export default new Vuex.Store({
   },
   // 非同期処理の開始
   actions: { 
-    userRegister({ commit }, { email, password }) {
+    userRegister({ commit }, { email, password,userName }) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(user => {
-          console.log(user);
-          // commit('setUser', user);
+        .then(result => {
+          // console.log(user);
+          result.user.updateProfile({
+            displayName: userName
+          })
           commit('setIsAuthenticated', true);
           router.push('/');
         })
@@ -58,6 +60,14 @@ export default new Vuex.Store({
           alert('登録済みです')
           router.push('/register');
         });
+        firebase
+          .database()
+          .ref('users')
+          .push({
+            displayName: userName,
+            email: email,
+            password: password
+          });
     },
     userLogin({ commit }, { email, password }) {
       firebase
@@ -72,7 +82,6 @@ export default new Vuex.Store({
         .catch(() => {
           // commit('setUser', null);
           commit('setIsAuthenticated', false);
-
           router.push('/login');
         });
     },
@@ -103,7 +112,7 @@ export default new Vuex.Store({
           router.push("/");
         })
         .catch(() => {
-          // commit("setUser", null);
+          commit("setUser", null);
           commit("setIsAuthenticated", false);
           alert('アカウントを削除に失敗しました')
           router.push("/");
