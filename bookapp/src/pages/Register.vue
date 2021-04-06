@@ -8,9 +8,9 @@
         <v-card-text>
           <v-text-field
             name="username"
-            label="userName"
+            label="username"
             type="text"
-            v-model="username"
+            v-model="userName"
             prepend-icon="mdi-account"
             required
             data-cy="userNameField"
@@ -42,11 +42,16 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn 
+          <!-- <v-btn 
             to="/"
             color="primary"
           >トップへ戻る</v-btn
-          >
+          > -->
+          
+          <p >既にアカウントをお持ちですか？
+            <router-link to="/login">ログインはこちらから</router-link>
+          </p>
+          
           <v-btn 
             color="error"
             @click="submit"
@@ -54,6 +59,8 @@
             data-cy="registerSubmitBtn"
           >登録</v-btn
           >
+
+            
         </v-card-actions>
       </v-card>
     </v-main>
@@ -69,7 +76,7 @@ export default {
     return {
       valid: false,
       showPassword: false,
-      username: '',
+      userName: '',
       email: '',
       password: '',
       emailRules: [
@@ -86,6 +93,7 @@ export default {
     submit() {
       if (this.$refs.form.validate()) {
       this.$store.dispatch("userRegister", {
+        userName: this.userName,
         email: this.email,
         password: this.password
         });
