@@ -2,10 +2,10 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <!-- <span v-if="getStateUser.user.displayName">
+        <!-- <p v-if="getStateUser.user.displayName">
           {{ getStateUser.user.displayName }}
-          </span>
-          <span v-else>ログインユーザー</span> -->
+          </p>
+          <p v-else>ログインユーザー</p> -->
           <v-btn
           color="error"
           class="delete-btn"

@@ -113,7 +113,7 @@ export default new Vuex.Store({
           router.push("/");
         })
         .catch(() => {
-          commit("setUser", null);
+          // commit("setUser", null);
           commit("setIsAuthenticated", false);
           alert('アカウントを削除に失敗しました')
           router.push("/");
