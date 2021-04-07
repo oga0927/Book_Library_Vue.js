@@ -2,14 +2,14 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <!-- <p v-if="getStateUser.user.displayName">
-          {{ getStateUser.user.displayName }}
+        <p v-if="getStateUserName">こんにちは！
+          {{ getStateUserName }}さん
           </p>
-          <p v-else>ログインユーザー</p> -->
+          <p v-else>ログインユーザー</p>
           <v-btn
-          color="error"
-          class="delete-btn"
-          @click="deleteUser"
+            color="error"
+            class="delete-btn"
+            @click="deleteUser"
           >
           アカウントを削除
           </v-btn

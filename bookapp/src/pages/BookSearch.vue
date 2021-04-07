@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols=6>
         <v-text-field 
-          label="本のタイトル"
+          label="本を検索する"
           v-model="keyword">
         </v-text-field>
       </v-col>

@@ -36,6 +36,7 @@ export default new Vuex.Store({
     },
     setUserName(state, payload) {
       state.userName = payload;
+      console.log(state.userName);
     }
     // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count = payload.count
@@ -43,7 +44,7 @@ export default new Vuex.Store({
   },
   // 非同期処理の開始
   actions: { 
-    userRegister({ commit }, { email, password,userName }) {
+    userRegister({ commit }, { email, password, userName }) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
@@ -52,6 +53,7 @@ export default new Vuex.Store({
           result.user.updateProfile({
             displayName: userName
           })
+          commit('setUserName', userName)
           commit('setIsAuthenticated', true);
           router.push('/');
         })
@@ -61,21 +63,22 @@ export default new Vuex.Store({
           alert('登録済みです')
           router.push('/register');
         });
-        firebase
-          .database()
-          .ref('users')
-          .push({
-            displayName: userName,
-            email: email,
-            password: password
-          });
+        // firebase
+        //   .database()
+        //   .ref('users')
+        //   .push({
+        //     displayName: userName,
+        //     email: email,
+        //     password: password
+        //   });
     },
     userLogin({ commit }, { email, password }) {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then(user => {
-          console.log(user);
+        .then(result => {
+
+          commit('setUserName', result.user.displayName)
           // commit('setUser', user);
           commit('setIsAuthenticated', true);
           router.push('/');
@@ -125,9 +128,9 @@ export default new Vuex.Store({
     // isAuthenticated(state) {
     //   return state.user !== null && state.user !== undefined;
     // },
-    user(state) {
-      return state.user;
-    },
+    // user(state) {
+    //   return state.user;
+    // },
     isSignedIn(state) {
       return state.status;
     },

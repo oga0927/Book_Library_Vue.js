@@ -20,8 +20,7 @@
           <v-btn text to="/" dark>ホーム</v-btn>
           <v-btn text to="/search" dark>投稿する</v-btn>
           <v-btn text to="/profile" dark>プロフィール</v-btn>
-          <v-btn text @click="logout"
-          >ログアウト</v-btn>
+          <v-btn text @click="logout">ログアウト</v-btn>
         </div>
       </v-list>
     </v-navigation-drawer>
@@ -35,11 +34,7 @@
           {{ appTitle }}
         </v-toolbar-title>
       </router-link>
-      
-      
-      
-
-
+    
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div class="hidden-md-and-up">
         <!-- ハンバーガーメニュー -->
@@ -52,8 +47,9 @@
           text
           to="/register"
           class="register"
-          >ユーザー登録</v-btn
         >
+        ユーザー登録
+        </v-btn>
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn text to="/" dark>ホーム</v-btn>
