@@ -2,6 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
+        
         <v-btn 
         
         to="/search" 

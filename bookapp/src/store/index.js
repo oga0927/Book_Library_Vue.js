@@ -9,8 +9,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
-    drawer: false,
     user: null,
+    drawer: false,
     userName: '',
     status: false,
     isAuthenticated: false,
@@ -18,9 +18,9 @@ export default new Vuex.Store({
   },
   // stateを更新する関数が書かれる場所
   mutations: { //第一引数には必ずstateを書く
-    // setUser(state, payload) {
-    //   state.user = payload;
-    // },
+    setUser(state, payload) {
+      state.user = payload;
+    },
     onAuthStateChanged(state, user) {
       state.user = user; //firebaseが返したユーザー情報
     },
@@ -48,6 +48,7 @@ export default new Vuex.Store({
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(result => {
+          // console.log(user);
           result.user.updateProfile({
             displayName: userName
           })

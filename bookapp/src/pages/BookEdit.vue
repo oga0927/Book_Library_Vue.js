@@ -5,16 +5,19 @@
     <p class="error-message">
       ※投稿するには
       <v-btn 
-      small outlined 
-      color="primary" 
-      to="/login">
-      ログイン</v-btn
+        small outlined 
+        color="primary" 
+        to="/login">
+      ログイン
+      </v-btn
       >または
       <v-btn 
-      small outlined 
-      color="error" 
-      to="/signin">
-      ユーザー登録</v-btn>が必要です
+        small outlined 
+        color="error" 
+        to="/signin">
+      ユーザー登録</v-btn
+      >
+      が必要です
     </p>
         <v-card class="mx-auto">
           <v-row>
