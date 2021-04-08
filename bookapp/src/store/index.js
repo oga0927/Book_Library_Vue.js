@@ -86,6 +86,7 @@ export default new Vuex.Store({
         .catch(() => {
           // commit('setUser', null);
           commit('setIsAuthenticated', false);
+          alert('ログインに失敗しました');
           router.push('/login');
         });
     },
