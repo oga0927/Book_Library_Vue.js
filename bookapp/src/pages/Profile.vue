@@ -21,6 +21,8 @@
           アカウントを削除
           </v-btn
           >
+
+          <!-- useridとbookidの紐付け -->
       </v-col>
     </v-row>
   </div>

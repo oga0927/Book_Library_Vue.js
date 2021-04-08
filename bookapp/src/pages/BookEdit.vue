@@ -47,41 +47,41 @@
               </v-text-field>
               </template>
               <v-date-picker 
-                v-model="date" 
-                @input="menu = false"
-                locale="jp-ja"
-                :day-format="date => new Date(date).getDate()">
+                  v-model="date" 
+                  @input="menu = false"
+                  locale="jp-ja"
+                  :day-format="date => new Date(date).getDate()">
               </v-date-picker>
               </v-menu>
                 この本にはどんな情報が書かれているか：<v-textarea
-                class="mx-2" 
-                v-model="book.memo"
-                rows="3">
-                {{ book.memo }}
+                  class="mx-2" 
+                  v-model="book.memo"
+                  rows="3">
+                  {{ book.memo }}
               </v-textarea>
                 自分はこの本から何を学んだか：<v-textarea
-                class="mx-2" 
-                v-model="book.learn"
-                rows="3">
-                {{ book.learn }}
+                  class="mx-2" 
+                  v-model="book.learn"
+                  rows="3">
+                  {{ book.learn }}
               </v-textarea>
                 この本がなぜ重要なのか：<v-textarea
-                class="mx-2" 
-                v-model="book.important"
-                rows="3">
-                {{ book.important }}
+                  class="mx-2" 
+                  v-model="book.important"
+                  rows="3">
+                  {{ book.important }}
               </v-textarea>
                 テーマに対しどのような事例を出しているか：<v-textarea
-                class="mx-2" 
-                v-model="book.examples"
-                rows="3">
-                {{ book.examples }}
+                  class="mx-2" 
+                  v-model="book.examples"
+                  rows="3">
+                  {{ book.examples }}
               </v-textarea>
                 この本が他の本と似ている所、違う要素は何か：<v-textarea
-                class="mx-2" 
-                v-model="book.different"
-                rows="3">
-                {{ book.different }}
+                  class="mx-2" 
+                  v-model="book.different"
+                  rows="3">
+                  {{ book.different }}
               </v-textarea>
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
