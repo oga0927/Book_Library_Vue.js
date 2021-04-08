@@ -57,7 +57,7 @@
                 class="mx-2" 
                 v-model="book.memo"
                 rows="3">
-                {{book.memo }}
+                {{ book.memo }}
               </v-textarea>
                 自分はこの本から何を学んだか：<v-textarea
                 class="mx-2" 

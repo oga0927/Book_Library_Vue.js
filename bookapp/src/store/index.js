@@ -49,7 +49,6 @@ export default new Vuex.Store({
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(result => {
-          // console.log(user);
           result.user.updateProfile({
             displayName: userName
           })

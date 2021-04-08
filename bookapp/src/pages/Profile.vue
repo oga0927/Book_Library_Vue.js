@@ -7,6 +7,13 @@
           </p>
           <p v-else>ログインユーザー</p>
           <v-btn
+            color="primary"
+            to="/search"
+          >
+          本を投稿する
+          </v-btn
+          >
+          <v-btn
             color="error"
             class="delete-btn"
             @click="deleteUser"
