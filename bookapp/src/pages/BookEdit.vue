@@ -2,23 +2,25 @@
   <div>
     <v-row>
       <v-col cols="12">
-    <p class="error-message">
-      ※投稿するには
-      <v-btn 
-        small outlined 
-        color="primary" 
-        to="/login">
-      ログイン
-      </v-btn
-      >または
-      <v-btn 
-        small outlined 
-        color="error" 
-        to="/signin">
-      ユーザー登録</v-btn
-      >
-      が必要です
-    </p>
+        <span v-if="!isAuthenticatied">
+          <p class="error-message">
+            ※投稿するには
+            <v-btn 
+              small outlined 
+              color="primary" 
+              to="/login">
+            ログイン
+            </v-btn
+            >または
+            <v-btn 
+              small outlined 
+              color="error" 
+              to="/register">
+            ユーザー登録</v-btn
+            >
+            が必要です
+          </p>
+        </span>
         <v-card class="mx-auto">
           <v-row>
             <v-col cols="4">

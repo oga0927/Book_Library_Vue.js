@@ -5,7 +5,7 @@
         <p v-if="getStateUserName">こんにちは！
           {{ getStateUserName }}さん
           </p>
-          <p v-else>ログインユーザー</p>
+          <p v-else>こんにちは！ゲストユーザーさん</p>
           <v-btn
             color="primary"
             to="/search"
@@ -21,8 +21,10 @@
           アカウントを削除
           </v-btn
           >
-
+          <v-col cols=""></v-col>
           <!-- useridとbookidの紐付け -->
+          <!-- v-forで画像の表示 -->
+          
       </v-col>
     </v-row>
   </div>
