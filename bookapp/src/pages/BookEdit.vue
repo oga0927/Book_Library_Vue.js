@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <span v-if="!isAuthenticatied">
+        <!-- <span v-if="!isAuthenticatied"> -->
           <p class="error-message">
             ※投稿するには
             <v-btn 
@@ -20,7 +20,7 @@
             >
             が必要です
           </p>
-        </span>
+        <!-- </span> -->
         <v-card class="mx-auto">
           <v-row>
             <v-col cols="4">
@@ -89,6 +89,7 @@
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
                 <v-btn color="info" 
                 @click="updateBookInfo">投稿する</v-btn>
+                
               </v-card-actions> 
             </v-col>
           </v-row>
@@ -121,7 +122,8 @@ export default {
         start: this.book.start,
         learn: this.book.learn
       })
-    }
+    },
+    
   },
   beforeRouteEnter (to, from, next) {
   next(vm => {

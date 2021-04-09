@@ -10,14 +10,14 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" sm="6" v-for="book in books" :key="book.id">
+      <v-col cols="12" sm="6" v-for="(book, index) in books" :key="book.id">
         <v-card  class="mb-8">
           <v-row>
-            <v-col cols="4">
+            <v-col cols="3">
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="8">
+            <v-col cols="9">
               <v-card-title >{{ book.title }}</v-card-title>
               <!-- 読んだ日：{{book.readDate}}
               感想：{{book.memo}} -->
@@ -32,6 +32,11 @@
                 投稿をみる
                 </v-btn>
                 <v-spacer></v-spacer>
+                <v-btn 
+                  color="error"
+                  @click="deliteLocalStorage(index)"
+                >削除する
+                </v-btn>
                 <!-- いいねボタン -->
                   <v-btn
                     icon
@@ -70,6 +75,9 @@ export default {
         this.booklikes.counts ++  
         console.log(this.booklikes.counts);
     },
+    deliteLocalStorage() {
+      this.$emit('delete-local-storage')
+    }
   },
 }
   

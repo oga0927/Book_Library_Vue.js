@@ -113,14 +113,14 @@ export default {
       // ページの切り替え
       this.$router.push(`/edit/${id}`)
     },
-    deleteLocalStorage() {
+    deleteLocalStorage(index) {
       // メッセージ:削除しますか？を追加
-        const isDeleted = 'deleteLocalStorageのデータを削除してもいいですか？'
+        const isDeleted = 'データを削除してもいいですか？'
         if(window.confirm(isDeleted)) {
           // 2つ目の引数を空にすれば空のデータで上書きされる
           localStorage.setItem(STORAGE_KEY, '');
           // 完全に消える
-          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(index);
           this.books = []
           // spliceなら this.books.splice(0, this.books.length)
           window.location.reload()
