@@ -73,8 +73,6 @@ export default {
       })
       // this.saveBooksに保存する
       this.saveBooks();
-      // 最後に追加したid取得コード
-      // console.log(this.books.splice(-1)[0].id);
 
       // 最新のidが入った状態
       this.goToEditPage(this.books.slice(-1)[0].id)

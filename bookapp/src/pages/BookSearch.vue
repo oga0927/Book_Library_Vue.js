@@ -90,7 +90,7 @@ export default {
     // fetchでJSON取得
     const response = await fetch(baseUrl + queryParams)
     .then( response => response.json())
-    console.log(response.items)
+    // console.log(response.items)
     // 必要な情報を配列にpush
     for(let book of response.items ){
       let title = book.volumeInfo.title

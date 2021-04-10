@@ -123,7 +123,6 @@ export default {
         learn: this.book.learn
       })
     },
-    
   },
   beforeRouteEnter (to, from, next) {
   next(vm => {
