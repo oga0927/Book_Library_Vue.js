@@ -12,6 +12,7 @@ export default new Vuex.Store({
     user: null,
     drawer: false,
     userName: '',
+    userId: '',
     status: false,
     isAuthenticated: false,
     count: 0
@@ -37,6 +38,10 @@ export default new Vuex.Store({
     setUserName(state, payload) {
       state.userName = payload;
       console.log(state.userName);
+    },
+    setUserId(state, payload) {
+      state.userId = payload;
+      console.log(state.userId);
     }
     // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count = payload.count
@@ -53,6 +58,7 @@ export default new Vuex.Store({
             displayName: userName
           })
           commit('setUserName', userName)
+          commit('setUserId', result.user.uid)
           commit('setIsAuthenticated', true);
           router.push('/');
         })
@@ -76,8 +82,8 @@ export default new Vuex.Store({
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(result => {
-
           commit('setUserName', result.user.displayName)
+          commit('setUserId', result.user.uid)
           // commit('setUser', user);
           commit('setIsAuthenticated', true);
           router.push('/');
