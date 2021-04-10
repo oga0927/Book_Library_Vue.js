@@ -113,19 +113,21 @@ export default {
       // ページの切り替え
       this.$router.push(`/edit/${id}`)
     },
-    deleteLocalStorage(index) {
+    deleteLocalStorage(books) {
       // メッセージ:削除しますか？を追加
         const isDeleted = 'データを削除してもいいですか？'
         if(window.confirm(isDeleted)) {
           // 2つ目の引数を空にすれば空のデータで上書きされる
-          localStorage.setItem(STORAGE_KEY, '');
+          // localStorage.setItem(STORAGE_KEY, index);
           // 完全に消える
-          localStorage.removeItem(index);
-          this.books = []
-          // spliceなら this.books.splice(0, this.books.length)
+          // localStorage.removeItem(books);
+          // this.books = []
+          this.books.splice(books, 1)
+          this.saveBooks();
           window.location.reload()
       }
     }
   }
 };
+  
 </script>
