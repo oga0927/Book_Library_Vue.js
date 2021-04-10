@@ -34,7 +34,7 @@
                 <v-spacer></v-spacer>
                 <v-btn 
                   color="error"
-                  @click="deliteLocalStorage()"
+                  @click="deliteLocalStorage(index)"
                 >削除する
                 </v-btn>
                 <!-- いいねボタン -->
