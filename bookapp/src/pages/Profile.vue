@@ -22,6 +22,7 @@
           </v-btn
           >
           <v-col cols=""></v-col>
+          <!-- ログイン処理 -->
           <!-- useridとbookidの紐付け -->
           <!-- v-forで画像の表示 -->
           

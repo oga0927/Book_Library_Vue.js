@@ -10,7 +10,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" sm="6" v-for="(book, index) in books" :key="book.id">
+      <v-col cols="12" sm="6" v-for="(book, index) in books" :key="index">
         <v-card  class="mb-8">
           <v-row>
             <v-col cols="3">
@@ -25,7 +25,7 @@
               <v-card-actions>
                 <!-- 書き込み -->
                 <v-btn 
-                  :to="{name: 'BookEdit', params: {id: book.id}}"
+                  :to="{name: 'BookEdit', params: {id: index}}"
                   color="primary"
                   class="mx-1"
                 >
@@ -34,7 +34,7 @@
                 <v-spacer></v-spacer>
                 <v-btn 
                   color="error"
-                  @click="deliteLocalStorage(index)"
+                  @click="deliteLocalStorage()"
                 >削除する
                 </v-btn>
                 <!-- いいねボタン -->

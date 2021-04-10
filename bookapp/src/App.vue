@@ -121,9 +121,9 @@ export default {
           // localStorage.setItem(STORAGE_KEY, index);
           // 完全に消える
           // localStorage.removeItem(books);
-          // this.books = []
           this.books.splice(books, 1)
           this.saveBooks();
+          this.books = []
           window.location.reload()
       }
     }
