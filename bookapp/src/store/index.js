@@ -13,6 +13,7 @@ export default new Vuex.Store({
     drawer: false,
     userName: '',
     userId: '',
+    updateBookInfo: '',
     status: false,
     isAuthenticated: false,
     count: 0
@@ -42,6 +43,9 @@ export default new Vuex.Store({
     setUserId(state, payload) {
       state.userId = payload;
       console.log(state.userId);
+    },
+    setUpdateBookInfo(state, payload) {
+      state.updateBookInfo = payload;
     }
     // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
     //   state.count = payload.count
@@ -128,6 +132,10 @@ export default new Vuex.Store({
           router.push("/");
         });
     },
+    
+    // addUpdateBookInfo({ commit }) {
+
+    // }
 
   },
   getters: {
