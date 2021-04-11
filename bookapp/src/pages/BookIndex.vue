@@ -57,6 +57,7 @@
 </template>
 
 <script>
+const STORAGE_KEY = 'books'
 
 export default {
   props: {
@@ -75,10 +76,27 @@ export default {
         this.booklikes.counts ++  
         console.log(this.booklikes.counts);
     },
-    deliteLocalStorage() {
-      this.$emit('delete-local-storage')
+    saveBooks() {
+      const parsed = JSON.stringify(this.books);
+      localStorage.setItem(STORAGE_KEY, parsed);
+    },
+    deliteLocalStorage(index) {
+      // this.$emit('delete-local-storage')
+      // deleteLocalStorage(books) {
+      // メッセージ:削除しますか？を追加
+        const isDeleted = 'データを削除してもいいですか？'
+        if(window.confirm(isDeleted)) {
+          // 2つ目の引数を空にすれば空のデータで上書きされる
+          // localStorage.setItem(STORAGE_KEY, index);
+          // 完全に消える
+          // localStorage.removeItem(books);
+          this.books.splice(index, 1)
+          this.saveBooks();
+          this.books = []
+          window.location.reload()
+      }
     }
-  },
+  }
 }
   
 

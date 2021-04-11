@@ -21,7 +21,7 @@
 <script>
 import AppHeader from '@/global/AppHeader'
 import AppFooter from '@/global/AppFooter'
-// import Home from '@/pages/Home.vue'
+
 const STORAGE_KEY = 'books'
 
 export default {
