@@ -100,6 +100,10 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex'
+
+const STORAGE_KEY = 'books'
+
 export default {
   name:'BookEdit',
   props:{
@@ -113,17 +117,57 @@ export default {
     }
   },
   methods:{
+
     updateBookInfo(){
       // 本の情報を更新する
-      this.$emit('update-book-info',{
-        id: this.$route.params.id,
+      this.$store.state.userId
+      console.log(this.$store.state.userId);
+      this.$store.dispatch('addUpdateBookInfo',{
+        id: this.id,
         readDate: this.date,
         memo: this.book.memo,
-        start: this.book.start,
-        learn: this.book.learn
+        learn: this.book.learn,
+        important: this.important,
+        examples: this.examples,
+        different: this.different,
+        title: this.books.title,
+        image: this.books.image,
+        description: this.books.description
       })
+      // e.idの1つ目が置き換わる
+      // this.books.splice(this.id, 1)
+      // saveBooksにアクセスして保存
+      this.saveBooks()
+      // 保存した後にトップページに戻る
+      this.$router.push('/')
     },
+    saveBooks() {
+      const parsed = JSON.stringify(this.books);
+      localStorage.setItem(STORAGE_KEY, parsed);
+    },
+    
   },
+  // updateBookInfo(e) {
+  //     // book:[]の中身を置き換える処理
+  //     const updateInfo = {
+  //       id: e.id,
+  //       readDate: e.readDate,
+  //       memo: e.memo,
+  //       learn: e.learn,
+  //       important: e.important,
+  //       examples: e.examples,
+  //       different: e.different,
+  //       title: this.books[e.id].title,
+  //       image: this.books[e.id].image,
+  //       description: this.books[e.id].description
+  //     }
+  //     // e.idの1つ目が置き換わる
+  //     this.books.splice(e.id, 1, updateInfo)
+  //     // saveBooksにアクセスして保存
+  //     this.saveBooks()
+  //     // 保存した後にトップページに戻る
+  //     this.$router.push('/')
+  //   },
   beforeRouteEnter (to, from, next) {
   next(vm => {
     // `vm` を通じてコンポーネントインスタンスにアクセス

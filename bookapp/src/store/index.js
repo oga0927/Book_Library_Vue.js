@@ -72,14 +72,6 @@ export default new Vuex.Store({
           alert('登録済みです')
           router.push('/register');
         });
-        // firebase
-        //   .database()
-        //   .ref('users')
-        //   .push({
-        //     displayName: userName,
-        //     email: email,
-        //     password: password
-        //   });
     },
     userLogin({ commit }, { email, password }) {
       firebase
@@ -134,8 +126,22 @@ export default new Vuex.Store({
     },
     
     // addUpdateBookInfo({ commit }) {
-
-    // }
+    //   firebase
+    //     .auth()
+    //     .currentUser()
+    //     .then(result => {
+    //       commit('setUserId', result.user.uid)
+    //       commit('setIsAuthenticated', true);
+    //       commit('setUpdateBookInfo', '')
+    //       router.push('/');
+    //     })
+    //     .catch(() => {
+    //       // commit('setUser', null);
+    //       commit('setIsAuthenticated', false);
+    //       alert('ログインまたはアカウント作成してください');
+    //       router.push('/login');
+    //     });
+    // },
 
   },
   getters: {
