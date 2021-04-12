@@ -75,7 +75,11 @@ export default {
   methods:{
     addBookList(index) {
       // クリックした箇所を指定
-      this.$emit('add-book-list',this.searchResults[index])
+      this.$emit('add-book-list',this.searchResults[index]) 
+      const newbooks = this.addBookList.filter(function(book) {
+        return book !== 'userId'
+      }) 
+      console.log(newbooks);
     },
     async search(keyword){
       this.searchResults = []
@@ -90,7 +94,6 @@ export default {
     // fetchでJSON取得
     const response = await fetch(baseUrl + queryParams)
     .then( response => response.json())
-    // console.log(response.items)
     // 必要な情報を配列にpush
     for(let book of response.items ){
       let title = book.volumeInfo.title

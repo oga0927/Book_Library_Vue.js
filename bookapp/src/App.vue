@@ -7,7 +7,7 @@
       <v-container>
         <router-view
         :books="books"
-        @add-book-list="addBook"
+        @add-book-list="addBooks"
         />
         <!-- @update-book-info="updateBookInfo" -->
         <!-- @delete-local-storage="deleteLocalStorage" -->
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     // (e)で子コンポーネントからデータを受け取る
-    addBook(e) {
+    addBooks(e) {
       
       // 追加があればpushして
       this.books.push({
@@ -77,6 +77,22 @@ export default {
 
       // 最新のidが入った状態
       this.goToEditPage(this.books.slice(-1)[0].id)
+
+
+      // ユーザー認証する
+
+      // 投稿者とbooksを紐付け
+
+      // 紐付けされたユーザーのみ修正可能
+
+      // ヒントはfilterを使用する
+
+
+      // this.addBooks.filter(function(addBook) {
+      //   return addBook.userId
+      // })
+
+      
     },
     removeBook(x) {
       this.books.splice(x, 1);
