@@ -69,7 +69,8 @@ export default {
         learn: '',
         important: '',
         examples: '',
-        different: ''
+        different: '',
+        userId: this.$store.state.userId,
       })
       // this.saveBooksに保存する
       this.saveBooks();

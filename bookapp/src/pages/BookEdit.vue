@@ -88,7 +88,10 @@
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
                 <v-btn color="info" 
-                @click="updateBookInfo">投稿する</v-btn>
+                @click="updateBookInfo">
+                投稿する
+                {{ books.userId}}
+                </v-btn>
                 
               </v-card-actions> 
             </v-col>
@@ -102,6 +105,7 @@
 <script>
 
 const STORAGE_KEY = 'books'
+
 
 export default {
   name:'BookEdit',
@@ -130,10 +134,10 @@ export default {
     // },
     updateBookInfo(){
       // 本の情報を更新する
-      this.$store.state.userId
-      console.log(this.$store.state.userId);
+      // this.$store.state.userId
       this.$store.dispatch('addUpdateBookInfo',{
         id: this.id,
+        userId: this.$store.state.userId,
         readDate: this.date,
         memo: this.book.memo,
         learn: this.book.learn,
@@ -144,6 +148,7 @@ export default {
         image: this.books.image,
         description: this.books.description
       })
+      console.log(this.id);
       // e.idの1つ目が置き換わる
       // this.books.splice(this.id, 1)
       // saveBooksにアクセスして保存
