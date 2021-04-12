@@ -8,9 +8,9 @@
         <router-view
         :books="books"
         @add-book-list="addBook"
-        @delete-local-storage="deleteLocalStorage"
         />
         <!-- @update-book-info="updateBookInfo" -->
+        <!-- @delete-local-storage="deleteLocalStorage" -->
       </v-container>
     </v-main>
   <app-footer/>
@@ -111,20 +111,7 @@ export default {
       // ページの切り替え
       this.$router.push(`/edit/${id}`)
     },
-    deleteLocalStorage(books) {
-      // メッセージ:削除しますか？を追加
-        const isDeleted = 'データを削除してもいいですか？'
-        if(window.confirm(isDeleted)) {
-          // 2つ目の引数を空にすれば空のデータで上書きされる
-          // localStorage.setItem(STORAGE_KEY, index);
-          // 完全に消える
-          // localStorage.removeItem(books);
-          this.books.splice(books, 1)
-          this.saveBooks();
-          this.books = []
-          window.location.reload()
-      }
-    }
+    
   }
 };
   

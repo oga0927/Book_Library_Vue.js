@@ -66,15 +66,17 @@ export default {
   data() {
     return {
       booklikes: [],
+      count: 0
     }
   },
   methods: {
-    addCount() {
-      this.booklikes.push({ 
-        
+    addCount(index) {
+      const addCountData = this.count + 1;
+      this.$store.dispatch('addCount', {
+        index, addCountData
         })
-        this.booklikes.counts ++  
-        console.log(this.booklikes.counts);
+        // this.booklikes.counts ++  
+        // console.log(this.booklikes.counts);
     },
     saveBooks() {
       const parsed = JSON.stringify(this.books);
