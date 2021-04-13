@@ -148,6 +148,7 @@ export default {
         image: this.books.image,
         description: this.books.description
       })
+      
       console.log(this.id);
       // e.idの1つ目が置き換わる
       // this.books.splice(this.id, 1)
@@ -155,6 +156,7 @@ export default {
       this.saveBooks()
       // 保存した後にトップページに戻る
       this.$router.push('/')
+      
     },
     saveBooks() {
       const parsed = JSON.stringify(this.books);

@@ -76,10 +76,7 @@ export default {
     addBookList(index) {
       // クリックした箇所を指定
       this.$emit('add-book-list',this.searchResults[index]) 
-      const newbooks = this.addBookList.filter(function(book) {
-        return book !== 'userId'
-      }) 
-      console.log(newbooks);
+      
     },
     async search(keyword){
       this.searchResults = []
