@@ -93,13 +93,12 @@ export default {
     },
   },
   computed: {
-    // booksForPost: function() {
-    //   return this.books.filter(function(book) {
-    //     return book.userId === book.id
-    //   }) 
-    // },
+    booksForPost: function() {
+      return this.books.filter(function(book) {
+        return book.userId === book.id
+      }) 
+    },
   }
-
 };
   
 </script>

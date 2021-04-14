@@ -149,7 +149,7 @@ export default {
         description: this.books.description
       })
       
-      console.log(this.id);
+      // console.log(this.$store.state.userId);
       // e.idの1つ目が置き換わる
       // this.books.splice(this.id, 1)
       // saveBooksにアクセスして保存

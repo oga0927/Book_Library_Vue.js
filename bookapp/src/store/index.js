@@ -124,7 +124,9 @@ export default new Vuex.Store({
           router.push("/");
         });
     },
-    
+    // addCountAction(store, {index, addCountData}) {
+      
+    // }
     // addUpdateBookInfo({ commit }) {
     //   firebase
     //     .auth()

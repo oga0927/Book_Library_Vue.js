@@ -41,7 +41,7 @@
                   <v-btn
                     icon
                     color="pink"
-                    @click="addCount(booklikes)"
+                    @click="addCount(index)"
                   >
                   <v-icon>mdi-heart</v-icon>
                   {{ booklikes.counts }}
@@ -70,11 +70,15 @@ export default {
     }
   },
   methods: {
-    addCount(index) {
-      const addCountData = this.count + 1;
-      this.$store.dispatch('addCount', {
-        index, addCountData
-        })
+    addCount() {
+      // const addCountData = this.count + 1;
+
+      // this.booklikes.push({
+        
+      //   })
+      // this.$store.dispatch('addCountAction', {
+        //   index, addCountData
+      //   })
         // this.booklikes.counts ++  
         // console.log(this.booklikes.counts);
     },
@@ -85,7 +89,7 @@ export default {
     deliteLocalStorage(index) {
       // this.$emit('delete-local-storage')
       // deleteLocalStorage(books) {
-      // メッセージ:削除しますか？を追加
+        // メッセージ:削除しますか？を追加
         const isDeleted = 'データを削除してもいいですか？'
         if(window.confirm(isDeleted)) {
           // 2つ目の引数を空にすれば空のデータで上書きされる
@@ -105,5 +109,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
