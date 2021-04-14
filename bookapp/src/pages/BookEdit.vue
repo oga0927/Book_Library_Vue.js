@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <!-- <span v-if="!isAuthenticatied"> -->
+        <span v-if="!isAuthenticated">
           <p class="error-message">
             ※投稿するには
             <v-btn 
@@ -20,7 +20,7 @@
             >
             が必要です
           </p>
-        <!-- </span> -->
+        </span>
         <v-card class="mx-auto">
           <v-row>
             <v-col cols="4">
@@ -120,21 +120,8 @@ export default {
     }
   },
   methods:{
-    //    updateBookInfo(){
-    //   // 本の情報を更新する
-    //   this.$store.state.userId
-    //   console.log(this.$store.state.userId);
-    //   this.$emit('update-book-info',{
-    //     id: this.$route.params.id,
-    //     readDate: this.date,
-    //     memo: this.book.memo,
-    //     start: this.book.start,
-    //     learn: this.book.learn
-    //   })
-    // },
     updateBookInfo(){
       // 本の情報を更新する
-      // this.$store.state.userId
       this.$store.dispatch('addUpdateBookInfo',{
         id: this.id,
         userId: this.$store.state.userId,
@@ -148,7 +135,7 @@ export default {
         image: this.books.image,
         description: this.books.description
       })
-      
+      console.log(this.$store.state.userId);
       // console.log(this.$store.state.userId);
       // e.idの1つ目が置き換わる
       // this.books.splice(this.id, 1)
@@ -162,6 +149,14 @@ export default {
       const parsed = JSON.stringify(this.books);
       localStorage.setItem(STORAGE_KEY, parsed);
     },
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.getStateUser;
+    },
+    getStateUser(state) {
+      return state.user
+    }
   },
   beforeRouteEnter (to, from, next) {
   next(vm => {

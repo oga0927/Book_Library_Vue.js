@@ -147,12 +147,9 @@ export default new Vuex.Store({
 
   },
   getters: {
-    // isAuthenticated(state) {
-    //   return state.user !== null && state.user !== undefined;
-    // },
-    // user(state) {
-    //   return state.user;
-    // },
+    isAuthenticated(state) {
+      return state.user !== null && state.user !== undefined;
+    },
     isSignedIn(state) {
       return state.status;
     },
