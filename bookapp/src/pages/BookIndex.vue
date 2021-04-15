@@ -47,6 +47,7 @@
                   {{ booklikes.counts }}
                   <!-- {{ $store.state.count }} -->
                 </v-btn>
+                
               </v-card-actions>
             </v-col>
           </v-row>
@@ -66,12 +67,17 @@ export default {
   data() {
     return {
       booklikes: [],
-      count: 0
+      count: 0,
+      addClick: ''
     }
   },
   methods: {
     addCount() {
       
+      // this.booklikes.push({
+      //   id: '',
+      //   count: this.count ++
+      // })
     },
     saveBooks() {
       const parsed = JSON.stringify(this.books);
@@ -86,7 +92,7 @@ export default {
         this.books = []
         window.location.reload()
       }
-    }
+    },
   }
 }
   

@@ -91,13 +91,6 @@ export default {
       // ページの切り替え
       this.$router.push(`/edit/${id}`)
     },
-  },
-  computed: {
-    booksForPost: function() {
-      return this.books.filter(function(book) {
-        return book.userId === book.id
-      }) 
-    },
   }
 };
   
