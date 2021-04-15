@@ -130,7 +130,6 @@ export default new Vuex.Store({
     // addUpdateBookInfo({ commit }) {
     //   firebase
     //     .auth()
-    //     .currentUser()
     //     .then(result => {
     //       commit('setUserId', result.user.uid)
     //       commit('setIsAuthenticated', true);
