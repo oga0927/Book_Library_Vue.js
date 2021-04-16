@@ -32,11 +32,19 @@
                 投稿をみる
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn 
-                  color="error"
-                  @click="deliteLocalStorage(index)"
-                >削除する
-                </v-btn>
+                <!-- <span v-if="!isAuthenticated">
+                  <span></span>
+                </span> -->
+                <div 
+                  v-if="books.userId === store.state.userId"
+                  >
+                  <v-btn 
+                    color="error"
+                    @click="deliteLocalStorage(index)"
+                  >削除する
+                  </v-btn>
+                </div>
+
                 <!-- いいねボタン -->
                   <v-btn
                     icon
@@ -68,7 +76,8 @@ export default {
     return {
       booklikes: [],
       count: 0,
-      addClick: ''
+      addClick: '',
+      userId: this.$store.state.userId
     }
   },
   methods: {
@@ -93,6 +102,17 @@ export default {
         window.location.reload()
       }
     },
+    // booksのuserIdとログイン中のuserIdを比較して等しければボタンを表示
+    // booksForPost: function() {
+    //   return this.books.filter(function(book) {
+    //     return books.userId === book.id
+    //   }) 
+    // },
+    // booksForPost(books) {
+    //   if(books.userId === this.$store.state.userId) {
+    //     return 
+    //   }
+    // }
   }
 }
   
