@@ -6,21 +6,26 @@
           {{ getStateUserName }}さん
           </p>
           <p v-else>こんにちは！ゲストユーザーさん</p>
-          <v-btn
-            color="primary"
-            to="/search"
-          >
-          本を投稿する
-          </v-btn
-          >
-          <v-btn
-            color="error"
-            class="delete-btn"
-            @click="deleteUser"
-          >
-          アカウントを削除
-          </v-btn
-          >
+          <p>
+            <v-btn
+              color="orange lighten-1"
+              to="/search"
+            >
+            本を投稿する
+            </v-btn>
+          </p>
+          <p>
+            <v-btn
+              
+              color="error"
+              class="delete-btn"
+              @click="deleteUser"
+            >
+            アカウントを削除
+            </v-btn
+            >
+
+          </p>
           <v-col cols="12" sm="6" v-for="(book, index) in books" :key="index">
             <v-card  class="mb-8">
               <v-row>

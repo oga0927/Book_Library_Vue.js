@@ -48,7 +48,7 @@
           >トップへ戻る</v-btn
           > -->
           
-          <p >既にアカウントをお持ちですか？
+          <p>既にアカウントをお持ちですか？
             <router-link to="/login">ログインはこちらから</router-link>
           </p>
           
@@ -101,6 +101,8 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style scoped>
+  router-link a{
+    text-decoration: none;
+}
+</style>>

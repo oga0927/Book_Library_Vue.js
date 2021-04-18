@@ -35,8 +35,8 @@
                 <span v-if="!isAuthenticated">
                   <span></span>
                 </span>
-                <span 
-                  v-else-if="book.content.userId === $store.state.userId"
+                <span
+                  v-else-if="book.userId === $store.state.userId"
                   >
                   <v-btn 
                     color="error"
@@ -74,7 +74,7 @@ export default {
   },
   data() {
     return {
-      userId: false,
+      // userId: false,
       booklikes: [],
       count: 0,
       addClick: '',
