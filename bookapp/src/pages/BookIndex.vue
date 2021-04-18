@@ -32,18 +32,18 @@
                 投稿をみる
                 </v-btn>
                 <v-spacer></v-spacer>
-                <!-- <span v-if="!isAuthenticated">
+                <span v-if="!isAuthenticated">
                   <span></span>
-                </span> -->
-                <div 
-                  v-if="books.userId === store.state.userId"
+                </span>
+                <span 
+                  v-else-if="books.userId === $store.state.userId"
                   >
                   <v-btn 
                     color="error"
                     @click="deliteLocalStorage(index)"
                   >削除する
                   </v-btn>
-                </div>
+                </span>
 
                 <!-- いいねボタン -->
                   <v-btn
@@ -74,10 +74,10 @@ export default {
   },
   data() {
     return {
+      userId: false,
       booklikes: [],
       count: 0,
       addClick: '',
-      userId: this.$store.state.userId
     }
   },
   methods: {
@@ -113,10 +113,13 @@ export default {
     //     return 
     //   }
     // }
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    }
   }
 }
-  
-
 </script>
 
 <style scoped>

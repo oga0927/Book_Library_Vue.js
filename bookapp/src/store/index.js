@@ -158,6 +158,9 @@ export default new Vuex.Store({
     getUserName(state) {
       return state.userName;
     },
+    getUserId(state) {
+      return state.userId;
+    }
   },
   plugins: [
     createPersistedState({key: 'example',
