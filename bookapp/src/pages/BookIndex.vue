@@ -36,7 +36,7 @@
                   <span></span>
                 </span>
                 <span 
-                  v-else-if="books.userId === $store.state.userId"
+                  v-else-if="book.content.userId === $store.state.userId"
                   >
                   <v-btn 
                     color="error"
