@@ -8,7 +8,7 @@
         <v-card-text>
           <v-text-field
             name="username"
-            label="username"
+            label="Username"
             type="text"
             v-model="userName"
             prepend-icon="mdi-account"
@@ -48,10 +48,10 @@
           >トップへ戻る</v-btn
           > -->
           
-          <p>既にアカウントをお持ちですか？
+          <p mr-4>既にアカウントをお持ちですか？
             <router-link to="/login">ログインはこちらから</router-link>
           </p>
-          
+          <v-spacer></v-spacer>
           <v-btn 
             color="error"
             @click="submit"
@@ -102,7 +102,7 @@ export default {
 </script>
 
 <style scoped>
-  router-link a{
+  p a{
     text-decoration: none;
-}
-</style>>
+  }
+</style>

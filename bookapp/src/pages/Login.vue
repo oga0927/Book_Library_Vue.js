@@ -35,7 +35,7 @@
           <v-spacer></v-spacer>
           <v-btn 
             to="/"
-            color="primary"
+            color:
             >
             トップへ戻る
             </v-btn

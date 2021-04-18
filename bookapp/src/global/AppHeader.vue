@@ -5,10 +5,9 @@
       app 
       v-model="drawer" 
       class="brown darken-4" 
-      dark
-      >
-      <v-list>
-        <div v-if="!isAuthenticated">
+      dark>
+      <v-list class="mx-auto">
+        <div v-if="!$store.state.isAuthenticated">
           <v-btn text to="/login">ログイン</v-btn>
           <v-btn
             text
@@ -18,10 +17,19 @@
             >
         </div>
         <div v-else>
-          <v-btn text to="/" dark>ホーム</v-btn>
-          <v-btn text to="/search" dark>投稿する</v-btn>
-          <v-btn text to="/profile" dark>プロフィール</v-btn>
-          <v-btn text @click="logout">ログアウト</v-btn>
+          <p>
+            <v-btn text to="/" dark>ホーム</v-btn>
+          </p>
+          <p>
+            <v-btn text to ="/search" dark>投稿する</v-btn>
+          </p>
+          <p>
+            <v-btn text to="/profile" dark>プロフィール</v-btn>
+          </p>
+          <p>
+            <v-btn text @click="logout">ログアウト</v-btn>
+          </p>
+
         </div>
       </v-list>
     </v-navigation-drawer>
@@ -42,7 +50,7 @@
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <!-- <v-btn text @click="drawer = !drawer">Menu</v-btn> -->
       </div>
-      <div v-if="!isAuthenticated" class="hidden-sm-and-down" >
+      <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
         <v-btn text to="/login">ログイン</v-btn>
         <v-btn
           text
@@ -76,11 +84,6 @@
   methods: {
     logout() {
       this.$store.dispatch("userSignOut");
-    }
-  },
-  computed: {
-    isAuthenticated() {
-      return this.$store.getters.isAuthenticated;
     }
   }
 };
