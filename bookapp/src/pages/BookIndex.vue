@@ -35,15 +35,15 @@
                 <span v-if="!isAuthenticated">
                   <span></span>
                 </span>
-                <span
-                  v-else-if="book.userId === $store.state.userId"
+                <div
+                  v-if="book.userId === $store.state.userId"
                   >
                   <v-btn 
                     color="error"
                     @click="deliteLocalStorage(index)"
                   >削除する
                   </v-btn>
-                </span>
+                </div>
 
                 <!-- いいねボタン -->
                   <v-btn

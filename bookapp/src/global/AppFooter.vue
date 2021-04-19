@@ -4,7 +4,7 @@
       class="text-center"
       cols="12"
     >
-      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      ©︎{{ new Date().getFullYear() }} — youichi ogasawara
     </v-col>
   </v-footer>
 </template>
