@@ -146,9 +146,9 @@ export default new Vuex.Store({
 
   },
   getters: {
-    isAuthenticated(state) {
-      return state.user !== null && state.user !== undefined;
-    },
+    // isAuthenticated(state) {
+    //   return state.user !== null && state.user !== undefined;
+    // },
     isSignedIn(state) {
       return state.status;
     },
@@ -162,6 +162,7 @@ export default new Vuex.Store({
       return state.userId;
     }
   },
+  // 再描画されてもデータを保持
   plugins: [
     createPersistedState({key: 'example',
     storage: window.sessionStorage

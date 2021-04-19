@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <v-btn 
+        <v-btn v-if="$store.state.isAuthenticated"
           to="/search" 
           block
           color="orange lighten-1"
@@ -29,6 +29,7 @@
                 >
                 投稿をみる
                 </v-btn>
+
                 <v-spacer></v-spacer>
                 <div
                   v-if="book.userId === $store.state.userId"

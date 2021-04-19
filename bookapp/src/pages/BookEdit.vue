@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <span v-if="!isAuthenticated">
+        <span v-if="!$store.state.isAuthenticated">
           <p class="error-message">
             ※投稿するには
             <v-btn 
@@ -11,13 +11,15 @@
               to="/login">
             ログイン
             </v-btn
-            >または
+            >
+            または
             <v-btn 
               small outlined 
               color="error" 
-              to="/register">
-            ユーザー登録</v-btn
+              to="/register"
             >
+            ユーザー登録
+            </v-btn>
             が必要です
           </p>
         </span>
@@ -41,7 +43,7 @@
               >
               <template v-slot:activator="{ on, attrs }">
               <v-text-field
-                v-model="date"
+                v-model="book.date"
                 readonly
                 v-bind="attrs"
                 v-on="on"
@@ -49,7 +51,7 @@
               </v-text-field>
               </template>
               <v-date-picker 
-                  v-model="date" 
+                  v-model="book.date" 
                   @input="menu = false"
                   locale="jp-ja"
                   :day-format="date => new Date(date).getDate()">
@@ -87,9 +89,11 @@
               </v-textarea>
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
+                <!-- 投稿した本のuserIdとログイン中のuserIdが同じなら投稿ボタンを表示 -->
                 <v-btn 
-                v-if="book.userId === this.$store.state.userId" color="info" 
-                @click="updateBookInfo">
+                  v-if="book.userId === this.$store.state.userId" color="info" 
+                  @click="updateBookInfo"
+                >
                 投稿する
                 {{ books.userId}}
                 </v-btn>
@@ -123,19 +127,6 @@ export default {
   methods:{
     updateBookInfo(){
       // 本の情報を更新する
-      this.$store.dispatch('addUpdateBookInfo',{
-        id: this.id,
-        userId: this.$store.state.userId,
-        readDate: this.date,
-        memo: this.book.memo,
-        learn: this.book.learn,
-        important: this.important,
-        examples: this.examples,
-        different: this.different,
-        title: this.books.title,
-        image: this.books.image,
-        description: this.books.description
-      })
       console.log(this.$store.state.userId);
       // console.log(this.$store.state.userId);
       // e.idの1つ目が置き換わる
@@ -152,9 +143,9 @@ export default {
     },
   },
   computed: {
-    isAuthenticated() {
-      return this.$store.getters.isAuthenticated;
-    },
+    // isAuthenticated() {
+    //   return this.$store.getters.isAuthenticated;
+    // },
     getStateUser(state) {
       return state.user
     }

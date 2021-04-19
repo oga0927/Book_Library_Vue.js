@@ -31,7 +31,7 @@
             :key="index"
           >
             <!-- 自分が投稿した本の一覧 -->
-            <!-- 投稿した本のuseIdとログイン中のuserIdが同じものだけ表示 -->
+            <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
             <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
               <v-row>
                 <v-col cols="3">
@@ -51,15 +51,13 @@
                         投稿をみる
                         </v-btn>
                         <v-spacer></v-spacer>
-                        <span 
-                          v-if="book.userId === $store.state.userId"
-                          >
                           <v-btn 
                             color="error"
                             @click="deliteLocalStorage(index)"
-                          >削除する
+                          >
+                          削除する
                           </v-btn>
-                        </span>
+                        <!-- </span> -->
                         <!-- いいねボタン -->
                           <!-- <v-btn
                             icon
