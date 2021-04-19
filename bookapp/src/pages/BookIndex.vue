@@ -19,8 +19,6 @@
             </v-col>
             <v-col cols="9">
               <v-card-title >{{ book.title }}</v-card-title>
-              <!-- 読んだ日：{{book.readDate}}
-              感想：{{book.memo}} -->
               <v-spacer></v-spacer>
               <v-card-actions>
                 <!-- 書き込み -->
@@ -44,7 +42,6 @@
                   >削除する
                   </v-btn>
                 </div>
-
                 <!-- いいねボタン -->
                   <v-btn
                     icon
@@ -55,7 +52,6 @@
                   {{ booklikes.counts }}
                   <!-- {{ $store.state.count }} -->
                 </v-btn>
-                
               </v-card-actions>
             </v-col>
           </v-row>

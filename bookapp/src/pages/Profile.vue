@@ -16,7 +16,6 @@
           </p>
           <p>
             <v-btn
-              
               color="error"
               class="delete-btn"
               @click="deleteUser"
@@ -27,7 +26,7 @@
 
           </p>
           <v-col cols="12" sm="6" md="6" v-for="(book, index) in books" :key="index">
-            <v-card  class="mb-8">
+            <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
               <v-row>
                 <v-col cols="3">
                   <!-- 画像が表示される -->
@@ -50,7 +49,7 @@
                           <span></span>
                         </span>
                         <span 
-                          v-else-if="books.book.userId === $store.state.userId"
+                          v-if="book.userId === $store.state.userId"
                           >
                           <v-btn 
                             color="error"
@@ -82,6 +81,7 @@
 
 <script>
 
+const STORAGE_KEY = 'books'
 
 export default {
   props: {
@@ -97,7 +97,21 @@ export default {
   methods: {
     deleteUser() {
       this.$store.dispatch("userDelete");
-    }
+    },
+    saveBooks() {
+      const parsed = JSON.stringify(this.books);
+      localStorage.setItem(STORAGE_KEY, parsed);
+    },
+    deliteLocalStorage(index) {
+      const isDeleted = 'データを削除してもいいですか？'
+      if(window.confirm(isDeleted)) {
+
+        this.books.splice(index, 1)
+        this.saveBooks();
+        this.books = []
+        window.location.reload()
+      }
+    },
   },
   computed: {
     getStateUser() {
