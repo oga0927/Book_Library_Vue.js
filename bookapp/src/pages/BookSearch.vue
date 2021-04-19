@@ -17,7 +17,6 @@
         </v-btn>
       </v-col>
       <v-col cols="3">
-        <!-- ボタンの中でtoを設定することでジャンプできる -->
         <v-btn
           color:
           to="/"
@@ -46,9 +45,10 @@
               <v-spacer></v-spacer>
               <v-card-actions>
                 <v-btn 
-                class="mx-2" 
-                fab dark color="indigo"
-                @click="addBookList(index)">
+                  class="mx-2" 
+                  fab dark color="indigo"
+                  @click="addBookList(index)"
+                >
                   <v-icon dark>
                     mdi-plus
                   </v-icon>
@@ -64,7 +64,6 @@
 
 <script>
 export default {
-  // コンポーネントに名前をつける
   name: 'BookSearch',
   data(){
     return {

@@ -87,7 +87,8 @@
               </v-textarea>
               <v-card-actions>
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
-                <v-btn color="info" 
+                <v-btn 
+                v-if="book.userId === this.$store.state.userId" color="info" 
                 @click="updateBookInfo">
                 投稿する
                 {{ books.userId}}
