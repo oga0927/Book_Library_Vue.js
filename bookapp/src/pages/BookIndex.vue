@@ -30,16 +30,14 @@
                 投稿をみる
                 </v-btn>
                 <v-spacer></v-spacer>
-                <span v-if="!isAuthenticated">
-                  <span></span>
-                </span>
                 <div
                   v-if="book.userId === $store.state.userId"
                   >
                   <v-btn 
                     color="error"
                     @click="deliteLocalStorage(index)"
-                  >削除する
+                  >
+                  削除する
                   </v-btn>
                 </div>
                 <!-- いいねボタン -->
@@ -98,17 +96,6 @@ export default {
         window.location.reload()
       }
     },
-    // booksのuserIdとログイン中のuserIdを比較して等しければボタンを表示
-    // booksForPost: function() {
-    //   return this.books.filter(function(book) {
-    //     return books.userId === book.id
-    //   }) 
-    // },
-    // booksForPost(books) {
-    //   if(books.userId === this.$store.state.userId) {
-    //     return 
-    //   }
-    // }
   },
   computed: {
     isAuthenticated() {

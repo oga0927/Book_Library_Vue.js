@@ -21,11 +21,17 @@
               @click="deleteUser"
             >
             アカウントを削除
-            </v-btn
-            >
-
+            </v-btn>
           </p>
-          <v-col cols="12" sm="6" md="6" v-for="(book, index) in books" :key="index">
+          <v-col 
+            cols="12" 
+            sm="6" 
+            md="6" 
+            v-for="(book, index) in books" 
+            :key="index"
+          >
+            <!-- 自分が投稿した本の一覧 -->
+            <!-- 投稿した本のuseIdとログイン中のuserIdが同じものだけ表示 -->
             <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
               <v-row>
                 <v-col cols="3">
@@ -45,9 +51,6 @@
                         投稿をみる
                         </v-btn>
                         <v-spacer></v-spacer>
-                        <span v-if="!isAuthenticated">
-                          <span></span>
-                        </span>
                         <span 
                           v-if="book.userId === $store.state.userId"
                           >
@@ -57,7 +60,6 @@
                           >削除する
                           </v-btn>
                         </span>
-
                         <!-- いいねボタン -->
                           <!-- <v-btn
                             icon
@@ -68,7 +70,6 @@
                       {{ booklikes.counts }}
                       {{ $store.state.count }}
                     </v-btn> -->
-                    
                 </v-card-actions>
               </v-col>
             </v-row>
