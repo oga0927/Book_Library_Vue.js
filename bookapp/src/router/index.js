@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '@/pages/Home'
-import Home from '@/pages/Home'
 import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
@@ -21,11 +20,6 @@ const routes = [
     path: '/login',
     name: 'LogIn',
     component: LogIn
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: Home,
   },
   {
     path: '/',
