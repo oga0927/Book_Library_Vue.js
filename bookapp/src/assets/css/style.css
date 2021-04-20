@@ -1,0 +1,9 @@
+/* 共通部分 */
+
+.v-btn {
+  text-transform: none;
+  margin: 10px;
+}
+.error-message {
+  text-align: center;
+}
