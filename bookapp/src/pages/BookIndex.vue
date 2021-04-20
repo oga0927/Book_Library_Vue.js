@@ -29,7 +29,6 @@
                 >
                 投稿をみる
                 </v-btn>
-
                 <v-spacer></v-spacer>
                 <div
                   v-if="book.userId === $store.state.userId"
@@ -38,7 +37,7 @@
                     color="error"
                     @click="deliteLocalStorage(index)"
                   >
-                  削除する
+                  削除
                   </v-btn>
                 </div>
                 <!-- いいねボタン -->

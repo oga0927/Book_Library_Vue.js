@@ -48,14 +48,14 @@
                           color="primary"
                           class="mx-1"
                         >
-                        投稿をみる
+                        編集
                         </v-btn>
                         <v-spacer></v-spacer>
                           <v-btn 
                             color="error"
                             @click="deliteLocalStorage(index)"
                           >
-                          削除する
+                          削除
                           </v-btn>
                         <!-- </span> -->
                         <!-- いいねボタン -->

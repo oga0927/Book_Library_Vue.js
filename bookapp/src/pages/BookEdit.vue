@@ -128,9 +128,6 @@ export default {
     updateBookInfo(){
       // 本の情報を更新する
       console.log(this.$store.state.userId);
-      // console.log(this.$store.state.userId);
-      // e.idの1つ目が置き換わる
-      // this.books.splice(this.id, 1)
       // saveBooksにアクセスして保存
       this.saveBooks()
       // 保存した後にトップページに戻る
@@ -143,9 +140,6 @@ export default {
     },
   },
   computed: {
-    // isAuthenticated() {
-    //   return this.$store.getters.isAuthenticated;
-    // },
     getStateUser(state) {
       return state.user
     }
