@@ -102,4 +102,7 @@ a {
   color: white;
   text-decoration: none;
 }
+.v-img {
+  
+}
 </style>

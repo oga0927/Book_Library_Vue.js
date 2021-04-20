@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '@/pages/Home'
+import Home from '@/pages/Home'
 import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
@@ -11,11 +12,6 @@ import Profile from '@/pages/Profile'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/home',
-  //   name: 'Home',
-  //   component: Home,
-  // },
   {
     // 存在しないURL(path)はホームに戻る
     path: '*',
@@ -26,11 +22,11 @@ const routes = [
     name: 'LogIn',
     component: LogIn
   },
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home,
-  // },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+  },
   {
     path: '/',
     name: 'BookIndex',
