@@ -2,6 +2,27 @@
   <div>
     <v-row>
       <v-col cols="12">
+        <span v-if="!$store.state.isAuthenticated">
+          <p class="error-message">
+            ※投稿するには
+            <v-btn 
+              small outlined 
+              color="primary" 
+              to="/login">
+            ログイン
+            </v-btn
+            >
+            または
+            <v-btn 
+              small outlined 
+              color="error" 
+              to="/register"
+            >
+            ユーザー登録
+            </v-btn>
+            が必要です
+          </p>
+        </span>
         <v-btn v-if="$store.state.isAuthenticated"
           to="/search" 
           block
@@ -41,15 +62,15 @@
                   </v-btn>
                 </div>
                 <!-- いいねボタン -->
-                  <v-btn
+                  <!-- <v-btn
                     icon
                     color="pink"
                     @click="addCount(index)"
                   >
                   <v-icon>mdi-heart</v-icon>
                   {{ booklikes.counts }}
-                  <!-- {{ $store.state.count }} -->
-                </v-btn>
+                  {{ $store.state.count }}
+                </v-btn> -->
               </v-card-actions>
             </v-col>
           </v-row>

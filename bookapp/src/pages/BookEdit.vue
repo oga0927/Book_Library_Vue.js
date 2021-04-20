@@ -2,27 +2,6 @@
   <div>
     <v-row>
       <v-col cols="12">
-        <span v-if="!$store.state.isAuthenticated">
-          <p class="error-message">
-            ※投稿するには
-            <v-btn 
-              small outlined 
-              color="primary" 
-              to="/login">
-            ログイン
-            </v-btn
-            >
-            または
-            <v-btn 
-              small outlined 
-              color="error" 
-              to="/register"
-            >
-            ユーザー登録
-            </v-btn>
-            が必要です
-          </p>
-        </span>
         <v-card class="mx-auto">
           <v-row>
             <v-col cols="4">
@@ -91,7 +70,8 @@
                 <v-btn color="secondary" to="/">一覧に戻る</v-btn>
                 <!-- 投稿した本のuserIdとログイン中のuserIdが同じなら投稿ボタンを表示 -->
                 <v-btn 
-                  v-if="book.userId === this.$store.state.userId" color="info" 
+                  v-if="book.userId === this.$store.state.userId" 
+                  color="info" 
                   @click="updateBookInfo"
                 >
                 投稿する
