@@ -78,28 +78,41 @@ export default {
       
     },
     async search(keyword){
-      this.searchResults = []
-    // クエリーストリングを作成
+      
+      // GoogleBookApiのURLを作成（クエリーストリングを作成）
     const baseUrl = 'https://www.googleapis.com/books/v1/volumes?'
+    // オブジェクト形式でparamsを作成
       const params = {
         q: `intitle:${keyword}`,
-        maxResults:40
+        maxResults:40,
     }
+    
+    // urlを作成してオブジェクトの中にkeyとvalueを設定
     const queryParams = new URLSearchParams(params)
-    // console.log(baseUrl + queryParams)
+
     // fetchでJSON取得
+    // fetchでqueryParamsを追加。パラメーター付きのURLを取得
     const response = await fetch(baseUrl + queryParams)
+
     .then( response => response.json())
+      
     // 必要な情報を配列にpush
     for(let book of response.items ){
+      // タイトルを取得
       let title = book.volumeInfo.title
+      // 画像を取得
       let img = book.volumeInfo.imageLinks
+      // 詳細を取得
       let description = book.volumeInfo.description
       this.searchResults.push({
         title: title ? title : '',
         image: img ? img.thumbnail : '',
         description: description ? description.slice(0, 40) : ''
       })
+      // if(keyword === null) {
+      //   alert('本が見つかりませんでした')
+      //   return
+      // }
     }
   }
 }

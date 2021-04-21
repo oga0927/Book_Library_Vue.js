@@ -48,7 +48,7 @@
                           color="primary"
                           class="mx-1"
                         >
-                        編集
+                        編集する
                         </v-btn>
                         <v-spacer></v-spacer>
                           <v-btn 
