@@ -110,7 +110,6 @@ export default {
     deliteLocalStorage(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
-
         this.books.splice(index, 1)
         this.saveBooks();
         this.books = []
