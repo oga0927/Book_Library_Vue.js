@@ -1,0 +1,25 @@
+/* 共通部分 */
+
+.v-btn {
+  text-transform: none;
+  margin: 10px;
+}
+.error-message {
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+.router-link-exact-active {
+  color: white;
+  text-decoration: none;
+}
+.v-toolbar__title {
+  color: white;
+  text-decoration: none;
+}
+.v-image__image{
+  top: 28px;
+}
