@@ -78,10 +78,6 @@ export default {
       
     },
     async search(keyword){
-    //   if(keyword === !keyword) {
-    //   alert('本が見つかりませんでした')
-    //   return null
-    // }
       // GoogleBookApiのURLを作成（クエリーストリングを作成）
     const baseUrl = 'https://www.googleapis.com/books/v1/volumes?'
     // オブジェクト形式でparamsを作成
@@ -101,7 +97,7 @@ export default {
       
     // 必要な情報を配列にpush
     for(let book of response.items ){
-      console.log(response.items);
+      // console.log(response.items);
       // タイトルを取得
       let title = book.volumeInfo.title
       // 画像を取得

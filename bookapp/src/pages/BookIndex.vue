@@ -27,18 +27,21 @@
           to="/search" 
           block
           color="orange lighten-1"
-        >おすすめの一冊を投稿</v-btn>
+          class="mx-auto"
+        >
+        おすすめの一冊を投稿
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" sm="6" v-for="(book, index) in books" :key="index">
         <v-card  class="mb-8">
           <v-row>
-            <v-col cols="3">
+            <v-col cols="5">
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="9">
+            <v-col cols="7">
               <v-card-title >{{ book.title }}</v-card-title>
               <v-spacer></v-spacer>
               <v-card-actions>
