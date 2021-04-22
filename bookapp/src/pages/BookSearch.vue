@@ -68,7 +68,7 @@ export default {
   data(){
     return {
       keyword:'',
-      searchResults:[]
+      searchResults:[],
     }
   },
   methods:{
