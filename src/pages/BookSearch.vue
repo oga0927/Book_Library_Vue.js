@@ -20,7 +20,7 @@
         <v-btn
           color:
           to="/"
-          >に戻る
+          >
         </v-btn>
       </v-col>
     </v-row>
