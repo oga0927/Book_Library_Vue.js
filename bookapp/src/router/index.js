@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
-import LogIn from '@/pages/LogIn'
+import LogIn from '@/pages/Login'
 import Register from '@/pages/Register'
 import Profile from '@/pages/Profile'
 
