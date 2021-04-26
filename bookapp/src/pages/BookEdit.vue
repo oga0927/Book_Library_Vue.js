@@ -36,7 +36,7 @@
                   :day-format="date => new Date(date).getDate()">
               </v-date-picker>
               </v-menu>
-                この本にはどんな情報が書かれて：<v-textarea
+                この本にはどんな情報が書かれているか：<v-textarea
                   class="mx-2" 
                   v-model="book.memo"
                   rows="3">
