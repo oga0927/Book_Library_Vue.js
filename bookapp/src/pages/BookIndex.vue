@@ -61,7 +61,7 @@
                     color="error"
                     @click="deliteLocalStorage(index)"
                   >
-                  削除
+                  
                   </v-btn>
                 </div>
                 <!-- いいねボタン -->
