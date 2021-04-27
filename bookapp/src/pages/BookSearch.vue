@@ -13,7 +13,7 @@
         <v-btn
           color="primary"
           @click="search(keyword)">
-          検索する
+          検索
         </v-btn>
       </v-col>
       <v-col cols="3">
