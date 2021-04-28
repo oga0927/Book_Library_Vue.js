@@ -74,7 +74,7 @@
                   color="info" 
                   @click="updateBookInfo"
                 >
-                投稿する
+                投稿
                 {{ books.userId}}
                 </v-btn>
                 

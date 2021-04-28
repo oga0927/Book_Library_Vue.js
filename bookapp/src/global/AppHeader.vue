@@ -57,7 +57,7 @@
           to="/register"
           class="register"
         >
-        ユーザー
+        ユーザー登録
         </v-btn>
       </div>
       <div v-else class="hidden-sm-and-down">
