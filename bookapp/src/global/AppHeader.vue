@@ -77,7 +77,7 @@
   name: "AppHeader",
   data() {
     return {
-      appTitle: "ROGO",
+      appTitle: "SHALIBO",
       drawer: false
     };
   },
