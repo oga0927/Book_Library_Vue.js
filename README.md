@@ -41,4 +41,6 @@ E-mail: shalibo@test.com
 Password: password
 
 ##　ライセンス
-https://github.com/oga0927/Book_Library_Vue.js
+
+- GitHub: https://github.com/oga0927/Book_Library_Vue.js
+- URL: https://shalibo.netlify.app/
