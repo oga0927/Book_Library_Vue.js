@@ -33,12 +33,13 @@ SHALIBO
 - 投稿した本とユーザー id が紐づいており、他のユーザーが書き込めないように投稿リストにはログイン中のユーザー id と紐づいた本のみ削除、投稿ボタンの表示非表示される。
 - 削除ボタンを押したときはアラートでメッセージが表示されて、削除する場合は OK ボタンを押す。
 
-##　テスト用アカウント <br>
-username: test
-E-mail: shalibo@test.com
+## テスト用アカウント <br>
+
+username: test <br>
+E-mail: shalibo@test.com <br>
 Password: password
 
-##　ライセンス
+## ライセンス
 
 - GitHub: https://github.com/oga0927/Book_Library_Vue.js
 - URL: https://shalibo.netlify.app/
