@@ -4,7 +4,7 @@
     <v-navigation-drawer 
       app 
       v-model="drawer" 
-      class="brown darken-4" 
+      class="brown darken-4 d-none" 
       dark>
       <v-list class="mx-auto">
         <div v-if="!$store.state.isAuthenticated">
@@ -48,7 +48,6 @@
       <div class="hidden-md-and-up">
         <!-- ハンバーガーメニュー -->
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <!-- <v-btn text @click="drawer = !drawer">Menu</v-btn> -->
       </div>
       <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
         <v-btn text to="/login">ログイン</v-btn>
