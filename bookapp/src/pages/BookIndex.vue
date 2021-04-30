@@ -64,16 +64,6 @@
                   削除
                   </v-btn>
                 </div>
-                <!-- いいねボタン -->
-                  <!-- <v-btn
-                    icon
-                    color="pink"
-                    @click="addCount(index)"
-                  >
-                  <v-icon>mdi-heart</v-icon>
-                  {{ booklikes.counts }}
-                  {{ $store.state.count }}
-                </v-btn> -->
               </v-card-actions>
             </v-col>
           </v-row>

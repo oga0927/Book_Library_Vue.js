@@ -47,9 +47,6 @@ export default new Vuex.Store({
     setUpdateBookInfo(state, payload) {
       state.updateBookInfo = payload;
     }
-    // addCount(state, payload ) { //第二引数でコンポーネントから渡るデータ(オブジェクト)
-    //   state.count = payload.count
-    // }
   },
   // 非同期処理の開始
   actions: { 
@@ -67,7 +64,6 @@ export default new Vuex.Store({
           router.push('/');
         })
         .catch(() => {
-          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('登録済みです')
           router.push('/register');
@@ -80,12 +76,10 @@ export default new Vuex.Store({
         .then(result => {
           commit('setUserName', result.user.displayName)
           commit('setUserId', result.user.uid)
-          // commit('setUser', user);
           commit('setIsAuthenticated', true);
           router.push('/');
         })
         .catch(() => {
-          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('ログインに失敗しました');
           router.push('/login');
@@ -96,12 +90,10 @@ export default new Vuex.Store({
         .auth()
         .signOut()
         .then(() => {
-          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           router.push('app');
         })
         .catch(() => {
-          // commit('setUser', null);
           commit('setIsAuthenticated', false);
           alert('ユーザー登録に失敗しました')
           router.push('/login');
@@ -112,43 +104,18 @@ export default new Vuex.Store({
         .auth()
         .currentUser.delete()
         .then(() => {
-          // commit("setUser", null);
           commit("setIsAuthenticated", false);
           alert('アカウントを削除しました')
           router.push("/");
         })
         .catch(() => {
-          // commit("setUser", null);
           commit("setIsAuthenticated", false);
           alert('アカウントを削除に失敗しました')
           router.push("/");
         });
     },
-    // addCountAction(store, {index, addCountData}) {
-      
-    // }
-    // addUpdateBookInfo({ commit }) {
-    //   firebase
-    //     .auth()
-    //     .then(result => {
-    //       commit('setUserId', result.user.uid)
-    //       commit('setIsAuthenticated', true);
-    //       commit('setUpdateBookInfo', '')
-    //       router.push('/');
-    //     })
-    //     .catch(() => {
-    //       // commit('setUser', null);
-    //       commit('setIsAuthenticated', false);
-    //       alert('ログインまたはアカウント作成してください');
-    //       router.push('/login');
-    //     });
-    // },
-
   },
   getters: {
-    // isAuthenticated(state) {
-    //   return state.user !== null && state.user !== undefined;
-    // },
     isSignedIn(state) {
       return state.status;
     },

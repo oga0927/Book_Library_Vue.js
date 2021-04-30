@@ -42,11 +42,6 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <!-- <v-btn 
-            to="/"
-            color="primary"
-          >トップへ戻る</v-btn
-          > -->
           
           <p mr-4>既にアカウントをお持ちですか？
             <router-link to="/login">ログインはこちらから</router-link>
