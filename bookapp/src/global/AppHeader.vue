@@ -4,7 +4,7 @@
     <v-navigation-drawer 
       app 
       v-model="drawer" 
-      class="brown darken-4 d-none" 
+      class="brown darken-4 hidden-md-and-up" 
       dark>
       <v-list class="mx-auto">
         <div v-if="!$store.state.isAuthenticated">
@@ -35,7 +35,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app color="grey darken-4" dark>
-      <v-icon class="hidden-md-and-up" @click="drawer = !drawer">
+      <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
       </v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <router-link to="/">
