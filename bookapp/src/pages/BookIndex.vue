@@ -89,13 +89,6 @@ export default {
     }
   },
   methods: {
-    addCount() {
-      
-      // this.booklikes.push({
-      //   id: '',
-      //   count: this.count ++
-      // })
-    },
     saveBooks() {
       const parsed = JSON.stringify(this.books);
       localStorage.setItem(STORAGE_KEY, parsed);

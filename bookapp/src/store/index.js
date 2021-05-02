@@ -131,8 +131,9 @@ export default new Vuex.Store({
   },
   // 再描画されてもデータを保持
   plugins: [
-    createPersistedState({key: 'example',
-    storage: window.sessionStorage
+    createPersistedState({
+      key: 'example',
+      storage: window.sessionStorage
   })]
   
 });

@@ -30,48 +30,38 @@
             v-for="(book, index) in books" 
             :key="index"
           >
-            <!-- 自分が投稿した本の一覧 -->
-            <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
-            <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
-              <v-row>
-                <v-col cols="3">
-                  <!-- 画像が表示される -->
-                  <v-img :src="book.image"></v-img>
-                    </v-col>
-                    <v-col cols="9">
-                      <v-card-title >{{ book.title }}</v-card-title>
-                      <v-spacer></v-spacer>
-                      <v-card-actions>
-                        <!-- 書き込み -->
-                        <v-btn 
-                          :to="{name: 'BookEdit', params: {id: index}}"
-                          color="primary"
-                          class="mx-1"
-                        >
-                        編集する
-                        </v-btn>
-                        <v-spacer></v-spacer>
-                          <v-btn 
-                            color="error"
-                            @click="deliteLocalStorage(index)"
-                          >
-                          削除
-                          </v-btn>
-                        <!-- </span> -->
-                        <!-- いいねボタン -->
-                          <!-- <v-btn
-                            icon
-                            color="pink"
-                            @click="addCount(index)"
-                          >
-                      <v-icon>mdi-heart</v-icon>
-                      {{ booklikes.counts }}
-                      {{ $store.state.count }}
-                    </v-btn> -->
+          <!-- 自分が投稿した本の一覧 -->
+          <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
+          <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
+            <v-row>
+              <v-col cols="3">
+                <!-- 画像が表示される -->
+                <v-img :src="book.image"></v-img>
+              </v-col>
+              <v-col cols="9">
+                <v-card-title >{{ book.title }}</v-card-title>
+                <v-spacer></v-spacer>
+                <v-card-actions>
+                  <!-- 書き込み -->
+                  <v-btn 
+                    :to="{name: 'BookEdit', params: {id: index}}"
+                    color="primary"
+                    class="mx-1"
+                  >
+                  編集する
+                  </v-btn>
+                  <v-spacer></v-spacer>
+
+                  <v-btn 
+                    color="error"
+                    @click="deliteLocalStorage(index)"
+                  >
+                  削除
+                  </v-btn>
                 </v-card-actions>
               </v-col>
             </v-row>
-            </v-card>
+          </v-card>
         </v-col>
       </v-col>
     </v-row>
