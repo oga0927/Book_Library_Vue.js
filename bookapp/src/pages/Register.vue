@@ -8,7 +8,7 @@
         <v-card-text>
           <v-text-field
             name="username"
-            label="Username"
+            label="UserName"
             type="text"
             v-model="userName"
             prepend-icon="mdi-account"

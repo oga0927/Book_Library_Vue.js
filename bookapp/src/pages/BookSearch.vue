@@ -97,7 +97,7 @@ export default {
       
     // 必要な情報を配列にpush
     for(let book of response.items ){
-      // console.log(response.items);
+      
       // タイトルを取得
       let title = book.volumeInfo.title
       // 画像を取得
