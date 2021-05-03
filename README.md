@@ -4,6 +4,12 @@
 
 https://shalibo.netlify.app/
 
+Qiita にも執筆！
+[Vue.js、FireBase で読書管理アプリを作ってみた]
+(https://tenkuehotel-r018.netlify.app/)
+
+https://qiita.com/oga0927/items/abf48b692b11fec6ae36
+
 ## 概要
 
 本の内容が要約されたまとめアプリです。
@@ -35,7 +41,6 @@ https://shalibo.netlify.app/
 
 - 認証機能
 
-  - firebase（Authentication）を用いたユーザー管理機能
   - ユーザー登録
   - ログイン機能
   - ログアウト機能
