@@ -1,6 +1,7 @@
 ## プロジェクト名
 
 SHALIBO
+![投稿](https://user-images.githubusercontent.com/73045514/116842216-c5a33e80-ac16-11eb-93a6-c3ddc06b8c77.jpg)
 
 ## 概要
 
