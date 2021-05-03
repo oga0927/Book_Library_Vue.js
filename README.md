@@ -5,7 +5,8 @@
 https://shalibo.netlify.app/
 
 Qiita にも執筆！
-[Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
+[Vue.js、FireBase で読書管理アプリを作ってみた]
+(https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
 
 ## 概要
 
