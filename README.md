@@ -1,7 +1,8 @@
-## プロジェクト名
-
-SHALIBO
 ![投稿](https://user-images.githubusercontent.com/73045514/116842216-c5a33e80-ac16-11eb-93a6-c3ddc06b8c77.jpg)
+
+## プロジェクト名 SHALIBO
+
+https://shalibo.netlify.app/
 
 ## 概要
 
@@ -17,13 +18,32 @@ SHALIBO
 
 - フロントエンド
 
-  - Vue.js を用いたシングルページアプリケーション
-  - Vuex で状態管理
-  - Vuetify でデザイン作成、レスポンシブ対応
+  - Vue.js
+  - VueRouter
+  - Vuex
+  - Vuetify
 
 - バックエンド
-  - Firebase の Authentication でユーザー認証機能（ログイン、ログアウト、ユーザー登録、削除）
-  - GoogleBookApi / WebStorage(LocalStorage)
+
+  - Firebase(Authentication)
+  - GoogleBookAPI / WebStorage(LocalStorage)
+
+- サーバー
+  - Netlify
+
+## 機能一覧
+
+- firebase（Authentication）を用いたユーザー管理機能
+- ユーザー登録
+- ユーザーログイン
+- ユーザーログアウト
+- アカウント削除
+
+GoogleBookAPI と LocalStorage を用いたデータ管理機能
+
+- 本のタイトル検索
+- 本の投稿機能
+- 投稿内容編集
 
 ## 使い方
 
