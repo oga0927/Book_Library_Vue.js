@@ -71,3 +71,5 @@ Password: password
 
 - GitHub: https://github.com/oga0927/Book_Library_Vue.js
 - URL: https://shalibo.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/afd7c925-e94a-4341-8f10-3161df0ddda0/deploy-status)](https://app.netlify.com/sites/shalibo/deploys)
