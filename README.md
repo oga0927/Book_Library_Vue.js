@@ -7,7 +7,7 @@ https://shalibo.netlify.app/
 Qiita にも執筆しました。
 [Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
 
-## 概要
+## アプリの概要
 
 本の内容が要約されたまとめアプリです。
 
@@ -16,23 +16,6 @@ Qiita にも執筆しました。
 ## 制作背景
 
 購入前に『どんな本だったか知りたい』、『本の内容をアウトプットしたい』、『要約された本の内容を知りたい』、『読む時間を短縮したい』、『本を持ち歩かなくても本の内容をいつでも振り返りたい』と思った背景から開発しました。
-
-## 使用技術
-
-- フロントエンド
-
-  - Vue.js
-  - VueRouter
-  - Vuex
-  - Vuetify
-
-- バックエンド
-
-  - Firebase(Authentication)
-  - GoogleBookAPI / WebStorage(LocalStorage)
-
-- サーバー
-  - Netlify
 
 ## 機能一覧
 
@@ -50,6 +33,23 @@ Qiita にも執筆しました。
   - 投稿内容編集機能
   - 本の削除機能
   - 詳細一覧機能
+
+## 使用技術
+
+- フロントエンド
+
+  - Vue.js
+  - VueRouter
+  - Vuex
+  - Vuetify
+
+- バックエンド
+
+  - Firebase(Authentication)
+  - GoogleBookAPI / WebStorage(LocalStorage)
+
+- サーバー
+  - Netlify
 
 ## 使い方
 
