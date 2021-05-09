@@ -63,7 +63,7 @@ Qiita にも執筆しました。
 
 ## テスト用アカウント <br>
 
-username: test <br>
+UserName: test <br>
 E-mail: shalibo@test.com <br>
 Password: password
 
