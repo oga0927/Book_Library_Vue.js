@@ -45,16 +45,21 @@
             @click="submit"
             :disabled="!valid"
             data-cy="loginSubmitBtn"
-            >
+          >
             ログイン
-            </v-btn
-            >
+          </v-btn>
+          <v-btn 
+            color="info"
+            @click="loginWithGuestUser"
+            data-cy="loginSubmitBtn"
+          >
+            ゲストログイン
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-main>
   </v-form>
 </template>
-
 
 
 <script>
@@ -87,6 +92,10 @@ export default {
         });
       }
     },
+    loginWithGuestUser() {
+      this.$store.dispatch("loginWithGuestUser", 
+      {email: "guests@test.com", password: "guests"})
+    }
   },
 }
 </script>

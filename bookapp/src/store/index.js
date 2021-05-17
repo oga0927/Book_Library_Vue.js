@@ -85,6 +85,22 @@ export default new Vuex.Store({
           router.push('/login');
         });
     },
+    loginWithGuestUser({ commit }, payload) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(payload.email, payload.password)
+        .then(result => {
+          commit('setUserName', result.user.displayName)
+          commit('setUserId', result.user.uid)
+          commit('setIsAuthenticated', true);
+          router.push('/');
+        })
+        .catch(() => {
+          commit('setIsAuthenticated', false);
+          alert('ログインに失敗しました');
+          router.push('/login');
+        });
+    },
     userSignOut({ commit }) {
       firebase
         .auth()
