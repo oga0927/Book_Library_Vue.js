@@ -1,36 +1,12 @@
 <template>
-  <v-app>
-    <app-header/>
-
-    <v-main>
-      <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
-      <v-container>
-        <router-view
-        :books="books"
-        @add-book-list="addBooks"
-        />
-      </v-container>
-    </v-main>
-  <app-footer/>
-
-  </v-app>
+  
 </template>
 
 <script>
-import AppHeader from '@/global/AppHeader'
-import AppFooter from '@/global/AppFooter'
-
 const STORAGE_KEY = 'books'
 
 export default {
-  name: 'App',
-
-  components: {
-    AppHeader,
-    AppFooter,
-    // Home
-  },
-data(){
+  data(){
     return {
       books: [],
     }
@@ -89,10 +65,5 @@ data(){
       this.$router.push(`/edit/${id}`)
     },
   }
-};
-</script>  
-
-<style>
-@import "./assets/css/reset.css";
-@import "./assets/css/style.css";
-</style>
+}
+</script>
