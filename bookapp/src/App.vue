@@ -9,8 +9,6 @@
         :books="books"
         @add-book-list="addBooks"
         />
-        <!-- @update-book-info="updateBookInfo" -->
-        <!-- @delete-local-storage="deleteLocalStorage" -->
       </v-container>
     </v-main>
   <app-footer/>
