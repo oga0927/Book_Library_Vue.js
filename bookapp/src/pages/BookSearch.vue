@@ -19,7 +19,7 @@
       <v-col cols="3">
         <v-btn
           color:
-          to="/"
+          to="/bookindex"
           >一覧に戻る
         </v-btn>
       </v-col>

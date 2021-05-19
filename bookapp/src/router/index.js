@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '@/pages/Home'
 import BookIndex from '@/pages/BookIndex'
 import BookSearch from '@/pages/BookSearch'
 import BookEdit from '@/pages/BookEdit'
@@ -13,7 +14,12 @@ const routes = [
   {
     // 存在しないURL(path)はホームに戻る
     path: '*',
-    redirect: '/login', 
+    redirect: '/bookindex', 
+  },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
   },
   {
     path: '/login',
@@ -21,7 +27,7 @@ const routes = [
     component: LogIn
   },
   {
-    path: '/',
+    path: '/bookindex',
     name: 'BookIndex',
     component: BookIndex,
     meta: {
@@ -47,6 +53,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/postslist',
+    name: 'BookIndex',
+    component: BookIndex
   }
 ];
 

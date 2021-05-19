@@ -67,7 +67,7 @@
                   {{ book.different }}
               </v-textarea>
               <v-card-actions>
-                <v-btn color="secondary" to="/">一覧に戻る</v-btn>
+                <v-btn color="secondary" to="/bookindex">一覧に戻る</v-btn>
                 <!-- 投稿した本のuserIdとログイン中のuserIdが同じなら投稿ボタンを表示 -->
                 <v-btn 
                   v-if="book.userId === this.$store.state.userId" 

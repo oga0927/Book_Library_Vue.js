@@ -67,7 +67,7 @@
           >ログアウト</v-btn>
       </div>
     </v-app-bar>
-    <v-img src="../assets/書籍MV.png"></v-img>
+    <!-- <v-img src="../assets/書籍MV.png"></v-img> -->
   </span>
 </template>
 

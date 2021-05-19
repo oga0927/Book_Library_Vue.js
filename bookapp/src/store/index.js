@@ -61,7 +61,8 @@ export default new Vuex.Store({
           commit('setUserName', userName)
           commit('setUserId', result.user.uid)
           commit('setIsAuthenticated', true);
-          router.push('/');
+          // ユーザー登録したら投稿一覧画面
+          router.push('/bookindex');
         })
         .catch(() => {
           commit('setIsAuthenticated', false);
@@ -77,7 +78,8 @@ export default new Vuex.Store({
           commit('setUserName', result.user.displayName)
           commit('setUserId', result.user.uid)
           commit('setIsAuthenticated', true);
-          router.push('/');
+          // ログインしたら投稿一覧画面
+          router.push('/bookindex');
         })
         .catch(() => {
           commit('setIsAuthenticated', false);
@@ -93,7 +95,8 @@ export default new Vuex.Store({
           commit('setUserName', result.user.displayName)
           commit('setUserId', result.user.uid)
           commit('setIsAuthenticated', true);
-          router.push('/');
+          // ログインしたら投稿一覧画面
+          router.push('/bookindex');
         })
         .catch(() => {
           commit('setIsAuthenticated', false);
@@ -107,7 +110,7 @@ export default new Vuex.Store({
         .signOut()
         .then(() => {
           commit('setIsAuthenticated', false);
-          router.push('app');
+          router.push('/');
         })
         .catch(() => {
           commit('setIsAuthenticated', false);
@@ -122,12 +125,12 @@ export default new Vuex.Store({
         .then(() => {
           commit("setIsAuthenticated", false);
           alert('アカウントを削除しました')
-          router.push("/");
+          router.push('/');
         })
         .catch(() => {
           commit("setIsAuthenticated", false);
           alert('アカウントを削除に失敗しました')
-          router.push("/");
+          router.push('/');
         });
     },
   },

@@ -1,11 +1,12 @@
 <template>
-  
+  <kodomo @add-book-list="addBooks"></kodomo>
 </template>
 
 <script>
 const STORAGE_KEY = 'books'
 
 export default {
+  name: 'PostsList',
   data(){
     return {
       books: [],

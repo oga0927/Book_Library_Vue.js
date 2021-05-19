@@ -1,7 +1,6 @@
 <template>
-  <v-app>
+  <v-app fluid>
     <app-header/>
-
     <v-main>
       <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
       <v-container>
@@ -28,7 +27,6 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-    // Home
   },
 data(){
     return {
