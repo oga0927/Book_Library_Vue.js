@@ -111,7 +111,7 @@ export default {
       // saveBooksにアクセスして保存
       this.saveBooks()
       // 保存した後にトップページに戻る
-      this.$router.push('/')
+      this.$router.push('/bookindex')
       
     },
     saveBooks() {
