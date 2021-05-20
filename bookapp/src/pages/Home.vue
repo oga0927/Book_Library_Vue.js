@@ -14,6 +14,9 @@ export default {
 .container {
   padding: 0px;
 }
+.v-main {
+  flex: 0 auto;
+}
 
 @media screen {
   .container {

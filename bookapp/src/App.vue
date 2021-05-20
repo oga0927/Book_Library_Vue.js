@@ -93,4 +93,8 @@ data(){
 <style>
 @import "./assets/css/reset.css";
 @import "./assets/css/style.css";
+
+.v-main {
+  flex: 0 auto;
+}
 </style>

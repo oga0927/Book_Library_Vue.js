@@ -116,3 +116,9 @@ export default {
 }
 
 </script>
+
+<style>
+  .row {
+    margin: 12px;
+  }
+</style>
