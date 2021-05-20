@@ -18,7 +18,7 @@
         </div>
         <div v-else>
           <p>
-            <v-btn text to="/" dark>ホーム</v-btn>
+            <v-btn text to="/bookindex" dark>ホーム</v-btn>
           </p>
           <p>
             <v-btn text to ="/search" dark>投稿する</v-btn>
@@ -60,7 +60,7 @@
         </v-btn>
       </div>
       <div v-else class="hidden-sm-and-down">
-        <v-btn text to="/" dark>ホーム</v-btn>
+        <v-btn text to="/bookindex" dark>ホーム</v-btn>
           <v-btn text to="/search" dark>投稿する</v-btn>
           <v-btn text to="/profile" dark>マイページ</v-btn>
           <v-btn text @click="logout"

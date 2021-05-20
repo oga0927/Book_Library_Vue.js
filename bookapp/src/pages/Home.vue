@@ -15,4 +15,10 @@ export default {
   padding: 0px;
 }
 
+@media screen {
+  .container {
+    max-width: 100%;
+  }
+}
+
 </style>
