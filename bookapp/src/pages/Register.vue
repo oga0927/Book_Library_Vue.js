@@ -43,7 +43,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           
-          <p mr-4>既にアカウントをお持ちですか？
+          <p mr-4 >既にアカウントをお持ちですか？
             <router-link to="/login">ログインはこちらから</router-link>
           </p>
           <v-spacer></v-spacer>
@@ -100,6 +100,10 @@ export default {
 
 p a{
   text-decoration: none;
+}
+
+p {
+  font-size: 14px;
 }
 
 .v-card__actions {
