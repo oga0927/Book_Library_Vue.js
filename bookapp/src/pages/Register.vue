@@ -96,8 +96,13 @@ export default {
 }
 </script>
 
-<style scoped>
-  p a{
-    text-decoration: none;
-  }
+<style>
+
+p a{
+  text-decoration: none;
+}
+
+.v-card__actions {
+  margin-bottom: 30px;
+}
 </style>

@@ -87,3 +87,10 @@
   }
 };
 </script>
+
+<style>
+
+  .v-app-bar {
+    left: 0px !important;
+  }
+</style>
