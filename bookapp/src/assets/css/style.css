@@ -22,18 +22,11 @@ a {
   text-decoration: none;
 }
 
-
-/* .v-image__image{
-  top: 28px;
-} */
-
-/* Home */
-
-/* .home {
-  background-image: url("~@/assets/書籍MV.png");
-  background-color: rgba(255, 255, 255, 0.4);
+.home {
+  background: url("~@/assets/book_mv.jpg");
+  background-color: rgba(255, 255, 255, 0.2);
   background-blend-mode: lighten;
   background-size: cover;
   width: 100%;
-  height: 100%;
-} */
+  height: 50vh;
+}
