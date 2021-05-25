@@ -145,3 +145,28 @@ Password: password<br>
 - アカウント削除ボタンをクリックすると、firebase の Authentication から UserId が削除されます。
 
 ![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/20aa7809-fb60-c32f-b4a9-9f7d17917e23.gif)
+
+<br>
+<br>
+
+### 8. レスポンシブ対応
+
+- Vuetify を使用してスマートフォンからでも使用可能
+- デバイスによってハンバーガーメニューを実装
+  <br>
+  <br>
+
+### 9. 工夫したところ（機能面）
+
+#### ① フォームにバリデーションを実装
+
+・目のマークをクリックで入力したパスワードを確認。
+・登録済みのアドレスはアラートでお知らせ
+<br>
+<br>
+
+#### ② 質問テンプレートについて
+
+・読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
+（本来は質問事項がもっと多い、一部抜粋）
+![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
