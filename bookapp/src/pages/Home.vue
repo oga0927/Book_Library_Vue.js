@@ -9,7 +9,7 @@
           <div class="font-weight-black deep-orange--text text--accent-4 text-center description">
             「読書管理SHALIBO」
           </div>
-          <v-btn color="primary" dark to="/bookindex">本を投稿する</v-btn>
+          <!-- <v-btn color="primary" dark to="/bookindex">本を投稿する</v-btn> -->
         </div>
       </v-layout>
     </v-container>
