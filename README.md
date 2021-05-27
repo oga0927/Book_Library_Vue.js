@@ -60,6 +60,13 @@ Qiita にも執筆しました。
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
 
+## テスト用アカウント <br>
+
+UserName: test <br>
+E-mail: shalibo@test.com <br>
+Password: password
+ゲストログインから簡単にアクセスできます
+
 ## 使い方
 
 - ユーザー登録にアクセスすると、登録画面に切り替わるのでユーザーネーム、e-mail、パスワードを入力して登録ボタンを押します。（ユーザーネームを入力しない場合はゲストログイン名として表示されます）
@@ -69,12 +76,6 @@ Qiita にも執筆しました。
 - 投稿した本とユーザー id が紐づいており、他のユーザーが書き込めないように投稿リストにはログイン中のユーザー id と紐づいた本のみ削除、投稿ボタンの表示非表示されます。
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと LocalStorage から該当する本のデータが削除されます。
 - ヘッダーのロゴ（SHALIBO）を押すとトップページへリダイレクトされます。
-
-## テスト用アカウント <br>
-
-UserName: test <br>
-E-mail: shalibo@test.com <br>
-Password: password
 
 ## ライセンス
 
