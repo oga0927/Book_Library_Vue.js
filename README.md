@@ -54,6 +54,7 @@ Qiita にも執筆しました。
 
 <br>
 <br>
+
 ## ER 図
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
@@ -77,7 +78,6 @@ Password: password<br>
 ## 使い方
 
 <br>
-<br>
 
 ### 1. ユーザー登録
 
@@ -85,12 +85,10 @@ Password: password<br>
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
 <br>
 <br>
-<br>
 
 ### 2. ログイン
 
 アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
-<br>
 <br>
 <br>
 
@@ -132,8 +130,11 @@ Password: password<br>
 - ログイン中は LocalStorage の UserId と firebase の UserId と紐づいている本のみ削除ボタンが表示。
 - ヘッダーのロゴ（SHALIBO）を押すとトップページへリダイレクト。
   ![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/e6951467-d473-2879-3381-78645d338b8c.gif)
+  <br>
+  <br>
+  <br>
 
-###7. 投稿した本、アカウント削除
+### 7. 投稿した本、アカウント削除
 
 - 投稿した本の一覧を表示。
 - 編集ボタンで投稿した本の内容を修正。
