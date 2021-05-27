@@ -7,18 +7,28 @@ https://shalibo.netlify.app/
 Qiita にも執筆しました。
 [Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
 <br>
+<br>
 
-## アプリの概要
+## URL
 
-本の内容が要約されたまとめアプリです。
-
-読書した本をアプリの質問に応じて書くとアウトプットになります。GoogleBookAPI を使って本の検索ができます。マイページで投稿した本の要約を読み返すことができ、
-トップページでは他のユーザーが要約して投稿した本を見ることもできます。購入する際の参考や本を持ち歩かなくてもいつでも確認ができます。投稿した本はトップページで表示され、
-ログイン中のアカウントと紐づいた本を編集、削除することが可能です。投稿した本の情報を共有することもできます。スマートフォン用にレスポンシブ対応しています。
+- URL: https://shalibo.netlify.app/
+- ユーザー:ゲストログインから簡単にアクセスできます
 
 ## 制作背景
 
 購入前に『どんな本か知りたい』、『本の内容をアウトプットしたい』、『要約された本の内容を知りたい』、『読む時間を短縮したい』、『本の内容を振り返りたい』と思った背景から開発しました。
+
+## 使用技術
+
+- Vue 2.6.12
+- VueRouter
+- Vuex 3.6.2
+- Vuetify 2.4.7
+- JavaScript
+- GoogleBooksAPI
+- WEB サーバー: Netlify
+- DB: WebStorage(LocalStorage)
+- DB(認証のみ): Firebase(Authentication)
 
 ## 機能一覧
 
@@ -29,29 +39,12 @@ Qiita にも執筆しました。
 | ３   | ログイン機能 　　　　　　         |
 | ４   | ゲストユーザーログイン機能 　　   |
 | ５   | ログアウト機能　　　　　　　　    |
-| ６   | 本の検索機能 　                   |
+| ６   | 本の検索機能(Ajax) 　             |
 | ７   | 本の登録機能(CRUD) 　             |
 | ８   | 投稿内容編集機能(CRUD)            |
-| ９   | コメント機能(Ajax)                |
+| ９   | コメント機能                      |
 | １０ | 本の詳細一覧機能 　               |
 | １１ | マイページ機能                    |
-
-## 使用技術
-
-- フロントエンド
-
-  - Vue.js
-  - VueRouter
-  - Vuex
-  - Vuetify
-
-- バックエンド
-
-  - Firebase(Authentication)
-  - GoogleBookAPI / WebStorage(LocalStorage)
-
-- サーバー
-  - Netlify
 
 ## ER 図
 
@@ -66,12 +59,6 @@ Qiita にも執筆しました。
 UserName: test <br>
 E-mail: shalibo@test.com <br>
 Password: password<br>
-ユーザー:ゲストログインから簡単にアクセスできます
-
-## ライセンス
-
-- GitHub: https://github.com/oga0927/Book_Library_Vue.js
-- URL: https://shalibo.netlify.app/
 
 ## 使い方
 
@@ -79,16 +66,25 @@ Password: password<br>
 
 ヘッダーのユーザー登録を押して、フォームに UserName、Email、Password を入力して登録。
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
+<br>
+<br>
+<br>
 
 ### 2. ログイン
 
 アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
+<br>
+<br>
+<br>
 
 ### 3. トップページ
 
 最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
 ユーザー登録を配置して、router-link でフォームを描画しています。
 ![ログイン.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/37931565-16df-a4f9-4ca1-0fdfa9dfeeaa.gif)
+<br>
+<br>
+<br>
 
 ### 4. ユーザー認証
 
@@ -99,6 +95,9 @@ Password: password<br>
 『おすすめの一冊を投稿ボタン』を表示させています。
 
 ![yu-za-touroku.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5a956354-15d8-62e8-12e0-d36b4f349314.gif)
+<br>
+<br>
+<br>
 
 ### 5. 検索
 
