@@ -21,23 +21,6 @@ Qiita にも執筆しました。
 
 ## 機能一覧
 
-- 認証機能
-
-  - ユーザー登録
-  - ログイン機能
-  - ログアウト機能
-  - アカウント削除機能
-
-- CRUD 機能
-
-  - 本のタイトル検索
-  - 本の投稿機能
-  - 投稿内容編集機能
-  - 本の削除機能
-  - 詳細一覧機能
-
-##機能一覧
-
 |      | 　　　　　　 機能　 　　　　 　　 |
 | :--- | :-------------------------------- |
 | １   | アカウント登録機能 　             |
@@ -68,6 +51,14 @@ Qiita にも執筆しました。
 
 - サーバー
   - Netlify
+
+## ER 図
+
+![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
+
+## インフラ構成図
+
+![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
 
 ## 使い方
 
