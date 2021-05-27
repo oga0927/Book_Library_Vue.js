@@ -13,10 +13,14 @@ Qiita にも執筆しました。
 
 - URL: https://shalibo.netlify.app/
 - ユーザー:ゲストログインから簡単にアクセスできます
+  <br>
+  <br>
 
 ## 制作背景
 
 購入前に『どんな本か知りたい』、『本の内容をアウトプットしたい』、『要約された本の内容を知りたい』、『読む時間を短縮したい』、『本の内容を振り返りたい』と思った背景から開発しました。
+<br>
+<br>
 
 ## 使用技術
 
@@ -29,6 +33,8 @@ Qiita にも執筆しました。
 - WEB サーバー: Netlify
 - DB: WebStorage(LocalStorage)
 - DB(認証のみ): Firebase(Authentication)
+  <br>
+  <br>
 
 ## 機能一覧
 
@@ -46,21 +52,32 @@ Qiita にも執筆しました。
 | １０ | 本の詳細一覧機能 　               |
 | １１ | マイページ機能                    |
 
+<br>
+<br>
 ## ER 図
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
+<br>
+<br>
 
 ## インフラ構成図
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
+<br>
+<br>
 
 ## テスト用アカウント <br>
 
 UserName: test <br>
 E-mail: shalibo@test.com <br>
 Password: password<br>
+<br>
+<br>
 
 ## 使い方
+
+<br>
+<br>
 
 ### 1. ユーザー登録
 
