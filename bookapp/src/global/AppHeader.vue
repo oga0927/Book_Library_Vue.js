@@ -38,7 +38,7 @@
       <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
       </v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
-      <router-link to="/">
+      <router-link to="/bookindex">
         <v-toolbar-title to="/">
           {{ appTitle }}
         </v-toolbar-title>

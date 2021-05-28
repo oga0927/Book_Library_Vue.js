@@ -33,9 +33,6 @@
         </v-btn>
       </v-col>
     </v-row>
-
-
-    
     <v-row>
       <v-col 
         cols="12" 
@@ -43,13 +40,13 @@
         v-for="(book, index) in books" 
         :key="index"
       >
-        <v-card  class="mb-8">
+        <v-card class="mb-1">
           <v-row>
             <v-col cols="5">
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="7">
+            <v-col cols="">
               <v-card-title >{{ book.title }}</v-card-title>
               <v-spacer></v-spacer>
               <v-card-actions>

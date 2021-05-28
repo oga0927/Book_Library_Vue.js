@@ -1,9 +1,9 @@
 <template>
   <div>
-    <p v-if="getStateUserName">こんにちは！
+    <p class="login_message"  v-if="getStateUserName">こんにちは！
       {{ getStateUserName }}さん
       </p>
-      <p v-else>こんにちは！ゲストユーザーさん</p>
+      <p class="login_message" v-else>こんにちは！ゲストユーザーさん！</p>
       <p>
         <v-btn
           color="orange lighten-1"
@@ -118,5 +118,9 @@ export default {
 <style>
   .row {
     margin: 12px;
+  }
+  .login_message {
+    font-size: 20px;
+    padding: 20px;
   }
 </style>
