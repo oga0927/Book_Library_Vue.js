@@ -26,7 +26,6 @@
           <v-col 
             cols="12" 
             sm="6" 
-            md="6" 
             v-for="(book, index) in books" 
             :key="index"
           >
@@ -34,11 +33,11 @@
           <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
           <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
             <v-row>
-              <v-col cols="3">
+              <v-col cols="5">
                 <!-- 画像が表示される -->
                 <v-img :src="book.image"></v-img>
               </v-col>
-              <v-col cols="9">
+              <v-col cols="7">
                 <v-card-title >{{ book.title }}</v-card-title>
                 <v-spacer></v-spacer>
                 <v-card-actions>

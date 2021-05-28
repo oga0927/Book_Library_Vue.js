@@ -34,7 +34,12 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" sm="6" v-for="(book, index) in books" :key="index">
+      <v-col 
+        cols="12" 
+        sm="6" 
+        v-for="(book, index) in books" 
+        :key="index"
+      >
         <v-card  class="mb-8">
           <v-row>
             <v-col cols="5">
