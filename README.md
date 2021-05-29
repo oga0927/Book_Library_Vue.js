@@ -1,4 +1,6 @@
 ![投稿](https://user-images.githubusercontent.com/73045514/116842216-c5a33e80-ac16-11eb-93a6-c3ddc06b8c77.jpg)
+<br>
+<br>
 
 ## プロジェクト名 SHALIBO
 
@@ -29,6 +31,7 @@ Qiita にも執筆しました。
 - Vuex 3.6.2
 - Vuetify 2.4.7
 - JavaScript
+- CSS
 - GoogleBooksAPI
 - WEB サーバー: Netlify
 - DB: WebStorage(LocalStorage)
@@ -58,6 +61,7 @@ Qiita にも執筆しました。
 ## ER 図
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
+<br>
 <br>
 <br>
 
@@ -94,6 +98,7 @@ Password: password<br>
 
 ### 3. トップページ
 
+<br>
 最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
 ユーザー登録を配置して、router-link でフォームを描画しています。
 ![ログイン.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/37931565-16df-a4f9-4ca1-0fdfa9dfeeaa.gif)
@@ -103,6 +108,7 @@ Password: password<br>
 
 ### 4. ユーザー認証
 
+<br>
 ・ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
 ・ログインするとヘッダーにホーム、投稿する、マイページ、ログアウトのボタンが表示されます。
 ・firebase の Authentication から UserId を取得し、store に格納、state から UserId を呼び出し、投稿するときに LocalStorage の UserId と紐づけて v-for で一覧表示。
