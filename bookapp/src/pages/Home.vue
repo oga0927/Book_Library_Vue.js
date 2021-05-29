@@ -19,10 +19,10 @@
         <h4>SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
         本で得た知識を投稿して自分のものにしましょう！
         </h4>
+      <!-- <v-img src="../assets/LP_読書アプリ.jpg"></v-img> -->
       </div>
     </v-main>
   </section>
-  
 </template>
 
 <script>

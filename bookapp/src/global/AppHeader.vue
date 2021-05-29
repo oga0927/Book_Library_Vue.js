@@ -8,6 +8,7 @@
       dark>
       <v-list class="mx-auto">
         <div v-if="!$store.state.isAuthenticated">
+          
           <v-btn text to="/login">ログイン</v-btn>
           <v-btn
             text
@@ -33,12 +34,12 @@
         </div>
       </v-list>
     </v-navigation-drawer>
-
+<!-- ここまで -->
     <v-app-bar app color="blue-grey darken-3" dark>
       <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
       </v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
-      <router-link to="/bookindex">
+      <router-link to="/">
         <v-toolbar-title to="/">
           {{ appTitle }}
         </v-toolbar-title>
@@ -46,7 +47,8 @@
     
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div class="hidden-md-and-up">
-        <!-- ハンバーガーメニュー -->
+
+        <!-- ヘッダーメニュー -->
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </div>
       <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
@@ -67,7 +69,6 @@
           >ログアウト</v-btn>
       </div>
     </v-app-bar>
-    <!-- <v-img src="../assets/書籍MV.png"></v-img> -->
   </span>
 </template>
 
