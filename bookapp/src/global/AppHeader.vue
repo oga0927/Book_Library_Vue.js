@@ -34,7 +34,7 @@
         </div>
       </v-list>
     </v-navigation-drawer>
-<!-- ここまで -->
+    <!-- ここまで -->
     <v-app-bar app color="blue-grey darken-3" dark>
       <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
       </v-icon>
