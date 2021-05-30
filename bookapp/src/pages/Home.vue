@@ -18,9 +18,9 @@
             </div>
           </div>
           <div class="contents">
-            <p class="contents_title">読書内容を記録</p>
+            <p class="contents_title">投稿記録</p>
             <div class="contents_discription">
-              <p>読み終えたら、読書した内容を質問テンプレートに沿って記録してみてください</p>
+              <p>読書した本の内容を記録。投稿した本はマイページに保存が残ります。</p>
             </div>
           </div>
           <div class="contents">
@@ -32,30 +32,7 @@
         </div>
       </div>
       
-      <div class="features">
-        <h2>Recalで できること</h2>
-        <div class="function-list">
-          <div class="function">
-            <p class="function-title">食事内容を記録</p>
-            <div class="function-description">
-            <p>朝食、昼食、夕食の内容を記録できます。是非毎日の食事内容を記録して栄養のバランスを考えるキッカケにしてみてください。</p>
-          </div>
-        </div>
-          <div class="function">
-            <p class="function-title">レシピを検索</p>
-            <div class="function-description">
-              <p>レシピの検索ができます。何を作ろうか迷った時にはピックアップメニューをチェック！</p>
-            </div>
-          </div>
-          <div class="function">
-            <p class="function-title">飲食店を検索</p>
-            <div class="function-description">
-              <p>外食をしようと思った時には飲食店を検索！目的の地域とフリーワードを入力して行きたいお店を探してみてください。
-              </p>
-            </div>
-          </div>
-      </div>
-    </div>
+      
     </v-main>
   </section>
 </template>
