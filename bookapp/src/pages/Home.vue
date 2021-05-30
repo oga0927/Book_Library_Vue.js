@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <v-container fluid fill-height class="home"></v-container>
+    <v-container class="home"></v-container>
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
@@ -31,8 +31,6 @@
           </div>
         </div>
       </div>
-      
-      
     </v-main>
   </section>
 </template>
@@ -44,13 +42,14 @@ export default {
 </script>
 
 <style>
+
 .container {
   padding: 0px;
 }
-.v-main {
+/* .v-main {
   flex: 0 auto;
-  padding: 56px 0 500px 0 !important;
-}
+  padding: 56px 0 520px 0 !important;
+} */
 
 .title {
   width: 50%;
@@ -85,25 +84,27 @@ export default {
   text-align: center;
 }
 
-.function-list{
-  display: flex;
-  margin-top: 50px;
-}
-.function{
-  width: 30%;
-  margin: 0 30px;
-}
-.function-title{
-  border: solid 3px orange;
-  padding: 0.5em;
-  border-radius: 0.5em;
-}
-.benefit{
+.features{
   width: 100%;
   height: 350px;
+  margin: 50px 0;
   padding: 48px 0px;
   text-align: center;
   background-color: #f0e8df;
+}
+
+.features_list{
+  display: flex;
+  margin-top: 50px;
+}
+.contents{
+  width: 30%;
+  margin: 0 30px;
+}
+.contents_title{
+  border: solid 3px orange;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 
 @media screen {

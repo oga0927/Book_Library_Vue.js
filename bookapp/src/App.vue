@@ -1,17 +1,16 @@
 <template>
   <v-app fluid>
     <app-header/>
-    <v-main>
-      <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
-      <v-container>
-        <router-view
-        :books="books"
-        @add-book-list="addBooks"
-        />
-      </v-container>
-    </v-main>
-  <app-footer/>
-
+      <v-main>
+        <!-- App.vueに入れることで自動でcontainerに割り当てられる -->
+        <v-container>
+          <router-view
+          :books="books"
+          @add-book-list="addBooks"
+          />
+        </v-container>
+      </v-main>
+    <app-footer/>
   </v-app>
 </template>
 

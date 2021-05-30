@@ -1,21 +1,22 @@
 <template>
   <span>
     <!-- drawerナビゲーション -->
-    <v-navigation-drawer 
+    <!-- <v-navigation-drawer 
       app 
       v-model="drawer" 
       class="brown darken-4 hidden-md-and-up" 
-      dark>
+      dark
+    >
       <v-list class="mx-auto">
         <div v-if="!$store.state.isAuthenticated">
-          
           <v-btn text to="/login">ログイン</v-btn>
           <v-btn
             text
             to="/register"
             class="register"
-            >ユーザー登録</v-btn
-            >
+          >
+            ユーザー登録
+          </v-btn>
         </div>
         <div v-else>
           <p>
@@ -30,12 +31,16 @@
           <p>
             <v-btn text @click="logout">ログアウト</v-btn>
           </p>
-
         </div>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <!-- ここまで -->
-    <v-app-bar app color="grey darken-4" dark>
+
+    <!-- <v-app-bar 
+      app color="grey darken-4" 
+      dark
+      class="nav"
+    >
       <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
       </v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
@@ -48,7 +53,7 @@
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div class="hidden-md-and-up">
 
-        <!-- ヘッダーメニュー -->
+        ヘッダーメニュー
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </div>
       <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
@@ -68,7 +73,7 @@
           <v-btn text @click="logout"
           >ログアウト</v-btn>
       </div>
-    </v-app-bar>
+    </v-app-bar> -->
   </span>
 </template>
 
@@ -90,7 +95,9 @@
 </script>
 
 <style>
-
+  .nav {
+    position: fixed !important;
+  }
   .v-app-bar {
     left: 0px !important;
   }
