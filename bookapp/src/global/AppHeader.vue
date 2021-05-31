@@ -1,40 +1,6 @@
 <template>
   <span>
-    <!-- drawerナビゲーション -->
-    <!-- <v-navigation-drawer 
-      app 
-      v-model="drawer" 
-      class="mx-auto overflow-hidden" 
-      dark
-    >
-      <v-list class="mx-auto">
-        <div v-if="!$store.state.isAuthenticated">
-          <v-btn text to="/login">ログイン</v-btn>
-          <v-btn
-            text
-            to="/register"
-            class="register"
-          >
-            ユーザー登録
-          </v-btn>
-        </div>
-        <div v-else>
-          <p>
-            <v-btn text to="/bookindex" dark>ホーム</v-btn>
-          </p>
-          <p>
-            <v-btn text to ="/search" dark>投稿する</v-btn>
-          </p>
-          <p>
-            <v-btn text to="/profile" dark>マイページ</v-btn>
-          </p>
-          <p>
-            <v-btn text @click="logout">ログアウト</v-btn>
-          </p>
-        </div>
-      </v-list>
-    </v-navigation-drawer> -->
-
+    <!-- ナビゲーション -->
     <v-navigation-drawer 
       v-model="drawer"
       absolute
@@ -44,27 +10,27 @@
     >
       <v-list class="mx-auto">
         <div v-if="!$store.state.isAuthenticated">
-          <v-btn text to="/login">ログイン</v-btn>
+          <v-btn class="white--text" text to="/login">ログイン</v-btn>
           <v-btn
             text
             to="/register"
-            class="register"
+            class="register white--text"
           >
             ユーザー登録
           </v-btn>
         </div>
         <div v-else>
           <p>
-            <v-btn text to="/bookindex">ホーム</v-btn>
+            <v-btn class="white--text" text to="/bookindex">ホーム</v-btn>
           </p>
           <p>
-            <v-btn text to ="/search">投稿する</v-btn>
+            <v-btn class="white--text" text to ="/search">投稿する</v-btn>
           </p>
           <p>
-            <v-btn text to="/profile">マイページ</v-btn>
+            <v-btn class="white--text" text to="/profile">マイページ</v-btn>
           </p>
           <p>
-            <v-btn text @click="logout">ログアウト</v-btn>
+            <v-btn class="white--text" text @click="logout">ログアウト</v-btn>
           </p>
         </div>
       </v-list>
