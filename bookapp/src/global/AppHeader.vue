@@ -4,7 +4,7 @@
     <!-- <v-navigation-drawer 
       app 
       v-model="drawer" 
-      class="brown darken-4 hidden-md-and-up" 
+      class="mx-auto overflow-hidden" 
       dark
     >
       <v-list class="mx-auto">
@@ -34,15 +34,52 @@
         </div>
       </v-list>
     </v-navigation-drawer> -->
-    <!-- ここまで -->
 
-    <!-- <v-app-bar 
-      app color="grey darken-4" 
+    <v-navigation-drawer 
+      v-model="drawer"
+      absolute
+      left
+      temporary
+      class="grey darken-4"
+    >
+      <v-list class="mx-auto">
+        <div v-if="!$store.state.isAuthenticated">
+          <v-btn text to="/login">ログイン</v-btn>
+          <v-btn
+            text
+            to="/register"
+            class="register"
+          >
+            ユーザー登録
+          </v-btn>
+        </div>
+        <div v-else>
+          <p>
+            <v-btn text to="/bookindex">ホーム</v-btn>
+          </p>
+          <p>
+            <v-btn text to ="/search">投稿する</v-btn>
+          </p>
+          <p>
+            <v-btn text to="/profile">マイページ</v-btn>
+          </p>
+          <p>
+            <v-btn text @click="logout">ログアウト</v-btn>
+          </p>
+        </div>
+      </v-list>
+    </v-navigation-drawer>
+    <!-- ここまで -->
+    
+    <v-app-bar 
+      app 
+      color="grey darken-4" 
       dark
       class="nav"
+      absolute
+      temporary
     >
-      <v-icon class="hidden-lg-and-up" @click="drawer = !drawer">
-      </v-icon>
+      <v-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <router-link to="/">
         <v-toolbar-title to="/">
@@ -53,10 +90,10 @@
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div class="hidden-md-and-up">
 
-        ヘッダーメニュー
+        <!-- ヘッダーメニュー -->
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </div>
-      <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down" >
+      <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down">
         <v-btn text to="/login">ログイン</v-btn>
         <v-btn
           text
@@ -67,13 +104,13 @@
         </v-btn>
       </div>
       <div v-else class="hidden-sm-and-down">
-        <v-btn text to="/bookindex" dark>ホーム</v-btn>
-          <v-btn text to="/search" dark>投稿する</v-btn>
-          <v-btn text to="/profile" dark>マイページ</v-btn>
+        <v-btn text to="/bookindex" >ホーム</v-btn>
+          <v-btn text to="/search" >投稿する</v-btn>
+          <v-btn text to="/profile" >マイページ</v-btn>
           <v-btn text @click="logout"
           >ログアウト</v-btn>
       </div>
-    </v-app-bar> -->
+    </v-app-bar>
   </span>
 </template>
 
@@ -95,10 +132,12 @@
 </script>
 
 <style>
-  .nav {
+  /* .nav {
     position: fixed !important;
-  }
-  .v-app-bar {
+  } */
+  /* .v-app-bar {
     left: 0px !important;
-  }
+  } */
+
 </style>
+
