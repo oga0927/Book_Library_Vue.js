@@ -14,7 +14,7 @@
           <div class="contents">
             <p class="contents_title">アウトプット機能</p>
             <div class="contents_discription">
-              <p>読んだ本の内容を質問に答えてアウトプットしてみてください</p>
+              <p>読み終えたら、読書した内容を質問テンプレートに沿って記録することができます。</p>
             </div>
           </div>
           <div class="contents">
