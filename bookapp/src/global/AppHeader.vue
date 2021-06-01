@@ -97,13 +97,3 @@
 };
 </script>
 
-<style>
-  /* .nav {
-    position: fixed !important;
-  } */
-  /* .v-app-bar {
-    left: 0px !important;
-  } */
-
-</style>
-

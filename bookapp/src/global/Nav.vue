@@ -1,46 +1,46 @@
-<template>
-  <v-navigation-drawer
-    v-model="$store.state.drawer"
-    absolute
-    temporary
-    app
-    class="nav"
-  >
-  <v-list nav>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title></v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-
-    <v-divider></v-divider>
-
-      <v-list-item
-        v-for="(item, index) in items"
-        :key="index"
-        :to="item.link"
-      >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
-</template>
+<!-- drawerナビゲーション -->
+    <!-- <v-navigation-drawer 
+      app 
+      v-model="drawer" 
+      class="brown darken-4 hidden-md-and-up" 
+      dark
+    >
+      <v-list class="mx-auto">
+        <div v-if="!$store.state.isAuthenticated">
+          <v-btn text to="/login">ログイン</v-btn>
+          <v-btn
+            text
+            to="/register"
+            class="register"
+          >
+            ユーザー登録
+          </v-btn>
+        </div>
+        <div v-else>
+          <p>
+            <v-btn text to="/bookindex" dark>ホーム</v-btn>
+          </p>
+          <p>
+            <v-btn text to ="/search" dark>投稿する</v-btn>
+          </p>
+          <p>
+            <v-btn text to="/profile" dark>マイページ</v-btn>
+          </p>
+          <p>
+            <v-btn text @click="logout">ログアウト</v-btn>
+          </p>
+        </div>
+      </v-list>
+    </v-navigation-drawer> -->
+    <!-- ここまで -->
 
 <script>
-export default {
-  data () {
-    return {
-      items: [
-        { title: 'ログイン', icon: 'mdi-view-dashboard', link:{ name: 'login'} },
-        { title: 'ユーザー登録', icon: 'mdi-forum', link: { name: 'register'} },
-      ],
+  export default {
+    name: "Nav",
+    data() {
+      return {
+        drawer: false
+      }
     }
-  },
-}
+  }
 </script>
