@@ -24,9 +24,9 @@
             </div>
           </div>
           <div class="contents">
-            <p class="contents_title">読書内容を記録</p>
+            <p class="contents_title">編集機能</p>
             <div class="contents_discription">
-              <p>読み終えたら、読書した内容を質問テンプレートに沿って記録してみてください</p>
+              <p>コメント編集で文字の付け足しや、削除ができます。</p>
             </div>
           </div>
         </div>
@@ -87,8 +87,8 @@ export default {
 .features{
   width: 100%;
   height: 350px;
-  margin: 50px 0;
-  padding: 48px 0px;
+  margin: 50px 0 0 0;
+  padding: 48px 0 0 0;
   text-align: center;
   background-color: #f0e8df;
 }

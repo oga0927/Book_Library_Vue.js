@@ -58,10 +58,8 @@
                 >
                 投稿をみる
                 </v-btn>
+                
                 <v-spacer></v-spacer>
-                <v-btn icon>
-                <v-icon>mdi-bookmark</v-icon>
-              </v-btn>
                 <div
                   v-if="book.userId === $store.state.userId"
                   >

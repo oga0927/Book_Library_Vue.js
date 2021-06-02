@@ -94,7 +94,7 @@ export default {
     },
     loginWithGuestUser() {
       this.$store.dispatch("loginWithGuestUser", 
-      {email: "guests.test@test.com", password: "password"})
+      {email: "guests@test.com", password: "guests"})
     }
   },
 }
