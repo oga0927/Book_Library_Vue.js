@@ -71,10 +71,9 @@
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn text to="/bookindex" >ホーム</v-btn>
-          <v-btn text to="/search" >投稿する</v-btn>
-          <v-btn text to="/profile" >マイページ</v-btn>
-          <v-btn text @click="logout"
-          >ログアウト</v-btn>
+        <v-btn text to="/search" >投稿する</v-btn>
+        <v-btn text to="/profile" >マイページ</v-btn>
+        <v-btn text @click="logout">ログアウト</v-btn>
       </div>
     </v-app-bar>
   </span>

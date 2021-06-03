@@ -43,7 +43,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           
-          <p mr-4 >既にアカウントをお持ちですか？
+          <p  class="account__message" mr-4 >既にアカウントをお持ちですか？<br>
             <router-link to="/login">ログインはこちらから</router-link>
           </p>
           <v-spacer></v-spacer>
@@ -52,8 +52,8 @@
             @click="submit"
             :disabled="!valid"
             data-cy="registerSubmitBtn"
-          >登録</v-btn
-          >
+          >登録
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-main>
@@ -96,17 +96,17 @@ export default {
 }
 </script>
 
-<style>
-
-p a{
-  text-decoration: none;
-}
-
-p {
-  font-size: 14px;
-}
+<style scoped>
 
 .v-card__actions {
   margin-bottom: 30px;
 }
+
+@media (max-width: 576px) {
+  .account__message {
+    font-size: 0.9rem;
+  }
+}
+
+
 </style>

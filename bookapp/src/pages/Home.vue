@@ -4,28 +4,28 @@
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
-        <h4>SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
+        <p>SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
         本で得た知識を投稿して自分のものに！
-        </h4>
+        </p>
       </div>
       <div class="features">
         <h2>SHALIBOの特徴</h2>
-        <div class="features_list">
+        <div class="features__list">
           <div class="contents">
-            <p class="contents_title">アウトプット機能</p>
-            <div class="contents_discription">
+            <p class="contents__title">アウトプット機能</p>
+            <div class="contents__discription">
               <p>読み終えたら、読書した内容を質問テンプレートに沿って記録することができます。</p>
             </div>
           </div>
           <div class="contents">
-            <p class="contents_title">投稿記録</p>
+            <p class="contents__title">投稿記録</p>
             <div class="contents_discription">
               <p>読書した本の内容を記録。投稿した本はマイページに保存が残ります。</p>
             </div>
           </div>
           <div class="contents">
-            <p class="contents_title">編集機能</p>
-            <div class="contents_discription">
+            <p class="contents__title">編集機能</p>
+            <div class="contents__discription">
               <p>コメント編集で文字の付け足しや、削除ができます。</p>
             </div>
           </div>
@@ -41,15 +41,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
-.container {
-  padding: 0px;
-}
-/* .v-main {
-  flex: 0 auto;
-  padding: 56px 0 520px 0 !important;
-} */
+
 
 .title {
   width: 50%;
@@ -62,7 +56,7 @@ export default {
   background-color: rgba(255, 255, 255, .5);
 }
 
-.top_message {
+.top__message {
   width: 100%;
   color: #232323;
   font-size: 1rem;
@@ -71,7 +65,7 @@ export default {
   text-align: center;
 }
 
-.sub_title {
+.sub__title {
   font-size: 30px;
 }
 
@@ -91,25 +85,33 @@ export default {
   padding: 48px 0 0 0;
   text-align: center;
   background-color: #f0e8df;
+
+  &__list {
+    display: flex;
+    margin-top: 50px;
+  }
 }
 
-.features_list{
-  display: flex;
-  margin-top: 50px;
-}
 .contents{
   width: 30%;
   margin: 0 30px;
-}
-.contents_title{
-  border: solid 3px orange;
-  padding: 0.5em;
-  border-radius: 0.5em;
+
+  &__title {
+    border: solid 3px orange;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
 }
 
-@media screen {
-  .container {
-    max-width: 100%;
+
+@media (max-with: 576px) {
+  .features__list {
+    flex-direction: column;
+  }
+  .discription {
+    p {
+      font-size: 0.5rem;
+    }
   }
 }
 

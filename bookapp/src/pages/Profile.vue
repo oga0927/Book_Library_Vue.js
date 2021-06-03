@@ -1,28 +1,26 @@
 <template>
   <div>
-    <p class="login_message"  v-if="getStateUserName">こんにちは！
+    <p class="login__message"  v-if="getStateUserName">こんにちは！
       {{ getStateUserName }}さん
-      </p>
-      <p class="login_message" v-else>こんにちは！ゲストユーザーさん！</p>
-      <p>
-        <v-btn
-          color="orange lighten-1"
-          to="/search"
-        >
-        本を投稿する
-        </v-btn>
-      </p>
-      <p>
-        <v-btn
-          color="error"
-          class="delete-btn"
-          @click="deleteUser"
-        >
-        アカウントを削除
-        </v-btn>
-      </p>
-
-
+    </p>
+    <p class="login__message" v-else>こんにちは！ゲストユーザーさん！</p>
+    <p>
+      <v-btn
+        color="orange lighten-1"
+        to="/search"
+      >
+      本を投稿する
+      </v-btn>
+    </p>
+    <p>
+      <v-btn
+        color="error"
+        class="delete-btn"
+        @click="deleteUser"
+      >
+      アカウントを削除
+      </v-btn>
+    </p>
       <v-row>
         <v-col 
           cols="12" 
@@ -115,12 +113,18 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
   .row {
     margin: 12px;
   }
-  .login_message {
-    font-size: 20px;
+  .login__message {
+    font-size: 1.5rem;
     padding: 20px;
+  }
+
+  @media (max-width: 576px) {
+    .login__message {
+      font-size: 1rem;
+    }
   }
 </style>
