@@ -4,7 +4,7 @@
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
-        <p>SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
+        <p class="discription__comment">SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
         本で得た知識を投稿して自分のものに！
         </p>
       </div>
@@ -19,7 +19,7 @@
           </div>
           <div class="contents">
             <p class="contents__title">投稿記録</p>
-            <div class="contents_discription">
+            <div class="contents__discription">
               <p>読書した本の内容を記録。投稿した本はマイページに保存が残ります。</p>
             </div>
           </div>
@@ -41,9 +41,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-
+<style scoped>
 
 .title {
   width: 50%;
@@ -78,6 +76,10 @@ export default {
   text-align: center;
 }
 
+.discription__comment {
+  font-size: 1rem;
+}
+
 .features{
   width: 100%;
   height: 350px;
@@ -86,33 +88,44 @@ export default {
   text-align: center;
   background-color: #f0e8df;
 
-  &__list {
-    display: flex;
-    margin-top: 50px;
-  }
+}
+.features__list {
+  display: flex;
+  margin-top: 50px;
 }
 
 .contents{
   width: 30%;
   margin: 0 30px;
 
-  &__title {
-    border: solid 3px orange;
-    padding: 0.5em;
-    border-radius: 0.5em;
-  }
+}
+.contents__title {
+  border: solid 3px orange;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 
 
-@media (max-with: 576px) {
+@media (max-width: 576px) {
+  .features {
+    width: 100%;
+    height: 550px;
+  }
   .features__list {
     flex-direction: column;
   }
-  .discription {
-    p {
-      font-size: 0.5rem;
-    }
+  .contents__title {
+    width: 300px;
   }
+  .contents__discription {
+    width: 300px;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+  }
+  .discription__comment {
+  font-size: 0.7rem;
+  padding: 10px;
+}
 }
 
 </style>

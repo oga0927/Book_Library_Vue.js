@@ -1,5 +1,5 @@
 <template>
-<v-footer padless>
+<v-footer padless class="footer">
     <v-col
       class="text-center"
       cols="12"
@@ -16,5 +16,14 @@ export default {
 </script>
 
 <style>
+  .footer {
+    margin-bottom: -5vh !important;
+    height: 50px;
+  }
 
+@media (max-width: 576px) {
+.footer {
+  margin-bottom: -60vh !important;
+  }
+}
 </style>
