@@ -4,7 +4,9 @@
       <v-col cols=6>
         <v-text-field 
           label="本を検索する"
-          v-model="keyword">
+          v-model="keyword"
+          class="search__text"
+        >
         </v-text-field>
       </v-col>
     </v-row>
@@ -115,3 +117,12 @@ export default {
 }
 }
 </script>
+
+<style scoped>
+
+@media (max-width: 576px) {
+  .search__text {
+    /* padding: 8px ; */
+  }
+}
+</style>

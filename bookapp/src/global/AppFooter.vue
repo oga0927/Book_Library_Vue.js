@@ -23,7 +23,7 @@ export default {
 
 @media (max-width: 576px) {
 .footer {
-  margin-bottom: -60vh !important;
+  margin-bottom: -55vh !important;
   }
 }
 </style>

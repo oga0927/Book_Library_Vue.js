@@ -4,7 +4,7 @@
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
-        <p class="discription__comment">SHALIBOは読書した内容を記録したり、読んだ本で学んだことを質問に答えてアウトプットできます。<br>
+        <p class="discription__comment">SHALIBOは読書した内容を記録したり、読書が終わったら質問テンプレートに答えてアウトプットできます。
         本で得た知識を投稿して自分のものに！
         </p>
       </div>
@@ -123,8 +123,9 @@ export default {
     margin-bottom: 30px;
   }
   .discription__comment {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding: 10px;
+  line-height: 20px;
 }
 }
 
