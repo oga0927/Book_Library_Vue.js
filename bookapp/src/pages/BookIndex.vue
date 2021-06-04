@@ -39,6 +39,7 @@
         sm="6" 
         v-for="(book, index) in books" 
         :key="index"
+        class="mb-10"
       >
         <v-card class="mb-1">
           <v-row>

@@ -122,7 +122,7 @@ export default {
 
 @media (max-width: 576px) {
   .search__text {
-    /* padding: 8px ; */
+    padding-left: 10px;
   }
 }
 </style>
