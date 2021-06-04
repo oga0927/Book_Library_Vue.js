@@ -7,8 +7,8 @@
             <v-col cols="4">
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="8">
-              <v-card-title>
+            <v-col cols="8" class="book__template">
+              <v-card-title class="book__title">
                 タイトル：{{ book.title }}
               </v-card-title>
               読んだ日：
@@ -54,13 +54,13 @@
                 rows="3">
                 {{ book.important }}
               </v-textarea>
-                テーマに対しどのような事例を出しているか：<v-textarea
+                テーマに対しどのような事例を<br>出しているか：<v-textarea
                 class="mx-2" 
                 v-model="book.examples"
                 rows="3">
                 {{ book.examples }}
               </v-textarea>
-                この本が他の本と似ている所、違う要素は何か：<v-textarea
+                この本が他の本と似ているところ<br>違う要素は何か：<v-textarea
                 class="mx-2" 
                 v-model="book.different"
                 rows="3">
@@ -145,6 +145,8 @@ export default {
   }
 
 @media (max-width: 576px) {
-
+  .book__template {
+    font-size: 0.8rem;
+  }
 }
 </style>
