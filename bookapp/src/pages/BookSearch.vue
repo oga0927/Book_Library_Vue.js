@@ -119,7 +119,9 @@ export default {
 </script>
 
 <style scoped>
-
+.search__text {
+  padding: 20px 0 0 20px;
+}
 @media (max-width: 576px) {
   .search__text {
     padding-left: 10px;

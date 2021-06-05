@@ -4,7 +4,7 @@
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
-        <p class="discription__comment">SHALIBOは読書した内容を記録したり、読書が終わったら質問テンプレートに答えてアウトプットできます。
+        <p class="discription__comment">SHALIBOは読書内容を記録したり、読書が終わったら質問テンプレートに答えてアウトプットできます。<br>
         本で得た知識を投稿して自分のものに！
         </p>
       </div>

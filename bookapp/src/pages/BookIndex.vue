@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" class="book__record">
         <span v-if="!$store.state.isAuthenticated">
           <p class="error-message">
             ※投稿するには
@@ -27,7 +27,7 @@
           to="/search" 
           block
           color="orange lighten-1"
-          class="mx-auto"
+          class="book__record"
         >
         読書記録を投稿
         </v-btn>
@@ -47,8 +47,8 @@
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="">
-              <v-card-title >{{ book.title }}</v-card-title>
+            <v-col >
+              <v-card-title class="book__title">{{ book.title }}</v-card-title>
               <v-spacer></v-spacer>
               <v-card-actions>
                 <!-- 書き込み -->
@@ -117,3 +117,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .book__record {
+    padding: 30px 40px 30px 20px;
+    letter-spacing: 0.6rem;
+  }
+  .book__title {
+    font-size: 0.8rem;
+  }
+
+@media (max-width: 576px) {
+  .book__title {
+    font-size: 0.8rem;
+  }
+}
+</style>
