@@ -116,7 +116,7 @@ Password: password<br>
 ・トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、
 『おすすめの一冊を投稿ボタン』を表示させています。
 
-![yu-za-touroku.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5a956354-15d8-62e8-12e0-d36b4f349314.gif)
+![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ef6d14d2-d6b2-606a-3315-1b4e4b9e0bb1.gif)
 <br>
 <br>
 <br>
@@ -127,7 +127,7 @@ Password: password<br>
 - 本のキーワードを入力して検索ボタンを押すと、非同期処理で GoogleBookA からキーワードと一致した本を取得します。
 - 最大４０件表示され、検索結果から投稿したい本を選択できます。
 
-![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f129c44c-8108-296f-5061-ff2e34ac24f2.gif)
+![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f5e2f37e-ffcf-6fa8-da38-e85e4f79fe3e.gif)
 <br>
 <br>
 <br>
@@ -139,8 +139,7 @@ Password: password<br>
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと LocalStorage から該当する本のデータが削除されます。
 - ログイン中は LocalStorage の UserId と firebase の UserId と紐づいている本のみ削除ボタンが表示。
 - ヘッダーのロゴ（SHALIBO）を押すとトップページへリダイレクト。
-  ![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/e6951467-d473-2879-3381-78645d338b8c.gif)
-  <br>
+  ![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
   <br>
   <br>
 
@@ -151,8 +150,7 @@ Password: password<br>
 - 削除ボタンを押すと LocalStorage に保存されているデータが削除され、トップページ、マイページからも削除されます。
 - アカウント削除ボタンをクリックすると、firebase の Authentication から UserId が削除されます。
 
-![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/20aa7809-fb60-c32f-b4a9-9f7d17917e23.gif)
-
+![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
 <br>
 <br>
 
