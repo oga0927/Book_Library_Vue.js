@@ -1,4 +1,4 @@
-![投稿](https://user-images.githubusercontent.com/73045514/116842216-c5a33e80-ac16-11eb-93a6-c3ddc06b8c77.jpg)
+![トップページ.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1b7f1a91-49c0-c6a5-4656-5b181e27a81f.jpeg)
 <br>
 <br>
 <br>
