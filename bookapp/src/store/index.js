@@ -24,10 +24,12 @@ export default new Vuex.Store({
       state.user = payload;
     },
     onAuthStateChanged(state, user) {
-      state.user = user; //firebaseが返したユーザー情報
+      //firebaseが返したユーザー情報
+      state.user = user;
     },
     onUserStatusChanged(state, status) {
-      state.status = status; //ログインしてるかどうか true or false
+      //ログインしてるかどうか true or false
+      state.status = status; 
     },
 
     setIsAuthenticated(state, payload) {
