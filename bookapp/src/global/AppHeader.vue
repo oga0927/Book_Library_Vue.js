@@ -4,7 +4,7 @@
     <v-navigation-drawer 
       v-model="drawer"
       absolute
-      left
+      right
       temporary
       class="grey darken-4"
     >
@@ -45,29 +45,29 @@
       absolute
       temporary
     >
-      <v-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-icon>
-      <v-spacer class="hidden-md-and-up"></v-spacer>
-      <router-link to="/">
-        <v-toolbar-title to="/">
-          {{ appTitle }}
-        </v-toolbar-title>
-      </router-link>
-    
-      <v-spacer class="hidden-sm-and-down"></v-spacer>
-      <div class="hidden-md-and-up">
+    <v-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-icon>
+    <v-spacer class="hidden-md-and-up"></v-spacer>
+    <router-link to="/">
+    <v-toolbar-title>
+      {{ appTitle }}
+    </v-toolbar-title>
+    </router-link>
+  
+    <v-spacer class="hidden-sm-and-down"></v-spacer>
+    <div class="hidden-md-and-up">
 
-        <!-- ヘッダーメニュー -->
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      </div>
-      <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down">
-        <v-btn text to="/login">ログイン</v-btn>
-        <v-btn
-          text
-          to="/register"
-          class="register"
-        >
+      <!-- ヘッダーメニュー -->
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    </div>
+    <div v-if="!$store.state.isAuthenticated" class="hidden-sm-and-down">
+    <v-btn text to="/login">ログイン</v-btn>
+      <v-btn
+        text
+        to="/register"
+        class="register"
+      >
         ユーザー登録
-        </v-btn>
+      </v-btn>
       </div>
       <div v-else class="hidden-sm-and-down">
         <v-btn text to="/bookindex" >ホーム</v-btn>
@@ -80,19 +80,21 @@
 </template>
 
 <script>
-  export default {
-  name: "AppHeader",
-  data() {
-    return {
-      appTitle: "SHALIBO",
-      drawer: false
-    };
-  },
-  methods: {
-    logout() {
-      this.$store.dispatch("userSignOut");
-    }
+// import "../assets/sass/_mixin.scss"
+
+export default {
+name: "AppHeader",
+data() {
+  return {
+    appTitle: "SHALIBO",
+    drawer: false
+  };
+},
+methods: {
+  logout() {
+    this.$store.dispatch("userSignOut");
   }
+}
 };
 </script>
 
