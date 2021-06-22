@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section>
     <v-container class="home"></v-container>
     <v-main>
       <div class="discription">
