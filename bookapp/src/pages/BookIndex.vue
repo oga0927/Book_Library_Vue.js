@@ -66,7 +66,7 @@
                   >
                   <v-btn 
                     color="error"
-                    @click="deliteLocalStorage(index)"
+                    @click="deleteLocalStorage(index)"
                   >
                   削除
                   </v-btn>
@@ -100,7 +100,7 @@ export default {
       const parsed = JSON.stringify(this.books);
       localStorage.setItem(STORAGE_KEY, parsed);
     },
-    deliteLocalStorage(index) {
+    deleteLocalStorage(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
         this.books.splice(index, 1)
