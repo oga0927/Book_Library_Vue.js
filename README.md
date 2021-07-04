@@ -194,8 +194,6 @@ export default new Vuex.Store({
 - 読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
   （本来は質問事項がもっと多い、一部抜粋）
 
-- ログイン中は LocalStorage の userid と firebase の userid と紐づいている本のみ削除ボタンが表示。
-
   <br>
   <br>
   <br>
