@@ -175,14 +175,19 @@ export default new Vuex.Store({
 
 ![スクリーンショット 2021-07-04 19.44.09.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7a361f0d-26fa-f01c-88d8-68364a1482f1.png)
 
+- 投稿ボタンクリックで検索画面にページ遷移
+  <br>
+  <br>
+
 ![スクリーンショット 2021-07-04 19.48.16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/eff56f42-42a4-2f55-db28-ac278b2f8898.png)
 
 - 検索キーワードを入力して検索
-
 - firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
   投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
 
 <br>
+<br>
+
 - 投稿した本は、他のユーザーが書き込めないようにログイン中の userid と localstorage の userid と紐づいた本のみ削除と投稿ボタンの表示させています。<br>
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと localstorage から該当する本のデータが削除されます。<br>
 - ログイン中は LocalStorage の userid と firebase の userid と紐づいている本のみ削除ボタンが表示。
