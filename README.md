@@ -16,17 +16,15 @@
 
 ## URL
 
+- URL: https://shalibo.netlify.app
+- ゲストログインボタンで簡単にログインできます。
+
 ![スクリーンショット 2021-07-04 11.44.48.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/6bfe5771-ce2b-5101-44f7-84b12006e42a.png)
 <br>
 <br>
 
-- URL: https://shalibo.netlify.app
-- ゲストログインボタンで簡単にログインできます。
-
 Qiita にも執筆しました。
 [Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
-<br>
-<br>
 
 ## ER 図
 
@@ -40,9 +38,8 @@ Qiita にも執筆しました。
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
 <br>
 <br>
-<br>
 
-# 使用技術
+## 使用技術
 
 - Vue 2.6.12
 - VueCLI 4.5.13
@@ -56,7 +53,7 @@ Qiita にも執筆しました。
 - DB: WebStorage(LocalStorage)
 - DB(認証のみ): Firebase(Authentication)
 
-## 機能一覧
+# 機能一覧
 
 |      | 　　　　　　 機能　 　　　　 　　 |
 | :--- | :-------------------------------- |
@@ -76,6 +73,10 @@ Qiita にも執筆しました。
 
 ### 1. ユーザー登録
 
+![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
+<br>
+<br>
+<br>
 ヘッダーのユーザー登録を押して、フォームに UserName、Email、Password を入力して登録。
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
 
@@ -99,7 +100,7 @@ Qiita にも執筆しました。
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ef6d14d2-d6b2-606a-3315-1b4e4b9e0bb1.gif)
 
-###5. 検索
+### 5. 検索
 
 - 『 おすすめの一冊を投稿 』ボタンを押すと本の検索画面に遷移します。
 - 本のキーワードを入力して検索ボタンを押すと、非同期処理で GoogleBooksAPI からキーワードと一致した本を取得します。
@@ -131,11 +132,12 @@ Qiita にも執筆しました。
 - Vuetify を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
 
-###9. 工夫したところ（UI/UX）
-① メインビューの配色には暖色をメインに作成。
-② 探す → アウトプット → 保存のシンプルな設計。
-③ ファーストビューは一眼でわかる画像と、何をするアプリなのかが伝わるように作成。
-④ フォームにバリデーションを実装
+### 9. 工夫したところ（UI/UX）
+
+① メインビューの配色には暖色をメインに作成。<br>
+② 探す → アウトプット → 保存のシンプルな設計。<br>
+③ ファーストビューは一眼でわかる画像と、何をするアプリなのかが伝わるように作成。<br>
+④ フォームにバリデーションを実装<br>
 ・目のマークをクリックで入力したパスワードを確認。
 ・登録済みのアドレスはアラートでお知らせ
 
@@ -247,16 +249,18 @@ export default {
 </style>
 ```
 
-####⑤ 質問テンプレートについて
+#### ⑤ 質問テンプレートについて
+
 ・読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
 （本来は質問事項がもっと多い、一部抜粋）
 ![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
 
 <br><br>
 
-###10. 工夫したところ（実装面）
+### 10. 工夫したところ（実装面）
 
-####① データの永続化
+#### ① データの永続化
+
 ・再描画で LocalStorage のデータが初期化されないよう設定
 ・vuex-persistedstate をインストールで、vuex の state の中身を維持
 ・vuex-persistedstate の設定を vuex の Store の plugins に設定
@@ -270,25 +274,11 @@ import createPersistedState from 'vuex-persistedstate';
 export default new Vuex.Store({
 
   },
-  state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
-
-  getters: {
-
-  },
   plugins: [
     createPersistedState({
 　　　 key: 'example',
     　storage: window.sessionStorage
   })]
-
 });
 ```
 
