@@ -45,15 +45,15 @@
       absolute
       temporary
     >
-    <v-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-icon>
-    <v-spacer class="hidden-md-and-up"></v-spacer>
+    <!-- <v-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-icon> -->
+    <!-- <v-spacer class="hidden-md-and-up"></v-spacer> -->
     <router-link to="/">
     <v-toolbar-title>
       {{ appTitle }}
     </v-toolbar-title>
     </router-link>
   
-    <v-spacer class="hidden-sm-and-down"></v-spacer>
+    <!-- <v-spacer class="hidden-sm-and-down"></v-spacer> -->
     <div class="hidden-md-and-up">
 
       <!-- ヘッダーメニュー -->
@@ -97,4 +97,10 @@ methods: {
 }
 };
 </script>
+
+<style>
+  .v-toolbar__content {
+    justify-content: space-between;
+  }
+</style>
 
