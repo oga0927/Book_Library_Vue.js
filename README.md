@@ -16,7 +16,7 @@
 
 ![スクリーンショット 2021-07-04 11.44.48.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/6bfe5771-ce2b-5101-44f7-84b12006e42a.png)
 
-Qiita にも執筆しました。
+Qiita に詳細を執筆しております。
 [Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
 <br>
 <br>
@@ -75,8 +75,8 @@ Qiita にも執筆しました。
 ### 1. トップページ
 
 ![スクリーンショット 2021-07-04 16.09.57.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1148695b-8c81-4c71-1049-bc5f72432d63.png)
-最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
-ユーザー登録を配置して、router-link でフォームを描画しています。
+最初にトップページへアクセスすると画面が描画されます。<br>
+ヘッダーにログイン、ユーザー登録を配置して、router-link でフォームを描画しています。
 <br>
 <br>
 <br>
@@ -84,14 +84,8 @@ Qiita にも執筆しました。
 ### 2. ユーザー認証
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ef6d14d2-d6b2-606a-3315-1b4e4b9e0bb1.gif)
-
-- アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
-- ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
-- ログインするとヘッダーにホーム、投稿する、マイページ、ログアウトのボタンが表示されます。
-- firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
-  投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
-- トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、
-  『おすすめの一冊を投稿ボタン』を表示させています。
+<br>
+<br>
 
 ```s
 
@@ -148,6 +142,11 @@ export default new Vuex.Store({
 });
 ```
 
+<br>
+<br>
+
+- アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
+- トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、『おすすめの一冊を投稿ボタン』を表示させています。
   <br>
   <br>
   <br>
@@ -155,7 +154,8 @@ export default new Vuex.Store({
 ### 3. ユーザー登録
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
-ヘッダーのユーザー登録を押して、フォームに UserName、Email、Password を入力して登録。<br>
+ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
+UserName、Email、Password を入力して登録。<br>
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
 <br>
 <br>
@@ -176,6 +176,8 @@ export default new Vuex.Store({
 
 ![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
 
+- firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
+  投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
 - 本の【＋ボタン】を押すと『読んだ日付』、『この本にはどんな情報が書かれているか』、『自分はこの本から何を学んだか』、『この本がなぜ重要なのか』、『テーマに対しどのような事例を出しているか』、『この本が他の本と似ている所、違う要素は何か』を入力して投稿ボタンを押すと投稿できます。<br>
 - 投稿した本は、他のユーザーが書き込めないようにログイン中の userid と localstorage の userid と紐づいた本のみ削除と投稿ボタンの表示させています。<br>
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと localstorage から該当する本のデータが削除されます。<br>
