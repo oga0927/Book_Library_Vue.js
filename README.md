@@ -382,8 +382,8 @@ export default new Vuex.Store({
 - アカウント登録時に設定したユーザー名が表示され、登録時に設定していない場合は『ゲストログインさん』と表示。<br>
 - v-if で認証状態を判別してユーザー名を表示させています。<br>
 - マイページから投稿した本の内容を振り返れます。
-
-![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/84bafa9e-1827-3ca6-d560-3e54251e70c8.gif)
+  <br>
+  ![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/84bafa9e-1827-3ca6-d560-3e54251e70c8.gif)
 
 ```vue
 <template>
