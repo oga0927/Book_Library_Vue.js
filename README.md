@@ -11,8 +11,6 @@
 ・検索、記録、保存の 3 ステップ<br>
 ・読んだ本の内容を質問に答えてアウトプット<br>
 ・マイページでいつでも振り返り可能<br>
-<br>
-<br>
 
 ## URL
 
@@ -80,8 +78,6 @@ Qiita にも執筆しました。
 ### 1. トップページ
 
 ![スクリーンショット 2021-07-04 16.09.57.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1148695b-8c81-4c71-1049-bc5f72432d63.png)
-<br>
-<br>
 最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
 ユーザー登録を配置して、router-link でフォームを描画しています。
 <br>
@@ -91,8 +87,6 @@ Qiita にも執筆しました。
 ### 2. ユーザー登録
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
-<br>
-<br>
 ヘッダーのユーザー登録を押して、フォームに UserName、Email、Password を入力して登録。
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
 <br>
@@ -102,8 +96,6 @@ Qiita にも執筆しました。
 ### 3. ユーザー認証
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ef6d14d2-d6b2-606a-3315-1b4e4b9e0bb1.gif)
-<br>
-<br>
 
 - アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
 - ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
@@ -118,30 +110,39 @@ Qiita にも執筆しました。
 
 ### 5. 検索
 
+![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f5e2f37e-ffcf-6fa8-da38-e85e4f79fe3e.gif)
+
 - 『 おすすめの一冊を投稿 』ボタンを押すと本の検索画面に遷移します。
 - 本のキーワードを入力して検索ボタンを押すと、非同期処理で GoogleBooksAPI からキーワードと一致した本を取得します。
 - 最大４０件表示され、検索結果から投稿したい本を選択できます。
-
-![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f5e2f37e-ffcf-6fa8-da38-e85e4f79fe3e.gif)
+  <br>
+  <br>
+  <br>
 
 ### 6. 本の投稿
+
+![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
 
 - 本の【＋ボタン】を押すと『読んだ日付』、『この本にはどんな情報が書かれているか』、『自分はこの本から何を学んだか』、『この本がなぜ重要なのか』、『テーマに対しどのような事例を出しているか』、『この本が他の本と似ている所、違う要素は何か』を入力して投稿ボタンを押すと投稿できます。
 - 投稿した本は、他のユーザーが書き込めないようにログイン中の userid と localstorage の userid と紐づいた本のみ削除と投稿ボタンの表示させています。
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと localstorage から該当する本のデータが削除されます。
 - ログイン中は LocalStorage の userid と firebase の userid と紐づいている本のみ削除ボタンが表示。
 - ヘッダーのロゴ（SHALIBO）を押すとトップページへリダイレクト。
+  <br>
+  <br>
+  <br>
 
-![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
+### 7. 投稿した本、アカウント削除
 
-###7. 投稿した本、アカウント削除
+![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
 
 - 投稿した本の一覧を表示。
 - 編集ボタンで投稿した本の内容を修正。
 - 削除ボタンを押すと LocalStorage に保存されているデータが削除され、トップページ、マイページからも削除されます。
 - アカウント削除ボタンをクリックすると、firebase の Authentication から userid が削除されます。
-
-![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
+  <br>
+  <br>
+  <br>
 
 ### 8. レスポンシブ対応
 
@@ -277,9 +278,9 @@ export default {
 
 #### ① データの永続化
 
-・再描画で LocalStorage のデータが初期化されないよう設定
-・vuex-persistedstate をインストールで、vuex の state の中身を維持
-・vuex-persistedstate の設定を vuex の Store の plugins に設定
+・再描画で LocalStorage のデータが初期化されないよう設定<br>
+・vuex-persistedstate をインストールで、vuex の state の中身を維持<br>
+・vuex-persistedstate の設定を vuex の Store の plugins に設定<br>
 <br>
 
 ```store.js
