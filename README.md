@@ -176,11 +176,16 @@ export default new Vuex.Store({
 
 ### 5. 本の投稿
 
-![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
+![スクリーンショット 2021-07-04 19.44.09.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7a361f0d-26fa-f01c-88d8-68364a1482f1.png)
+
+![スクリーンショット 2021-07-04 19.48.16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/eff56f42-42a4-2f55-db28-ac278b2f8898.png)
+
+- 検索キーワードを入力して検索
 
 - firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
   投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
-- 本の【＋ボタン】を押すと『読んだ日付』、『この本にはどんな情報が書かれているか』、『自分はこの本から何を学んだか』、『この本がなぜ重要なのか』、『テーマに対しどのような事例を出しているか』、『この本が他の本と似ている所、違う要素は何か』を入力して投稿ボタンを押すと投稿できます。<br>
+
+<br>
 - 投稿した本は、他のユーザーが書き込めないようにログイン中の userid と localstorage の userid と紐づいた本のみ削除と投稿ボタンの表示させています。<br>
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと localstorage から該当する本のデータが削除されます。<br>
 - ログイン中は LocalStorage の userid と firebase の userid と紐づいている本のみ削除ボタンが表示。
@@ -210,7 +215,12 @@ export default new Vuex.Store({
 
 ### 8.バリデーション
 
-![スクリーンショット 2021-07-04 19.25.49.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/b9cce318-3780-d883-48e1-e6b39d9dc55a.png)
+- E-mail、Password は必須項目<br>
+- パスワードは 6 文字以上、入力が必須<br>
+- 目のマークをクリックで入力したパスワードを確認。<br>
+- 登録済みのアドレスはアラートでお知らせ
+
+![スクリーンショット 2021-07-04 19.39.20.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9c4f0f5b-0977-515d-fc7b-95838ad1ea5b.png)
 
 ```Vue
 <template>
@@ -318,10 +328,6 @@ export default {
 </style>
 ```
 
-- E-mail、Password は必須項目<br>
-- パスワードは 6 文字以上、入力が必須<br>
-- 目のマークをクリックで入力したパスワードを確認。<br>
-- 登録済みのアドレスはアラートでお知らせ
   <br>
   <br>
   <br>
@@ -335,9 +341,11 @@ export default {
 
 ### 10.質問テンプレートについて
 
-・読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
-（本来は質問事項がもっと多い、一部抜粋）
-![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
+- 読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
+  （本来は質問事項がもっと多い、一部抜粋）
+- 『読んだ日付』、『この本にはどんな情報が書かれているか』、『自分はこの本から何を学んだか』、『この本がなぜ重要なのか』、『テーマに対しどのような事例を出しているか』、『この本が他の本と似ている所、違う要素は何か』を入力して投稿ボタンを押すと投稿できます。
+
+  ![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
 
 <br><br>
 
