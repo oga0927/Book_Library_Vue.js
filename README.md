@@ -203,14 +203,14 @@ export default new Vuex.Store({
 
 ### 7. レスポンシブ対応
 
-![スクリーンショット 2021-07-04 19.23.54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ed5a8a82-c0e1-0afe-dae3-f804c68a00a2.png)
+![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7768f5de-b014-e41c-6dee-02ea3414ec41.gif)
 
 - Vuetify を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
 
 ### 8.バリデーション
 
-![バリデーション.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/cc19ad3a-bbd9-35f6-fb06-28be8d2ef003.gif)
+![スクリーンショット 2021-07-04 19.25.49.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/b9cce318-3780-d883-48e1-e6b39d9dc55a.png)
 
 ```Vue
 <template>
