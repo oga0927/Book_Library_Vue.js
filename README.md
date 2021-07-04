@@ -83,7 +83,6 @@ Qiita に詳細を執筆しております。
 ### 2. ユーザー認証
 
 - アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
-- トップページでは投稿した本の一覧画面が描画されます。
 - v-if で認証状態を判別し、『おすすめの一冊を投稿ボタン』を表示させています。
   <br>
   <br>
@@ -162,18 +161,7 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 4. 検索
-
-![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f5e2f37e-ffcf-6fa8-da38-e85e4f79fe3e.gif)
-
-- 『 おすすめの一冊を投稿 』ボタンを押すと本の検索画面に遷移します。
-- 本のキーワードを入力して検索ボタンを押すと、非同期処理で GoogleBooksAPI からキーワードと一致した本を取得します。
-- 最大４０件表示され、検索結果から投稿したい本を選択できます。
-  <br>
-  <br>
-  <br>
-
-### 5. 本の投稿
+### 4. 本の投稿
 
 ![スクリーンショット 2021-07-04 19.44.09.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7a361f0d-26fa-f01c-88d8-68364a1482f1.png)
 
@@ -185,6 +173,9 @@ export default new Vuex.Store({
 ![スクリーンショット 2021-07-04 19.48.16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/eff56f42-42a4-2f55-db28-ac278b2f8898.png)
 
 - 検索キーワードを入力して検索
+- 『 おすすめの一冊を投稿 』ボタンを押すと本の検索画面に遷移します。
+- 本のキーワードを入力して検索ボタンを押すと、非同期処理で GoogleBooksAPI からキーワードと一致した本を取得します。
+- 最大４０件表示され、検索結果から投稿したい本を選択できます。
   <br>
   <br>
   <br>
@@ -209,14 +200,14 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 6. 投稿一覧
+### 5. 投稿一覧
 
 - 投稿した本は、他のユーザーが書き込めないようにログイン中の userid と localstorage の userid と紐づいた本のみ削除と投稿ボタンの表示させています。<br>
 - 投稿した本の削除ボタンを押すと、アラートでメッセージが表示され、OK ボタンを押すと localstorage から該当する本のデータが削除されます。<br>
 
 ![スクリーンショット 2021-07-04 21.26.02.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/53d818a2-c7ce-4ded-855e-1a0e061e613c.png)
 
-### 6. 投稿した本、アカウント削除
+### 7. 投稿した本、アカウント削除
 
 ![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
 
@@ -228,7 +219,7 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 7. レスポンシブ対応
+### 8. レスポンシブ対応
 
 ![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7768f5de-b014-e41c-6dee-02ea3414ec41.gif)
 
@@ -238,7 +229,7 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 8.バリデーション
+### 9.バリデーション
 
 - E-mail、Password は必須項目<br>
 - パスワードは 6 文字以上の入力が必須<br>
@@ -356,7 +347,7 @@ export default {
   <br>
   <br>
 
-### 9. 工夫したところ（UI/UX）
+### 10. 工夫したところ（UI/UX）
 
 ① メインビューの配色には暖色をメインに作成。<br>
 ② 探す → アウトプット → 保存のシンプルな設計。<br>
@@ -365,7 +356,7 @@ export default {
 <br>
 <br>
 
-### 10. 工夫したところ（実装面）
+### 11. 工夫したところ（実装面）
 
 #### ① データの永続化
 
