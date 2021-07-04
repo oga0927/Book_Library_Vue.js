@@ -203,7 +203,7 @@ export default new Vuex.Store({
 
 ### 7. レスポンシブ対応
 
-![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/83289437-3e4b-1caa-d729-002e8fa8d2fd.gif)
+![スクリーンショット 2021-07-04 19.23.54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ed5a8a82-c0e1-0afe-dae3-f804c68a00a2.png)
 
 - Vuetify を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
