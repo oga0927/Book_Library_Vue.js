@@ -155,12 +155,13 @@ export default new Vuex.Store({
 ### 3. ユーザー登録
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
-ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。<br>
-UserName、Email、Password を入力して登録。<br>
-(ユーザーネームを入力しない場合はゲストログイン名として表示されます)
-<br>
-<br>
-<br>
+
+- ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。<br>
+- UserName、Email、Password を入力して登録。<br>
+- (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
+  <br>
+  <br>
+  <br>
 
 ### 4. 検索
 
@@ -201,6 +202,8 @@ UserName、Email、Password を入力して登録。<br>
   <br>
 
 ### 7. レスポンシブ対応
+
+![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/83289437-3e4b-1caa-d729-002e8fa8d2fd.gif)
 
 - Vuetify を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
