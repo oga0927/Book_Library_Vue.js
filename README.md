@@ -162,7 +162,7 @@ UserName、Email、Password を入力して登録。<br>
 <br>
 <br>
 
-### 5. 検索
+### 4. 検索
 
 ![検索.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/f5e2f37e-ffcf-6fa8-da38-e85e4f79fe3e.gif)
 
@@ -173,7 +173,7 @@ UserName、Email、Password を入力して登録。<br>
   <br>
   <br>
 
-### 6. 本の投稿
+### 5. 本の投稿
 
 ![投稿.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/493c0af7-936d-5de4-f67c-4e8cfc510bbf.gif)
 
@@ -188,7 +188,7 @@ UserName、Email、Password を入力して登録。<br>
   <br>
   <br>
 
-### 7. 投稿した本、アカウント削除
+### 6. 投稿した本、アカウント削除
 
 ![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
 
@@ -200,15 +200,16 @@ UserName、Email、Password を入力して登録。<br>
   <br>
   <br>
 
-### 8. レスポンシブ対応
+### 7. レスポンシブ対応
 
 - Vuetify を使用してスマートフォンからでも使用可能
 - デバイスによってハンバーガーメニューを実装
 
-### 9.バリデーション
+### 8.バリデーション
 
-```Vue.js
+![バリデーション.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/cc19ad3a-bbd9-35f6-fb06-28be8d2ef003.gif)
 
+```Vue
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
     <v-main>
@@ -314,21 +315,22 @@ export default {
 </style>
 ```
 
-E-mail、Password は必須項目<br>
-パスワードは 6 文字以上、入力が必須<br>
-目のマークをクリックで入力したパスワードを確認。<br>
-登録済みのアドレスはアラートでお知らせ
-<br>
-<br>
-<br>
+- E-mail、Password は必須項目<br>
+- パスワードは 6 文字以上、入力が必須<br>
+- 目のマークをクリックで入力したパスワードを確認。<br>
+- 登録済みのアドレスはアラートでお知らせ
+  <br>
+  <br>
+  <br>
 
 ### 9. 工夫したところ（UI/UX）
 
 ① メインビューの配色には暖色をメインに作成。<br>
 ② 探す → アウトプット → 保存のシンプルな設計。<br>
 ③ ファーストビューは一眼でわかる画像と、何をするアプリなのかが伝わるように作成。<br>
+<br>
 
-#### ⑤ 質問テンプレートについて
+### 10.質問テンプレートについて
 
 ・読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
 （本来は質問事項がもっと多い、一部抜粋）
@@ -336,7 +338,7 @@ E-mail、Password は必須項目<br>
 
 <br><br>
 
-### 10. 工夫したところ（実装面）
+### 11. 工夫したところ（実装面）
 
 #### ① データの永続化
 
@@ -361,6 +363,9 @@ export default new Vuex.Store({
 });
 ```
 
+<br>
+<br>
+
 #### ② マイページでユーザー名の表示、本の編集、削除
 
 - アカウント登録時に設定したユーザー名が表示され、登録時に設定していない場合は『ゲストログインさん』と表示。<br>
@@ -369,66 +374,52 @@ export default new Vuex.Store({
 
 ![マイページ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/84bafa9e-1827-3ca6-d560-3e54251e70c8.gif)
 
-```Profile.vue
+```vue
 <template>
   <div>
     <v-row>
       <v-col cols="12">
-        <p v-if="getStateUserName">こんにちは！
-          {{ getStateUserName }}さん
-          </p>
-          <p v-else>こんにちは！ゲストユーザーさん</p>
-          <p>
-            <v-btn
-              color="orange lighten-1"
-              to="/search"
-            >
-            本を投稿する
-            </v-btn>
-          </p>
-          <p>
-            <v-btn
-              color="error"
-              class="delete-btn"
-              @click="deleteUser"
-            >
+        <p v-if="getStateUserName">こんにちは！ {{ getStateUserName }}さん</p>
+        <p v-else>こんにちは！ゲストユーザーさん</p>
+        <p>
+          <v-btn color="orange lighten-1" to="/search"> 本を投稿する </v-btn>
+        </p>
+        <p>
+          <v-btn color="error" class="delete-btn" @click="deleteUser">
             アカウントを削除
-            </v-btn>
-          </p>
-          <v-col
-            cols="12"
-            sm="6"
-            md="6"
-            v-for="(book, index) in books"
-            :key="index"
-          >
+          </v-btn>
+        </p>
+        <v-col
+          cols="12"
+          sm="6"
+          md="6"
+          v-for="(book, index) in books"
+          :key="index"
+        >
           <!-- 自分が投稿した本の一覧 -->
           <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
-          <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
+          <v-card v-if="book.userId === $store.state.userId" class="mb-8">
             <v-row>
               <v-col cols="3">
                 <!-- 画像が表示される -->
                 <v-img :src="book.image"></v-img>
               </v-col>
               <v-col cols="9">
-                <v-card-title >{{ book.title }}</v-card-title>
+                <v-card-title>{{ book.title }}</v-card-title>
                 <v-spacer></v-spacer>
                 <v-card-actions>
                   <!-- 書き込み -->
                   <v-btn
-                    :to="{name: 'BookEdit', params: {id: index}}"
+                    :to="{ name: 'BookEdit', params: { id: index } }"
                     color="primary"
                     class="mx-1"
                   >
-                  編集する
+                    編集する
                   </v-btn>
                   <v-spacer></v-spacer>
 
-                  <v-btn
-                    color="error"
-                    @click="deliteLocalStorage(index)"
-                  >
-                  削除
+                  <v-btn color="error" @click="deliteLocalStorage(index)">
+                    削除
                   </v-btn>
                 </v-card-actions>
               </v-col>
@@ -441,19 +432,18 @@ export default new Vuex.Store({
 </template>
 
 <script>
-
-const STORAGE_KEY = 'books'
+const STORAGE_KEY = "books";
 
 export default {
   props: {
     books: Array,
   },
-  name: 'Profile',
+  name: "Profile",
   data() {
     return {
       user: this.$store.getters.getStateUser,
-      userName: ''
-    }
+      userName: "",
+    };
   },
   methods: {
     deleteUser() {
@@ -464,13 +454,12 @@ export default {
       localStorage.setItem(STORAGE_KEY, parsed);
     },
     deliteLocalStorage(index) {
-      const isDeleted = 'データを削除してもいいですか？'
-      if(window.confirm(isDeleted)) {
-
-        this.books.splice(index, 1)
+      const isDeleted = "データを削除してもいいですか？";
+      if (window.confirm(isDeleted)) {
+        this.books.splice(index, 1);
         this.saveBooks();
-        this.books = []
-        window.location.reload()
+        this.books = [];
+        window.location.reload();
       }
     },
   },
@@ -483,10 +472,9 @@ export default {
     },
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
-    }
+    },
   },
-}
-
+};
 </script>
 ```
 
