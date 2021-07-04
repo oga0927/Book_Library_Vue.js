@@ -1,12 +1,13 @@
 ![トップページ.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1b7f1a91-49c0-c6a5-4656-5b181e27a81f.jpeg)
 
-## 制作背景
+# 制作背景
 
 「どんなアプリなのか？」<br>
 読書した内容を 1 ページにまとめるシンプルな「読書記録アプリ」です。<br>
 本の内容を紙 1 ページに要約する方も多いと思います。しかし、紙だと編集ができず作り直すことも多いです。
 そこで、紙ではなく WEB 上で投稿・管理し、他のユーザーと知識を共有し合えるサービスを制作しました。
 「他のユーザーの要約をみたい」欲求を解決しました。また、同じ本を要約することに時間をかけずに、まだ要約されていない書籍に専念することができます。<br>
+
 ・検索、記録、保存の 3 ステップ<br>
 ・読んだ本の内容を質問に答えてアウトプット<br>
 ・マイページでいつでも振り返り可能<br>
@@ -15,7 +16,7 @@
 
 ## URL
 
-- https://shalibo.netlify.app/
+- URL: https://shalibo.netlify.app
 - ゲストログインボタンで簡単にログインできます。
 
 Qiita にも執筆しました。
@@ -28,14 +29,16 @@ Qiita にも執筆しました。
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/646313e3-2a27-62f9-7063-3b13a03757d1.png)
 <br>
 <br>
+<br>
 
 ## インフラ構成図
 
 ![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
 <br>
 <br>
+<br>
 
-## 使用技術
+# 使用技術
 
 - Vue 2.6.12
 - VueCLI 4.5.13
@@ -64,16 +67,6 @@ Qiita にも執筆しました。
 | ９   | コメント機能(Ajax)                |
 | １０ | 本の詳細一覧機能 　               |
 | １１ | マイページ機能                    |
-
-## ポートフォリオの URL
-
-GitHub: https://github.com/oga0927/Book_Library_Vue.js
-URL: https://shalibo.netlify.app
-
-UserName: test
-E-mail: shalibo@test.com
-Password: password
-ゲストログイン付き
 
 # 何ができるのか
 
