@@ -20,11 +20,11 @@
 - ゲストログインボタンで簡単にログインできます。
 
 ![スクリーンショット 2021-07-04 11.44.48.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/6bfe5771-ce2b-5101-44f7-84b12006e42a.png)
-<br>
-<br>
 
 Qiita にも執筆しました。
 [Vue.js、FireBase で読書管理アプリを作ってみた](https://qiita.com/oga0927/items/abf48b692b11fec6ae36)
+<br>
+<br>
 
 ## ER 図
 
@@ -52,8 +52,10 @@ Qiita にも執筆しました。
 - WEB サーバー: Netlify
 - DB: WebStorage(LocalStorage)
 - DB(認証のみ): Firebase(Authentication)
+  <br>
+  <br>
 
-# 機能一覧
+## 機能一覧
 
 |      | 　　　　　　 機能　 　　　　 　　 |
 | :--- | :-------------------------------- |
@@ -69,36 +71,50 @@ Qiita にも執筆しました。
 | １０ | 本の詳細一覧機能 　               |
 | １１ | マイページ機能                    |
 
+<br>
+<br>
+<br>
+
 # 何ができるのか
 
-### 1. ユーザー登録
+### 1. トップページ
+
+![スクリーンショット 2021-07-04 16.09.57.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/1148695b-8c81-4c71-1049-bc5f72432d63.png)
+<br>
+<br>
+最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
+ユーザー登録を配置して、router-link でフォームを描画しています。
+<br>
+<br>
+<br>
+
+### 2. ユーザー登録
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/5431fcf3-66bd-4d54-5695-d90555c509e5.gif)
 <br>
 <br>
-<br>
 ヘッダーのユーザー登録を押して、フォームに UserName、Email、Password を入力して登録。
 (ユーザーネームを入力しない場合はゲストログイン名として表示されます)
+<br>
+<br>
+<br>
 
-### 2. ログイン
-
-アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
-
-### 3. トップページ
-
-最初にアクセスするとトップページの画面が描画されます。ヘッダーにログイン、
-ユーザー登録を配置して、router-link でフォームを描画しています。
-
-### 4. ユーザー認証
-
-・ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
-・ログインするとヘッダーにホーム、投稿する、マイページ、ログアウトのボタンが表示されます。
-・firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
-投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
-・トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、
-『おすすめの一冊を投稿ボタン』を表示させています。
+### 3. ユーザー認証
 
 ![ユーザー登録.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/ef6d14d2-d6b2-606a-3315-1b4e4b9e0bb1.gif)
+<br>
+<br>
+
+- アカウント登録済みの場合はフォームに Email と Password を入力してログイン。
+- ユーザー登録と同時にユーザー情報を firebase の Authentication に保存しています。
+- ログインするとヘッダーにホーム、投稿する、マイページ、ログアウトのボタンが表示されます。
+- firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
+  投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
+- トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、
+  『おすすめの一冊を投稿ボタン』を表示させています。
+  <br>
+  <br>
+  <br>
 
 ### 5. 検索
 
