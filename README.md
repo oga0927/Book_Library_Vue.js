@@ -93,7 +93,7 @@ Qiita にも執筆しました。
 - トップページでは投稿した本の一覧画面が描画されます。v-if で認証状態を判別し、
   『おすすめの一冊を投稿ボタン』を表示させています。
 
-````store.js
+```s
 
 Vue.use(Vuex);
 
@@ -145,61 +145,12 @@ export default new Vuex.Store({
         });
     },
   },
-  getters: {
-    isSignedIn(state) {
-      return state.status;
-    },
-    getStateUser(state) {
-      return state.user;
-    },
-    getUserName(state) {
-      return state.userName;
-    },
-    getUserId(state) {
-      return state.userId;
-    }
-  },
-  // 再描画されてもデータを保持
-  plugins: [
-    createPersistedState({
-      key: 'example',
-      storage: window.sessionStorage
-  })]
 });
-    ```
+```
+
   <br>
   <br>
   <br>
-
-```store.js
-
-import createPersistedState from 'vuex-persistedstate';
-
-
-export default new Vuex.Store({
-
-  },
-  state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
-
-  getters: {
-
-  },
-  plugins: [
-    createPersistedState({
-　　　 key: 'example',
-    　storage: window.sessionStorage
-  })]
-
-});
-````
 
 ### 3. ユーザー登録
 
@@ -528,4 +479,8 @@ export default {
 }
 
 </script>
+```
+
+```
+
 ```
