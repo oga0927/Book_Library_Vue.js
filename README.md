@@ -182,6 +182,11 @@ export default new Vuex.Store({
 ![スクリーンショット 2021-07-04 19.48.16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/eff56f42-42a4-2f55-db28-ac278b2f8898.png)
 
 - 検索キーワードを入力して検索
+  <br>
+  <br>
+
+![スクリーンショット 2021-07-04 20.08.49.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/4512394a-0343-22cd-58ee-ce93c90a2ede.png)
+
 - firebase の Authentication から userid を取得し、store に格納、state から userid を呼び出し、
   投稿するときに LocalStorage の userid と紐づけて v-for で一覧表示。
 
