@@ -113,12 +113,13 @@ export default {
   }
   .features__list {
     flex-direction: column;
+    width: 100%;
   }
-  .contents__title {
-    width: 300px;
-  }
+  .contents{
+    width: 80%;
+    margin: 0 auto;
+}
   .contents__discription {
-    width: 300px;
     font-size: 0.8rem;
     margin-bottom: 30px;
   }
