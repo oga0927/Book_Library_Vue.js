@@ -205,6 +205,10 @@ export default new Vuex.Store({
 
 ![スクリーンショット 2021-07-04 21.26.02.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/53d818a2-c7ce-4ded-855e-1a0e061e613c.png)
 
+<br>
+<br>
+<br>
+
 ### 6. 投稿した本、アカウント削除
 
 ![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
@@ -347,9 +351,9 @@ export default {
 
 ### 9. 工夫したところ（UI/UX）
 
-① メインビューの配色には暖色をメインに作成。<br>
+① ファーストビューは一眼でわかる画像と、何をするアプリなのかが伝わるように作成。<br>
 ② 探す → アウトプット → 保存のシンプルな設計。<br>
-③ ファーストビューは一眼でわかる画像と、何をするアプリなのかが伝わるように作成。<br>
+③ メインビューの配色には暖色をメインに作成。<br>
 <br>
 <br>
 <br>
@@ -492,8 +496,4 @@ export default {
   },
 };
 </script>
-```
-
-```
-
 ```
