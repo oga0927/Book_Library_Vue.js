@@ -205,7 +205,7 @@ export default new Vuex.Store({
 
 ![スクリーンショット 2021-07-04 21.26.02.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/53d818a2-c7ce-4ded-855e-1a0e061e613c.png)
 
-### 7. 投稿した本、アカウント削除
+### 6. 投稿した本、アカウント削除
 
 ![アカウント削除.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/2ce207e3-d8af-073a-1d51-c6a3d4e857a3.gif)
 
@@ -217,7 +217,7 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 8. レスポンシブ対応
+### 7. レスポンシブ対応
 
 ![レスポンシブ.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/7768f5de-b014-e41c-6dee-02ea3414ec41.gif)
 
@@ -227,7 +227,7 @@ export default new Vuex.Store({
   <br>
   <br>
 
-### 9.バリデーション
+### 8.バリデーション
 
 - E-mail、Password は必須項目<br>
 - パスワードは 6 文字以上の入力が必須<br>
@@ -345,7 +345,7 @@ export default {
   <br>
   <br>
 
-### 10. 工夫したところ（UI/UX）
+### 9. 工夫したところ（UI/UX）
 
 ① メインビューの配色には暖色をメインに作成。<br>
 ② 探す → アウトプット → 保存のシンプルな設計。<br>
@@ -354,7 +354,7 @@ export default {
 <br>
 <br>
 
-### 11. 工夫したところ（実装面）
+### 10. 工夫したところ（実装面）
 
 #### ① データの永続化
 
