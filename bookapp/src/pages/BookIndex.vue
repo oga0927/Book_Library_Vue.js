@@ -90,9 +90,6 @@ export default {
   data() {
     return {
       // userId: false,
-      booklikes: [],
-      count: 0,
-      addClick: '',
     }
   },
   methods: {
