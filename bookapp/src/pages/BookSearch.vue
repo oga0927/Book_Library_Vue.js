@@ -74,6 +74,7 @@ export default {
     }
   },
   methods:{
+    
     addBookList(index) {
       // クリックした箇所を指定
       this.$emit('add-book-list',this.searchResults[index]) 
@@ -85,11 +86,14 @@ export default {
     // オブジェクト形式でparamsを作成
       const params = {
         q: `intitle:${keyword}`,
+
+        // 検索結果を40件取得する
         maxResults:40,
     }
     
     // urlを作成してオブジェクトの中にkeyとvalueを設定
     const queryParams = new URLSearchParams(params)
+    console.log(baseUrl + queryParams);
 
     // fetchでJSON取得
     // fetchでqueryParamsを追加。パラメーター付きのURLを取得
