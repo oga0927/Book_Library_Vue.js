@@ -50,6 +50,7 @@
                   class="mx-2" 
                   fab dark color="indigo"
                   @click="addBookList(index)"
+                  
                 >
                   <v-icon dark>
                     mdi-plus
@@ -74,12 +75,23 @@ export default {
     }
   },
   methods:{
-    
-    addBookList(index) {
+    // 修正前 ここから
+    // ======================================================
+    // addBookList(index) {
+    //   // クリックした箇所を指定
+    //   this.$emit('add-book-list',this.searchResults[index]) 
+    // =====================================================
+    // ここまで
+
+    // 修正後 ここから
+    // ===========================================================
+    addBookList(value) {
       // クリックした箇所を指定
-      this.$emit('add-book-list',this.searchResults[index]) 
-      
+      this.$emit('add-book-list',value)   
     },
+    // ここまで
+    // ===========================================================
+    
     async search(keyword){
       // GoogleBookApiのURLを作成（クエリーストリングを作成）
     const baseUrl = 'https://www.googleapis.com/books/v1/volumes?'
