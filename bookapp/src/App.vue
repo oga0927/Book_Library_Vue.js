@@ -25,8 +25,9 @@ import firebase from '@/plugins/firebase'
 
 // 修正後
 const BookList = 'books'
-// =============================================
 const database = firebase.database();
+// =============================================
+
 export default {
   name: 'App',
 
@@ -50,15 +51,6 @@ data(){
     //     localStorage.removeItem(STORAGE_KEY);
     //   }
     // }
-    // ローカルストレージにアイテムがあれば
-    // if (localStorage.getItem(STORAGE_KEY)) {
-    //   try {
-    //     // JSON.parseで値を持ってきて、this.booksにデータを渡す
-    //     this.books = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    //   } catch(e) {
-    //     localStorage.removeItem(STORAGE_KEY);
-    //   }
-    // }
   },
   methods: {
     // =========================================================================
@@ -66,7 +58,7 @@ data(){
     //   (e)で子コンポーネントからデータを受け取る
     // addBooks(e) {
       
-    //   // 追加があればpushして
+    // //   // 追加があればpushして
     //   this.books.push({
     //     id: this.books.length,
     //     // 子コンポーネント
@@ -88,42 +80,43 @@ data(){
     // ==============================================================================
     addBooks(value) {
     
-      // ==============================================================================
-      // // 修正前のaddBook(e)から修正後のaddBook(value)にすると子コンポーネントからデータを受け取れない
-      //   // 子コンポーネント
-      //   title: e.title,
-      //   image: e.image,
-      //   discription: e.discription,
-      // ==============================================================================
+    // ==============================================================================
+    // // 修正前のaddBook(e)から修正後のaddBook(value)にすると子コンポーネントからデータを受け取れない
+    //   // 子コンポーネント
+    //   title: e.title,
+    //   image: e.image,
+    //   discription: e.discription,
+    // ==============================================================================
 
 
-      // ==============================================================================
-      // 現状のコード / Realtime Databeseにはオブジェクトで追加されている
-      // ここから
-      database.ref(BookList).push({
-        title: '',
-        image: '',
-      //   // 説明
-        discription: '',
-        id: this.books.length,
-        readDate: '',
-        // メモ
-        memo: '',
-        learn: '',
-        important: '',
-        examples: '',
-        different: '',
-        userId: this.$store.state.userId,
-      })
-      console.log(value);
-      // ここまで
-      // ==============================================================================
-      
-      // this.saveBooksに保存する
+    // ==============================================================================
+    // 現状のコード / Realtime Databeseにはオブジェクトで追加されている
+    // ここから
+    database.ref(BookList).push({
+      title: '',
+      image: '',
+    //   // 説明
+      discription: '',
+      id: this.books.length,
+      readDate: '',
+      // メモ
+      memo: '',
+      learn: '',
+      important: '',
+      examples: '',
+      different: '',
+      userId: this.$store.state.userId,
+    })
+    console.log(value);
+    // ここまで
+    // ==============================================================================
+    
+    // this.saveBooksに保存する
       this.saveBooks();
 
       // 最新に追加したidの取得コード
-      this.goToEditPage(this.books.slice(-1)[0].id)
+      this.goToEditPage(this.books.id)
+      console.log(this.books.slice(-1)[0].id);
     },
     removeBook(x) {
       this.books.splice(x, 1);
