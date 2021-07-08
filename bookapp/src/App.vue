@@ -24,8 +24,8 @@ import firebase from '@/plugins/firebase'
 // const STORAGE_KEY = 'books'
 
 // 修正後
-const BookList = 'books'
 const database = firebase.database();
+const BookList = database.ref('books');
 // =============================================
 
 export default {
@@ -40,62 +40,87 @@ data(){
       books: [],
     }
   },
-  mounted() {
-    // 未修正
-    // ローカルストレージにアイテムがあれば
-    // if (localStorage.getItem(STORAGE_KEY)) {
-    //   try {
-    //     // JSON.parseで値を持ってきて、this.booksにデータを渡す
-    //     this.books = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    //   } catch(e) {
-    //     localStorage.removeItem(STORAGE_KEY);
-    //   }
-    // }
-  },
-  methods: {
-    // =========================================================================
-    // 修正前 ここから
-    //   (e)で子コンポーネントからデータを受け取る
-    // addBooks(e) {
-      
-    // //   // 追加があればpushして
-    //   this.books.push({
-    //     id: this.books.length,
-    //     // 子コンポーネント
-    //     title: e.title,
-    //     image: e.image,
-    //     // 説明
-    //     discription: e.discription,
-    //     // 読んだ日、感想
-    //     readDate: '',
-    //     // メモ
-    //     memo: '',
-    //     learn: '',
-    //     important: '',
-    //     examples: '',
-    //     different: '',
-    //     userId: this.$store.state.userId,
-    //   })
-    //   ここまで
-    // ==============================================================================
-    addBooks(value) {
+created() {
+  // booksへの追加
+  BookList.on('child_added', (snapshot, prevChildKey) => {
+    const newPost = snapshot.val();
+    console.log('Author: ' + newPost.author);
+    console.log('Title: ' + newPost.title);
+    console.log('Previous Post ID: ' + prevChildKey);
+  });
+
+  // booksの変更
+  BookList.on('child_changed', (snapshot) => {
+    const changedPost = snapshot.val();
+    console.log(changedPost);
+  });
+
+  // booksの削除
+  const BookList = database.ref();
+  
+  BookList.on('child_removed', (snapshot) => {
+    const deletedPost = snapshot.val();
+    console.log(deletedPost);
+  });
+
+console.log(BookList);
+},
+mounted() {
+  // 未修正
+  // ローカルストレージにアイテムがあれば
+  // if (localStorage.getItem(STORAGE_KEY)) {
+  //   try {
+  //     // JSON.parseで値を持ってきて、this.booksにデータを渡す
+  //     this.books = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  //   } catch(e) {
+  //     localStorage.removeItem(STORAGE_KEY);
+  //   }
+  // }
+  if (database.val(BookList)) {
+    try {
+      // JSON.parseで値を持ってきて、this.booksにデータを渡す
+      // JSON.parse() 文字列を JSON として解析、
+      // 文字列によって記述されている JavaScript の値やオブジェクトを構築
+      this.books = JSON.parse(database.val(BookList));
+    } catch(e) {
+      database.remove(BookList);
+    }
+  }
+},
+methods: {
+  // =========================================================================
+  // 修正前 ここから
+  //   (e)で子コンポーネントからデータを受け取る
+  // addBooks(e) {
     
-    // ==============================================================================
-    // // 修正前のaddBook(e)から修正後のaddBook(value)にすると子コンポーネントからデータを受け取れない
+  // 追加があればpushして
+    // this.books.push({
+    //   id: this.books.length,
     //   // 子コンポーネント
     //   title: e.title,
     //   image: e.image,
+    //   // 説明
     //   discription: e.discription,
+    //   // 読んだ日、感想
+    //   readDate: '',
+    //   // メモ
+    //   memo: '',
+    //   learn: '',
+    //   important: '',
+    //   examples: '',
+    //   different: '',
+    //   userId: this.$store.state.userId,
+    // })
+    //   ここまで
     // ==============================================================================
-
-
+    addBooks(value) {
     // ==============================================================================
     // 現状のコード / Realtime Databeseにはオブジェクトで追加されている
     // ここから
     database.ref(BookList).push({
       title: '',
       image: '',
-    //   // 説明
+      //説明
       discription: '',
       id: this.books.length,
       readDate: '',
@@ -123,11 +148,11 @@ data(){
       this.saveBooks();
     },
     saveBooks() {
+      // JavaScriptのオブジェクトや値を JSON 文字列に変換
       const parsed = JSON.stringify(this.books);
-      const database = firebase.database();
 
       // localStorage.setItem(STORAGE_KEY, parsed);
-      database().ref(BookList).push(parsed);
+      database.set(BookList, parsed)
     },
     // 最新のid
     goToEditPage(id) {
