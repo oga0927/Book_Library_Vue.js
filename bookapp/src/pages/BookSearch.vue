@@ -77,18 +77,18 @@ export default {
   methods:{
     // 修正前 ここから
     // ======================================================
-    // addBookList(index) {
+    addBookList(index) {
       // クリックした箇所を指定
-      // this.$emit('add-book-list',this.searchResults[index]) 
+      this.$emit('add-book-list',this.searchResults[index]) 
     // =====================================================
     // ここまで
-
+    },
     // 修正後 ここから
     // ===========================================================
-    addBookList(value) {
-    //   // クリックした箇所を指定
-      this.$emit('add-book-list',value)
-    },
+    // addBookList(value) {
+    // //   // クリックした箇所を指定
+    //   this.$emit('add-book-list',value)
+    // },
     // ここまで
     // ===========================================================
     async search(keyword){
