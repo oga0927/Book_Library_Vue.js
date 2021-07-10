@@ -40,7 +40,7 @@ const routes = [
     component: BookSearch
   },
   {
-    path: '/edit/:id',
+    path: '/edit',
     name: 'BookEdit',
     component: BookEdit 
   },

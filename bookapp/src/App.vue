@@ -18,18 +18,14 @@
 import AppHeader from '@/global/AppHeader'
 import AppFooter from '@/global/AppFooter'
 import firebase from '@/plugins/firebase'
-
 // ===============================================
 // 修正前 
 // const STORAGE_KEY = 'books'
-
 // 修正後
 const booksRef = firebase.database().ref('books')
 // =============================================
-
 export default {
   name: 'App',
-
   components: {
     AppHeader,
     AppFooter,
@@ -44,12 +40,10 @@ created() {
   booksRef.on('child_added', (snapshot) => {
     this.books.push(snapshot.val())
   });
-
   // booksの変更
   booksRef.on('child_changed', (snapshot) => {
     this.books.update(snapshot.val())
   });
-
   // // booksの削除
   
   booksRef.on('child_removed', (snapshot) => {
@@ -57,10 +51,9 @@ created() {
   });
 },
 mounted() {
-
 },
 methods: {
-  addBook(e) {
+  addBooks(e) {
     const bookData = {
     title: e.title,
     image: e.image,
@@ -77,10 +70,9 @@ methods: {
   
   // this.saveBooksに保存する
     this.saveBooks();
-
     // 最新に追加したidの取得コード
-    this.goToEditPage(this.books.id)
-    console.log(this.books.slice(-1)[0].id);
+    this.goToEditPage()
+    // console.log(this.books.slice(-1)[0].id);
   },
     removeBook(x) {
       this.books.splice(x, 1);
@@ -89,14 +81,13 @@ methods: {
     saveBooks() {
       // JavaScriptのオブジェクトや値を JSON 文字列に変換
       const parsed = JSON.stringify(this.books);
-
       // localStorage.setItem(STORAGE_KEY, parsed);
       firebase.database().set(booksRef, parsed)
     },
     // 最新のid
-    goToEditPage(id) {
+    goToEditPage() {
       // ページの切り替え
-      this.$router.push(`/edit/${id}`)
+      this.$router.push('/edit')
     },
   }
 };
@@ -105,6 +96,4 @@ methods: {
 <style>
 @import "./assets/css/reset.css";
 @import "./assets/css/style.css";
-
-
 </style>
