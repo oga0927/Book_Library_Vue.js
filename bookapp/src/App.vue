@@ -19,12 +19,9 @@ import AppHeader from '@/global/AppHeader'
 import AppFooter from '@/global/AppFooter'
 import firebase from '@/plugins/firebase'
 // ===============================================
-// 修正前 
-// const booksRef = firebase.database().ref('books')
-// 修正後
-const database = firebase.database();
-const booksRef = 'books';
-// =============================================
+
+const booksRef = firebase.database().ref('books')
+
 export default {
   name: 'App',
   components: {
@@ -40,9 +37,12 @@ created() {
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
   booksRef.on('child_added', (snapshot) => {
-    this.books.push(snapshot.val())
-    this.books.id = snapshot.val();
-  });
+
+  // booksRefの子要素がトリガーされ、this.books.push(snapshot.val())で
+  // id: this.books.lengthが反応してidが追加される
+  this.books.push(snapshot.val())
+  })
+
   // booksの変更
   booksRef.on('child_changed', (snapshot) => {
     this.books.update(snapshot.val())
@@ -60,7 +60,7 @@ methods: {
     const bookData = {
       title: e.title,
       image: e.image,
-      discription: e.discription,
+      // discription: e.discription,
       id: this.books.length,
       readDate: '',
       memo: '',
@@ -70,39 +70,23 @@ methods: {
       different: '',
       userId: this.$store.state.userId,
       }
-      database.ref(booksRef).push(bookData)
-      .then(() => {
-        console.log('成功');
-      })
-      .catch(() => {
-        console.log('エラー');
-      })
-      
-      
-  // // this.saveBooksに保存する
-  //   this.saveBooks();
-  //   // 最新に追加したidの取得コード
-  //   this.goToEditPage(this.books.id)
-  //   // console.log(this.books.slice(-1)[0].id);
-  },
-  // 現状のコード / Realtime Databeseにはオブジェクトで追加されている
-      // ここから
-      // database.ref(BookList).push({
-      //   title: '',
-      //   image: '',
-      // //   // 説明
-      //   discription: '',
-      //   id: this.books.length,
-      //   readDate: '',
-      //   // メモ
-      //   memo: '',
-      //   learn: '',
-      //   important: '',
-      //   examples: '',
-      //   different: '',
-      //   userId: this.$store.state.userId,
+      booksRef.push(bookData)
+      // .then(() => {
+      //   console.log('成功');
       // })
-      // console.log(value);
+      // .catch(() => {
+      //   console.log('エラー');
+      // });
+
+      // console.log(bookData);
+      
+      
+  // this.saveBooksに保存する
+    this.saveBooks();
+    // 最後に追加したidの取得コード
+    this.goToEditPage(this.books.id)
+    // console.log(this.books.slice(-1)[0].id);
+  },
       // ============================================================
     removeBook(x) {
       this.books.splice(x, 1);
