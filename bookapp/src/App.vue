@@ -45,15 +45,11 @@ created() {
 
 // child_addedでsanpshot,keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
-// pushメソッドの動作と、オブジェクト構造に関する理解
-// 最終的にthis.booksにどのような形のオブジェクトを格納したいのか。
+const getData =snapshot.val()
 
-// そのためにはpushの中身をどうすればいいのか
-
-// const foods = []
 const bookAdd = {
-  title: '',
-  image: '',
+  title: getData.title,
+  image: getData.image,
   id: '',
   readDate: '',
   memo: '',
@@ -63,19 +59,38 @@ const bookAdd = {
   different: '',
   userId: this.$store.state.userId,
 }
-bookAdd.id = snapshot.key;
-
-this.books.push(snapshot.val(),bookAdd);
-console.log(this.books);
-})
-
+bookAdd.id = snapshot.key
+this.books.push(bookAdd)
+console.log(bookAdd);
+// this.books.push(this.bookAdd)
 
 
-  // booksの変更
-  // booksRef.on('child_changed', (snapshot) => {
-  //   this.books.update(snapshot.val())
-  // });
-  // // // booksの削除
+// this.books.push(this.bookAdd);
+
+
+
+// this.goToEditPage(this.books.id)
+
+
+
+// const foods = []
+// const food = {
+//   name: "寿司",
+//   category: "和食"
+// }
+
+// food.id = 0;
+// foods.push(food);
+
+});
+
+
+
+  // this.booksの変更
+booksRef.on('child_changed', (snapshot) => {
+  this.books.update(snapshot.val())
+});
+  // // // this.booksの削除
   
   // booksRef.on('child_removed', (snapshot) => {
   //   this.books.remove(snapshot.val())
@@ -88,7 +103,6 @@ methods: {
     const bookData = {
       title: e.title,
       image: e.image,
-      // discription: e.discription,
       id: '',
       readDate: '',
       memo: '',
@@ -99,19 +113,17 @@ methods: {
       userId: this.$store.state.userId,
       }
       booksRef.push(bookData)
-      // .then(() => {
-      //   console.log('成功');
-      // })
-      // .catch(() => {
-      //   console.log('エラー');
-      // });
 
-      // console.log(bookData);
-      
   // this.saveBooksに保存する
     this.saveBooks();
     // 最後に追加したidの取得コード
     this.goToEditPage(this.books.id)
+      .then(() => {
+        console.log('成功');
+      })
+      .catch(() => {
+        console.log('エラー');
+      });
     // console.log(this.books.slice(-1)[0].id);
   },
       // ============================================================
@@ -119,12 +131,12 @@ methods: {
       this.books.splice(x, 1);
       this.saveBooks();
     },
-    saveBooks() {
-      // JavaScriptのオブジェクトや値を JSON 文字列に変換
-      const parsed = JSON.stringify(this.books);
-      // localStorage.setItem(STORAGE_KEY, parsed);
-      firebase.database().set(booksRef, parsed)
-    },
+    // saveBooks() {
+    //   // JavaScriptのオブジェクトや値を JSON 文字列に変換
+    //   const parsed = JSON.stringify(this.books);
+    //   // localStorage.setItem(STORAGE_KEY, parsed);
+    //   booksRef.set(parsed)
+    // },
     // 最新のid
     goToEditPage(id) {
       // ページの切り替え
