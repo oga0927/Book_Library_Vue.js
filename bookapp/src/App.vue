@@ -34,24 +34,52 @@ data(){
     }
   },
 created() {
+
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
   booksRef.on('child_added', (snapshot) => {
 
   // booksRefの子要素がトリガーされ、this.books.push(snapshot.val())で
   // id: this.books.lengthが反応してidが追加される
-  this.books.push(snapshot.val())
-  })
+  
+
+// child_addedでsanpshot,keyとすると
+// そのデータのキーが取得できるので、それをそのままidに
+// pushメソッドの動作と、オブジェクト構造に関する理解
+// 最終的にthis.booksにどのような形のオブジェクトを格納したいのか。
+
+// そのためにはpushの中身をどうすればいいのか
+
+// const foods = []
+const bookAdd = {
+  title: '',
+  image: '',
+  id: '',
+  readDate: '',
+  memo: '',
+  learn: '',
+  important: '',
+  examples: '',
+  different: '',
+  userId: this.$store.state.userId,
+}
+bookAdd.id = snapshot.key;
+
+this.books.push(snapshot.val(),bookAdd);
+console.log(this.books);
+})
+
+
 
   // booksの変更
-  booksRef.on('child_changed', (snapshot) => {
-    this.books.update(snapshot.val())
-  });
-  // // booksの削除
+  // booksRef.on('child_changed', (snapshot) => {
+  //   this.books.update(snapshot.val())
+  // });
+  // // // booksの削除
   
-  booksRef.on('child_removed', (snapshot) => {
-    this.books.remove(snapshot.val())
-  });
+  // booksRef.on('child_removed', (snapshot) => {
+  //   this.books.remove(snapshot.val())
+  // });
 },
 mounted() {
 },
@@ -61,7 +89,7 @@ methods: {
       title: e.title,
       image: e.image,
       // discription: e.discription,
-      id: this.books.length,
+      id: '',
       readDate: '',
       memo: '',
       learn: '',
@@ -79,7 +107,6 @@ methods: {
       // });
 
       // console.log(bookData);
-      
       
   // this.saveBooksに保存する
     this.saveBooks();
