@@ -70,18 +70,6 @@ console.log(bookAdd);
 
 
 // this.goToEditPage(this.books.id)
-
-
-
-// const foods = []
-// const food = {
-//   name: "寿司",
-//   category: "和食"
-// }
-
-// food.id = 0;
-// foods.push(food);
-
 });
 
 
