@@ -37,15 +37,10 @@ created() {
 
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
-  booksRef.on('child_added', (snapshot) => {
+booksRef.on('child_added', (snapshot) => {
 
-  // booksRefの子要素がトリガーされ、this.books.push(snapshot.val())で
-  // id: this.books.lengthが反応してidが追加される
-  
 
-// child_addedでsanpshot,keyとすると
-// そのデータのキーが取得できるので、それをそのままidに
-const getData = snapshot.val()
+const getData = snapshot.val();
 
 const bookAdd = {
   title: getData.title,
@@ -59,20 +54,20 @@ const bookAdd = {
   different: '',
   userId: this.$store.state.userId,
 }
-bookAdd.id = snapshot.key
-this.books.push(bookAdd)
+// child_addedでsanpshot,keyとすると
+// そのデータのキーが取得できるので、それをそのままidに
+bookAdd.id = snapshot.key;
+this.books.push(bookAdd);
 
-this.goToEditPage(this.books.id)
-console.log(this.books);
 
-
+// this.goToEditPage(this.books.id)
 });
 
 
 
   // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
-  console.log(this.goToEditPage);
+
   this.books.update(snapshot.val())
 });
   // // // this.booksの削除
@@ -81,8 +76,7 @@ booksRef.on('child_changed', (snapshot) => {
   //   this.books.remove(snapshot.val())
   // });
 },
-mounted() {
-},
+
 methods: {
   addBooks(e) {
     const bookData = {
@@ -97,18 +91,28 @@ methods: {
       different: '',
       userId: this.$store.state.userId,
       }
-      booksRef.push(bookData)
+      booksRef.push(bookData);
 
-      this.saveBooks();
-      // 最後に追加したidの取得コード
       this.goToEditPage(this.books.id)
+        console.log(this.goToEditPage);
+      // .then(() => {
+      //   console.log('成功');
+      // })
+      // .catch(() => {
+      //   console.log('失敗');
+      // })
+      this.saveBooks();
+
+      // 最後に追加したidの取得コード
       // console.log(this.books.slice(-1)[0].id);
   },
+    
       // ============================================================
     removeBook(x) {
       this.books.splice(x, 1);
       this.saveBooks();
     },
+    
     // saveBooks() {
     //   // JavaScriptのオブジェクトや値を JSON 文字列に変換
     //   const parsed = JSON.stringify(this.books);
@@ -118,7 +122,7 @@ methods: {
     // 最新のid
     goToEditPage(id) {
       // ページの切り替え
-      this.$router.push(`/edit/${id}`)
+      this.$router.push(`/edit/${id}`).catch(() => {})
     },
   }
 };
