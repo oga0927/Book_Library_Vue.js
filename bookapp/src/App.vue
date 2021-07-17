@@ -45,7 +45,7 @@ created() {
 
 // child_addedでsanpshot,keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
-const getData =snapshot.val()
+const getData = snapshot.val()
 
 const bookAdd = {
   title: getData.title,
@@ -61,21 +61,18 @@ const bookAdd = {
 }
 bookAdd.id = snapshot.key
 this.books.push(bookAdd)
-console.log(bookAdd);
-// this.books.push(this.bookAdd)
+
+this.goToEditPage(this.books.id)
+console.log(this.books);
 
 
-// this.books.push(this.bookAdd);
-
-
-
-// this.goToEditPage(this.books.id)
 });
 
 
 
   // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
+  console.log(this.goToEditPage);
   this.books.update(snapshot.val())
 });
   // // // this.booksの削除
@@ -102,17 +99,10 @@ methods: {
       }
       booksRef.push(bookData)
 
-  // this.saveBooksに保存する
-    this.saveBooks();
-    // 最後に追加したidの取得コード
-    this.goToEditPage(this.books.id)
-      .then(() => {
-        console.log('成功');
-      })
-      .catch(() => {
-        console.log('エラー');
-      });
-    // console.log(this.books.slice(-1)[0].id);
+      this.saveBooks();
+      // 最後に追加したidの取得コード
+      this.goToEditPage(this.books.id)
+      // console.log(this.books.slice(-1)[0].id);
   },
       // ============================================================
     removeBook(x) {
