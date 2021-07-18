@@ -81,7 +81,10 @@
 </template>
 
 <script>
-const STORAGE_KEY = 'books'
+import firebase from '@/plugins/firebase'
+// const STORAGE_KEY = 'books'
+const booksRef = firebase.database().ref('books')
+console.log(booksRef);
 
 export default {
   props: {
@@ -93,10 +96,10 @@ export default {
     }
   },
   methods: {
-    saveBooks() {
-      const parsed = JSON.stringify(this.books);
-      localStorage.setItem(STORAGE_KEY, parsed);
-    },
+    // saveBooks() {
+    //   const parsed = JSON.stringify(this.books);
+    //   localStorage.setItem(STORAGE_KEY, parsed);
+    // },
     deleteLocalStorage(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {

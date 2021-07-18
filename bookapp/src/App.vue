@@ -29,10 +29,10 @@ export default {
     AppFooter,
   },
 data(){
-    return {
-      books: [],
-    }
-  },
+  return {
+    books: [],
+  }
+},
 created() {
 
   // booksへの追加
@@ -54,13 +54,10 @@ const bookAdd = {
   different: '',
   userId: this.$store.state.userId,
 }
-// child_addedでsanpshot,keyとすると
+// child_addedでsanpshot.keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
 this.books.push(bookAdd);
-
-
-// this.goToEditPage(this.books.id)
 });
 
 
@@ -93,14 +90,9 @@ methods: {
       }
       booksRef.push(bookData);
 
-      this.goToEditPage(this.books.id)
-        console.log(this.goToEditPage);
-      // .then(() => {
-      //   console.log('成功');
-      // })
-      // .catch(() => {
-      //   console.log('失敗');
-      // })
+      this.goToEditPage(this.books.id);
+  
+      
       this.saveBooks();
 
       // 最後に追加したidの取得コード
