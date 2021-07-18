@@ -19,7 +19,6 @@ import AppHeader from '@/global/AppHeader'
 import AppFooter from '@/global/AppFooter'
 import firebase from '@/plugins/firebase'
 // ===============================================
-
 const booksRef = firebase.database().ref('books')
 console.log(booksRef);
 export default {
@@ -34,14 +33,10 @@ data(){
   }
 },
 created() {
-
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
 booksRef.on('child_added', (snapshot) => {
-
-
 const getData = snapshot.val();
-
 const bookAdd = {
   title: getData.title,
   image: getData.image,
@@ -59,12 +54,8 @@ const bookAdd = {
 bookAdd.id = snapshot.key;
 this.books.push(bookAdd);
 });
-
-
-
   // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
-
   this.books.update(snapshot.val())
 });
   // // // this.booksの削除
@@ -73,7 +64,6 @@ booksRef.on('child_changed', (snapshot) => {
   //   this.books.remove(snapshot.val())
   // });
 },
-
 methods: {
   addBooks(e) {
     const bookData = {
@@ -89,12 +79,10 @@ methods: {
       userId: this.$store.state.userId,
       }
       booksRef.push(bookData);
-
       this.goToEditPage(this.books.id);
   
       
       this.saveBooks();
-
       // 最後に追加したidの取得コード
       // console.log(this.books.slice(-1)[0].id);
   },
