@@ -21,7 +21,7 @@ import firebase from '@/plugins/firebase'
 // ===============================================
 
 const booksRef = firebase.database().ref('books')
-
+console.log(booksRef);
 export default {
   name: 'App',
   components: {

@@ -81,10 +81,10 @@
 </template>
 
 <script>
-import firebase from '@/plugins/firebase'
-// const STORAGE_KEY = 'books'
-const booksRef = firebase.database().ref('books')
-console.log(booksRef);
+// import firebase from '@/plugins/firebase'
+// // const STORAGE_KEY = 'books'
+// const booksRef = firebase.database().ref('books')
+// console.log(booksRef);
 
 export default {
   props: {

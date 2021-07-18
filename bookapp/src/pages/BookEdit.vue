@@ -111,7 +111,7 @@ export default {
   methods:{
     updateBookInfo(){
       // 本の情報を更新する
-      console.log(this.$store.state.userId);
+      // console.log(this.$store.state.userId);
       // saveBooksにアクセスして保存
       this.saveBooks()
       // 保存した後にトップページに戻る
@@ -119,7 +119,7 @@ export default {
       
     },
     // saveBooks() {
-    //   const parsed = JSON.stringify(this.books);
+      //   const parsed = JSON.stringify(this.books);
     //   localStorage.setItem(STORAGE_KEY, parsed);
     // },
   },
@@ -129,10 +129,11 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-  next(vm => {
-    // `vm` を通じてコンポーネントインスタンスにアクセス
+    next(vm => {
+      // `vm` を通じてコンポーネントインスタンスにアクセス
     vm.$nextTick(()=>{
       vm.book = vm.books[vm.$route.params.id]
+      console.log(vm.book);
       if(vm.book.readDate){
         vm.date = vm.book.readDate
       } else {
@@ -142,6 +143,12 @@ export default {
   })
 }
 }
+  // .then(() => {
+  //   console.log('成功');
+  // })
+  // .catch(() => {
+  //   console.log('失敗');
+  // })
 </script>
 
 <style scoped>
