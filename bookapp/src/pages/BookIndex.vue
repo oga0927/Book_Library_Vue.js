@@ -84,7 +84,7 @@
 import firebase from '@/plugins/firebase'
 // // const STORAGE_KEY = 'books'
 const booksRef = firebase.database().ref('books')
-// console.log(booksRef);
+console.log(booksRef);
 
 export default {
   props: {
@@ -104,12 +104,17 @@ export default {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
         this.books.splice(index, 1)
-        console.log(booksRef);
+        this.deleteBook();
+        console.log(this.deleteLocalStorage);
         // this.saveBooks();
         // this.books = []
-        // window.location.reload()
+        window.location.reload()
       }
     },
+    deleteBook() {
+      booksRef.child('book').remove()
+      console.log('成功');
+    }
   },
   
   computed: {
