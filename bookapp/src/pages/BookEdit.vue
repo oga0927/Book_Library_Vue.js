@@ -103,6 +103,8 @@ export default {
   },
   data(){
     return{
+      // booksは配列。bookで一つの本の情報を入れる。
+      // bookで一つのオブジェクトとして扱う。
       book:'',
       date: '',
       menu: false,
@@ -132,10 +134,12 @@ export default {
     next(vm => {
       // `vm` を通じてコンポーネントインスタンスにアクセス
     vm.$nextTick(()=>{
+
+      // booksで指定した本の情報をbookに入れる
       vm.book = vm.books[vm.$route.params.id]
+        console.log(vm.book);
       if(vm.book.readDate){
         vm.date = vm.book.readDate
-        console.log();
       } else {
         vm.date = new Date().toISOString().substr(0, 10)
       }

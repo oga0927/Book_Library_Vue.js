@@ -20,7 +20,7 @@ import AppFooter from '@/global/AppFooter'
 import firebase from '@/plugins/firebase'
 // ===============================================
 const booksRef = firebase.database().ref('books')
-console.log(booksRef);
+
 export default {
   name: 'App',
   components: {
@@ -52,13 +52,14 @@ const bookAdd = {
 // child_addedでsanpshot.keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
+
+
 this.books.push(bookAdd);
 
-// this.goToEditPage(this.booksRef);
-console.log(this.booksRef);
 });
   // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
+  
   this.books.update(snapshot.val())
 });
   // this.booksの削除
@@ -82,7 +83,9 @@ methods: {
       userId: this.$store.state.userId,
       }
       booksRef.push(bookData);
-      
+
+      this.goToEditPage(this.books.slice(-1)[0].id);
+      console.log(this.books.slice(-1)[0].id);
   
       
       this.saveBooks();
@@ -103,10 +106,10 @@ methods: {
     //   booksRef.set(parsed)
     // },
     // 最新のid
-    // goToEditPage(id) {
-    //   // ページの切り替え
-    //   this.$router.push(`/edit/${id}`).catch(() => {})
-    // },
+    goToEditPage(id) {
+      // ページの切り替え
+      this.$router.push(`/edit/${id}`).catch(() => {})
+    },
   }
 };
 </script>  
