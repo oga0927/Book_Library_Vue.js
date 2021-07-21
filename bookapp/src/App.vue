@@ -84,13 +84,11 @@ methods: {
       }
       booksRef.push(bookData);
 
+      // 最後に追加したidの取得(追加した本の編集ページに遷移する)
       this.goToEditPage(this.books.slice(-1)[0].id);
       console.log(this.books.slice(-1)[0].id);
-  
       
-      this.saveBooks();
-      // 最後に追加したidの取得コード
-      // console.log(this.books.slice(-1)[0].id);
+      // this.saveBooks();
   },
     
       // ============================================================
@@ -112,6 +110,7 @@ methods: {
     },
   }
 };
+
 </script>  
 
 <style>
