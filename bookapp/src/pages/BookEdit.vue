@@ -133,9 +133,9 @@ export default {
       // `vm` を通じてコンポーネントインスタンスにアクセス
     vm.$nextTick(()=>{
       vm.book = vm.books[vm.$route.params.id]
-      console.log(vm.book);
       if(vm.book.readDate){
         vm.date = vm.book.readDate
+        console.log();
       } else {
         vm.date = new Date().toISOString().substr(0, 10)
       }

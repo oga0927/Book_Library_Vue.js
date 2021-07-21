@@ -53,12 +53,15 @@ const bookAdd = {
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
 this.books.push(bookAdd);
+
+// this.goToEditPage(this.booksRef);
+console.log(this.booksRef);
 });
   // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
   this.books.update(snapshot.val())
 });
-  // // // this.booksの削除
+  // this.booksの削除
   
   // booksRef.on('child_removed', (snapshot) => {
   //   this.books.remove(snapshot.val())
@@ -79,7 +82,7 @@ methods: {
       userId: this.$store.state.userId,
       }
       booksRef.push(bookData);
-      this.goToEditPage(this.books.id);
+      
   
       
       this.saveBooks();
@@ -100,10 +103,10 @@ methods: {
     //   booksRef.set(parsed)
     // },
     // 最新のid
-    goToEditPage(id) {
-      // ページの切り替え
-      this.$router.push(`/edit/${id}`).catch(() => {})
-    },
+    // goToEditPage(id) {
+    //   // ページの切り替え
+    //   this.$router.push(`/edit/${id}`).catch(() => {})
+    // },
   }
 };
 </script>  
