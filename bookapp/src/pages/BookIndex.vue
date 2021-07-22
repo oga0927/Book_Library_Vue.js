@@ -53,7 +53,7 @@
               <v-card-actions>
                 <!-- 書き込み -->
                 <v-btn 
-                  :to="{name: 'BookEdit', params: {id: index}}"
+                  :to="{name: 'BookEdit', params: {id: book.id}}"
                   color="primary"
                   class="mx-1"
                 >
@@ -92,6 +92,9 @@ export default {
   },
   data() {
     return {
+      book:'',
+      date: '',
+      menu: false,
       // userId: false,
     }
   },
@@ -110,6 +113,7 @@ export default {
       }
     },
   },
+  
   computed: {
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
