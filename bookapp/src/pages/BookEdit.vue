@@ -87,11 +87,11 @@
 </template>
 
 <script>
-// import firebase from '@/plugins/firebase'
+import firebase from '@/plugins/firebase'
 // // const STORAGE_KEY = 'books'
-// const booksRef = firebase.database().ref('books')
+const booksRef = firebase.database().ref('books')
 
-// console.log(booksRef);
+console.log(booksRef);
 
 
 
@@ -110,17 +110,19 @@ export default {
     }
   },
   methods:{
+    // 本の情報を更新する
     updateBookInfo(){
-      // 本の情報を更新する
-      // console.log(this.$store.state.userId);
+      // bookRef.set({
+        
+      // })
       // saveBooksにアクセスして保存
       this.saveBooks()
       // 保存した後にトップページに戻る
       this.$router.push('/bookindex')
-      
+      console.log(this.updateBookInfo);
     },
     // saveBooks() {
-      //   const parsed = JSON.stringify(this.books);
+    //   // const parsed = JSON.stringify(this.books);
     //   localStorage.setItem(STORAGE_KEY, parsed);
     // },
   },
@@ -129,12 +131,7 @@ export default {
       return state.user
     }
   },
-  // created() {
-  //   console.log('called created', this.$route.params.id);
-  //   this.book = this.books.find((book) => book.id === this.$route.params.id);
-  // },ZZZ
   beforeRouteEnter (to, from, next) {
-    console.log('called beforeRouteEnter');
     next(vm => {
       // `vm` を通じてコンポーネントインスタンスにアクセス
     vm.$nextTick(()=>{
@@ -143,8 +140,6 @@ export default {
       // vm.book = vm.books[vm.$route.params.id]
     const bookId = vm.$route.params.id;
       vm.book = vm.books.find((book) => book.id === bookId);
-      console.log('iddd=>', vm.$route.params.id);
-      console.log(JSON.stringify(vm.books));
       if(vm.book.readDate){
         vm.date = vm.book.readDate
       } else {
@@ -172,4 +167,5 @@ export default {
     font-size: 0.8rem;
   }
 }
+
 </style>

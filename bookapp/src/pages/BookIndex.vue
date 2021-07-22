@@ -103,7 +103,7 @@ export default {
     //   const parsed = JSON.stringify(this.books);
     //   localStorage.setItem(STORAGE_KEY, parsed);
     // },
-    deleteLocalStorage(index) {
+    deleteBook(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
         this.books.splice(index, 1)

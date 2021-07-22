@@ -58,15 +58,16 @@ this.books.push(bookAdd);
 
 });
   // this.booksの変更
-booksRef.on('child_changed', (snapshot) => {
-  
-  this.books.update(snapshot.val())
-});
+// booksRef.on('child_changed', (snapshot) => {
+
+//   this.books.update(snapshot.val())
+// });
   // this.booksの削除
   
-  // booksRef.on('child_removed', (snapshot) => {
-  //   this.books.remove(snapshot.val())
-  // });
+  booksRef.on('child_removed', (snapshot) => {
+
+    this.books.remove(snapshot.val())
+  });
 },
 methods: {
   addBooks(e) {
@@ -90,12 +91,11 @@ methods: {
       
       // this.saveBooks();
   },
-    
-      // ============================================================
-    removeBook(x) {
-      this.books.splice(x, 1);
-      this.saveBooks();
-    },
+
+  removeBook(x) {
+    this.books.splice(x, 1);
+    this.saveBooks();
+  },
     
     // saveBooks() {
     //   // JavaScriptのオブジェクトや値を JSON 文字列に変換
