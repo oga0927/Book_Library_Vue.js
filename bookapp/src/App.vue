@@ -52,21 +52,17 @@ const bookAdd = {
 // child_addedでsanpshot.keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
-
-
 this.books.push(bookAdd);
-
 });
-  // this.booksの変更
-// booksRef.on('child_changed', (snapshot) => {
 
-//   this.books.update(snapshot.val())
-// });
-  // this.booksの削除
-  
-  booksRef.on('child_removed', (snapshot) => {
+// this.booksの変更
+booksRef.on('child_changed', (snapshot) => {
+  this.books.update(snapshot.val())
+});
 
-    this.books.remove(snapshot.val())
+// this.booksの削除
+booksRef.on('child_removed', (snapshot) => {
+  this.books.remove(snapshot.val())
   });
 },
 methods: {

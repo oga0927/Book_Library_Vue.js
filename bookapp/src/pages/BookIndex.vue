@@ -81,9 +81,9 @@
 </template>
 
 <script>
-// import firebase from '@/plugins/firebase'
+import firebase from '@/plugins/firebase'
 // // const STORAGE_KEY = 'books'
-// const booksRef = firebase.database().ref('books')
+const booksRef = firebase.database().ref('books')
 // console.log(booksRef);
 
 export default {
@@ -92,9 +92,6 @@ export default {
   },
   data() {
     return {
-      book:'',
-      date: '',
-      menu: false,
       // userId: false,
     }
   },
@@ -103,13 +100,14 @@ export default {
     //   const parsed = JSON.stringify(this.books);
     //   localStorage.setItem(STORAGE_KEY, parsed);
     // },
-    deleteBook(index) {
+    deleteLocalStorage(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
         this.books.splice(index, 1)
-        this.saveBooks();
-        this.books = []
-        window.location.reload()
+        console.log(booksRef);
+        // this.saveBooks();
+        // this.books = []
+        // window.location.reload()
       }
     },
   },

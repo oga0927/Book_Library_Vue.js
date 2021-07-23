@@ -140,6 +140,7 @@ export default {
       // vm.book = vm.books[vm.$route.params.id]
     const bookId = vm.$route.params.id;
       vm.book = vm.books.find((book) => book.id === bookId);
+      
       if(vm.book.readDate){
         vm.date = vm.book.readDate
       } else {
