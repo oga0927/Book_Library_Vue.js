@@ -102,19 +102,9 @@ export default {
       if(window.confirm(isDeleted)) {
         booksRef.child(bookId).remove();
         console.log('called delete=>', bookId);
+        window.location.reload();
       }
     },
-    // deleteLocalStorage(index) {
-    //   const isDeleted = 'データを削除してもいいですか？'
-    //   if(window.confirm(isDeleted)) {
-    //     this.books.splice(index, 1)
-    //     this.deleteBook();
-    //     console.log(this.deleteLocalStorage);
-    //     // this.saveBooks();
-    //     // this.books = []
-    //     // window.location.reload()
-    //   }
-    // },
   },
   
   computed: {

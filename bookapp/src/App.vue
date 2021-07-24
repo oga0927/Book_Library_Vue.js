@@ -62,10 +62,14 @@ booksRef.on('child_changed', (snapshot) => {
 });
 
 // this.booksの削除
+// booksRef.on('child_removed', (snapshot) => {
+//   this.books = this.books.filter((book) => book.id !== snapshot.key);
+// });
 booksRef.on('child_removed', (snapshot) => {
-  this.books = this.books.filter((book) => book.id !== snapshot.key);
+  this.books.remove(snapshot.val());
 });
 },
+
 methods: {
   addBooks(e) {
     const bookData = {
