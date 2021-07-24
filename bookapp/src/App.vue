@@ -36,7 +36,7 @@ created() {
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
 booksRef.on('child_added', (snapshot) => {
-console.log('child added');
+
 const getData = snapshot.val();
 const bookAdd = {
   title: getData.title,
@@ -62,12 +62,12 @@ booksRef.on('child_changed', (snapshot) => {
 });
 
 // this.booksの削除
-// booksRef.on('child_removed', (snapshot) => {
-//   this.books = this.books.filter((book) => book.id !== snapshot.key);
-// });
 booksRef.on('child_removed', (snapshot) => {
-  this.books.remove(snapshot.val());
+  this.books = this.books.filter((book) => book.id !== snapshot.key);
 });
+// booksRef.on('child_removed', (snapshot) => {
+//   this.books.remove(snapshot.val());
+// });
 },
 
 methods: {
@@ -85,11 +85,8 @@ methods: {
       userId: this.$store.state.userId,
       }
     booksRef.push(bookData);
-
     // 最後に追加したidの取得(追加した本の編集ページに遷移する)
     this.goToEditPage(this.books.slice(-1)[0].id);
-    console.log(this.books.slice(-1)[0].id);
-    // this.saveBooks();
   },
   // 最新のid
   goToEditPage(id) {

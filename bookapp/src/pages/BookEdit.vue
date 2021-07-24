@@ -72,7 +72,7 @@
                 <v-btn 
                 v-if="book.userId === this.$store.state.userId" 
                 color="info" 
-                @click="updateBookInfo"
+                @click="updateBookInfo(book.id)"
                 >
                 投稿
                 {{ books.userId}}
@@ -111,16 +111,15 @@ export default {
   },
   methods:{
     // 本の情報を更新する
-    updateBookInfo(){
+    updateBookInfo(bookId){
       // saveBooksにアクセスして保存
-      this.saveBooks()
+      this.saveBooks(bookId)
       // 保存した後にトップページに戻る
       this.$router.push('/bookindex')
-      console.log(this.updateBookInfo);
     },
     saveBooks(bookId) {
-      // const parsed = JSON.stringify(this.books);
-      booksRef.child(bookId).set();
+
+      booksRef.child(bookId).set(this.book)
     },
   },
   computed: {
@@ -145,8 +144,14 @@ export default {
       }
     })
   })
-  }
 }
+}
+  // .then(() => {
+  //   console.log('成功');
+  // })
+  // .catch(() => {
+  //   console.log('失敗');
+  // })
 </script>
 
 <style scoped>

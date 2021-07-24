@@ -83,8 +83,7 @@
 <script>
 import firebase from '@/plugins/firebase'
 // // const STORAGE_KEY = 'books'
-const booksRef = firebase.database().ref('books')
-console.log(booksRef);
+const booksRef = firebase.database().ref('books');
 
 export default {
   props: {
@@ -97,13 +96,14 @@ export default {
   },
   methods: {
     deleteBook(bookId) {
-      const isDeleted = 'データを削除してもいいですか？'
+      // const isDeleted = 'データを削除してもいいですか？'
       // 削除前に確認
-      if(window.confirm(isDeleted)) {
+      // if(window.confirm(isDeleted)) {
         booksRef.child(bookId).remove();
-        window.location.reload();
+        console.log('called delete=>', bookId);
+        // window.location.reload();
       }
-    },
+    // },
   },
   
   computed: {
