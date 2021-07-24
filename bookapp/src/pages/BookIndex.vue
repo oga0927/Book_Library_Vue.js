@@ -66,7 +66,7 @@
                   >
                   <v-btn 
                     color="error"
-                    @click="deleteLocalStorage(index)"
+                    @click="deleteBook(book.id)"
                   >
                   削除
                   </v-btn>
@@ -92,7 +92,7 @@ export default {
   },
   data() {
     return {
-      // userId: false,
+    
     }
   },
   methods: {
@@ -100,21 +100,21 @@ export default {
     //   const parsed = JSON.stringify(this.books);
     //   localStorage.setItem(STORAGE_KEY, parsed);
     // },
-    deleteLocalStorage(index) {
-      const isDeleted = 'データを削除してもいいですか？'
-      if(window.confirm(isDeleted)) {
-        this.books.splice(index, 1)
-        this.deleteBook();
-        console.log(this.deleteLocalStorage);
-        // this.saveBooks();
-        // this.books = []
-        window.location.reload()
-      }
+    deleteBook(bookId) {
+      booksRef.child(bookId).remove();
+      console.log('called delete=>', bookId);
     },
-    deleteBook() {
-      booksRef.child('book').remove()
-      console.log('成功');
-    }
+    // deleteLocalStorage(index) {
+    //   const isDeleted = 'データを削除してもいいですか？'
+    //   if(window.confirm(isDeleted)) {
+    //     this.books.splice(index, 1)
+    //     this.deleteBook();
+    //     console.log(this.deleteLocalStorage);
+    //     // this.saveBooks();
+    //     // this.books = []
+    //     // window.location.reload()
+    //   }
+    // },
   },
   
   computed: {

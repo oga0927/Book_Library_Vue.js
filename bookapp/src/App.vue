@@ -36,6 +36,7 @@ created() {
   // booksへの追加
   // child_added イベントは通常、データベースからアイテムのリストを取得
 booksRef.on('child_added', (snapshot) => {
+console.log('child added');
 const getData = snapshot.val();
 const bookAdd = {
   title: getData.title,
@@ -62,7 +63,7 @@ booksRef.on('child_changed', (snapshot) => {
 
 // this.booksの削除
 booksRef.on('child_removed', (snapshot) => {
-  this.books.remove(snapshot.val())
+  this.books = this.books.filter((book) => book.id !== snapshot.key);
   });
 },
 methods: {
@@ -79,31 +80,18 @@ methods: {
       different: '',
       userId: this.$store.state.userId,
       }
-      booksRef.push(bookData);
+    booksRef.push(bookData);
 
-      // 最後に追加したidの取得(追加した本の編集ページに遷移する)
-      this.goToEditPage(this.books.slice(-1)[0].id);
-      console.log(this.books.slice(-1)[0].id);
-      
-      // this.saveBooks();
+    // 最後に追加したidの取得(追加した本の編集ページに遷移する)
+    this.goToEditPage(this.books.slice(-1)[0].id);
+    console.log(this.books.slice(-1)[0].id);
+    // this.saveBooks();
   },
-
-  removeBook(x) {
-    this.books.splice(x, 1);
-    this.saveBooks();
+  // 最新のid
+  goToEditPage(id) {
+    // ページの切り替え
+    this.$router.push(`/edit/${id}`).catch(() => {})
   },
-    
-    // saveBooks() {
-    //   // JavaScriptのオブジェクトや値を JSON 文字列に変換
-    //   const parsed = JSON.stringify(this.books);
-    //   // localStorage.setItem(STORAGE_KEY, parsed);
-    //   booksRef.set(parsed)
-    // },
-    // 最新のid
-    goToEditPage(id) {
-      // ページの切り替え
-      this.$router.push(`/edit/${id}`).catch(() => {})
-    },
   }
 };
 

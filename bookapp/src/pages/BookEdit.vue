@@ -112,19 +112,16 @@ export default {
   methods:{
     // 本の情報を更新する
     updateBookInfo(){
-      // bookRef.set({
-        
-      // })
       // saveBooksにアクセスして保存
       this.saveBooks()
       // 保存した後にトップページに戻る
       this.$router.push('/bookindex')
       console.log(this.updateBookInfo);
     },
-    // saveBooks() {
-    //   // const parsed = JSON.stringify(this.books);
-    //   localStorage.setItem(STORAGE_KEY, parsed);
-    // },
+    saveBooks() {
+      // const parsed = JSON.stringify(this.books);
+      booksRef.child().set(this.book)
+    },
   },
   computed: {
     getStateUser(state) {
