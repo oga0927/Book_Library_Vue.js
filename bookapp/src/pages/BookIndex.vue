@@ -96,13 +96,13 @@ export default {
     }
   },
   methods: {
-    // saveBooks() {
-    //   const parsed = JSON.stringify(this.books);
-    //   localStorage.setItem(STORAGE_KEY, parsed);
-    // },
     deleteBook(bookId) {
-      booksRef.child(bookId).remove();
-      console.log('called delete=>', bookId);
+      const isDeleted = 'データを削除してもいいですか？'
+      // 削除前に確認
+      if(window.confirm(isDeleted)) {
+        booksRef.child(bookId).remove();
+        console.log('called delete=>', bookId);
+      }
     },
     // deleteLocalStorage(index) {
     //   const isDeleted = 'データを削除してもいいですか？'

@@ -118,9 +118,9 @@ export default {
       this.$router.push('/bookindex')
       console.log(this.updateBookInfo);
     },
-    saveBooks() {
+    saveBooks(bookId) {
       // const parsed = JSON.stringify(this.books);
-      booksRef.child().set(this.book)
+      booksRef.child(bookId).set();
     },
   },
   computed: {
@@ -145,14 +145,8 @@ export default {
       }
     })
   })
+  }
 }
-}
-  // .then(() => {
-  //   console.log('成功');
-  // })
-  // .catch(() => {
-  //   console.log('失敗');
-  // })
 </script>
 
 <style scoped>
