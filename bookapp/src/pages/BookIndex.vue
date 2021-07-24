@@ -101,7 +101,6 @@ export default {
       // 削除前に確認
       if(window.confirm(isDeleted)) {
         booksRef.child(bookId).remove();
-        console.log('called delete=>', bookId);
         window.location.reload();
       }
     },
