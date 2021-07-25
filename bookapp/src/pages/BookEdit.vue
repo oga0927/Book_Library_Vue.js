@@ -91,9 +91,6 @@ import firebase from '@/plugins/firebase'
 // // const STORAGE_KEY = 'books'
 const booksRef = firebase.database().ref('books')
 
-console.log(booksRef);
-
-
 
 export default {
   name:'BookEdit',
@@ -102,7 +99,6 @@ export default {
   },
   data(){
     return{
-
       // 1つの本の情報を格納
       book:'',
       date: '',
@@ -112,14 +108,9 @@ export default {
   methods:{
     // 本の情報を更新する
     updateBookInfo(bookId){
-      // saveBooksにアクセスして保存
-      this.saveBooks(bookId)
+      booksRef.child(bookId).set(this.book)
       // 保存した後にトップページに戻る
       this.$router.push('/bookindex')
-    },
-    saveBooks(bookId) {
-
-      booksRef.child(bookId).set(this.book)
     },
   },
   computed: {
@@ -146,12 +137,6 @@ export default {
   })
 }
 }
-  // .then(() => {
-  //   console.log('成功');
-  // })
-  // .catch(() => {
-  //   console.log('失敗');
-  // })
 </script>
 
 <style scoped>

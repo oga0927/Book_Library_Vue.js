@@ -140,6 +140,9 @@ export default new Vuex.Store({
     isSignedIn(state) {
       return state.status;
     },
+    isGuestUser(state) {
+      return state.userId === '31T2YgABKVfL8ElQuyI7JaI70xq1';
+    },
     getStateUser(state) {
       return state.user;
     },
@@ -148,7 +151,7 @@ export default new Vuex.Store({
     },
     getUserId(state) {
       return state.userId;
-    }
+    },
   },
   // 再描画されてもデータを保持
   plugins: [

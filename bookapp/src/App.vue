@@ -38,16 +38,17 @@ created() {
 booksRef.on('child_added', (snapshot) => {
 
 const getData = snapshot.val();
+
 const bookAdd = {
   title: getData.title,
   image: getData.image,
-  id: '',
-  readDate: '',
-  memo: '',
-  learn: '',
-  important: '',
-  examples: '',
-  different: '',
+  id: getData.id,
+  readDate: getData.readDate,
+  memo: getData.memo,
+  learn: getData.learn,
+  important: getData.important,
+  examples: getData.examples,
+  different: getData.different,
   userId: this.$store.state.userId,
 }
 // child_addedでsanpshot.keyとすると
@@ -58,16 +59,14 @@ this.books.push(bookAdd);
 
 // this.booksの変更
 booksRef.on('child_changed', (snapshot) => {
-  this.books.update(snapshot.val())
+  
+  console.log(snapshot.val());
 });
 
 // this.booksの削除
 booksRef.on('child_removed', (snapshot) => {
-  this.books = this.books.filter((book) => book.id !== snapshot.key);
+  this.books.remove(snapshot.val());
 });
-// booksRef.on('child_removed', (snapshot) => {
-//   this.books.remove(snapshot.val());
-// });
 },
 
 methods: {
@@ -92,8 +91,8 @@ methods: {
   goToEditPage(id) {
     // ページの切り替え
     this.$router.push(`/edit/${id}`).catch(() => {})
-  },
   }
+  },
 };
 
 </script>  

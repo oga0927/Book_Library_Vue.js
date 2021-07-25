@@ -13,7 +13,7 @@
       </v-btn>
     </p>
     <p>
-      <v-btn
+      <v-btn v-if="!isGuestUser"
         color="error"
         class="delete-btn"
         @click="deleteUser"
@@ -66,7 +66,8 @@
 
 <script>
 
-const STORAGE_KEY = 'books'
+// import firebase from '@/plugins/firebase'
+// const booksRef = firebase.database().ref('books')
 
 export default {
   props: {
@@ -83,10 +84,10 @@ export default {
     deleteUser() {
       this.$store.dispatch("userDelete");
     },
-    saveBooks() {
-      const parsed = JSON.stringify(this.books);
-      localStorage.setItem(STORAGE_KEY, parsed);
-    },
+    // saveBooks() {
+    //   const parsed = JSON.stringify(this.books);
+    //   localStorage.setItem(STORAGE_KEY, parsed);
+    // },
     deliteLocalStorage(index) {
       const isDeleted = 'データを削除してもいいですか？'
       if(window.confirm(isDeleted)) {
@@ -99,6 +100,8 @@ export default {
     },
   },
   computed: {
+    // mapgettersヘルパー
+    // https://vuex.vuejs.org/ja/guide/getters.html#mapgetters-%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC
     getStateUser() {
       return this.$store.getters.getStateUser;
     },
@@ -107,8 +110,12 @@ export default {
     },
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
-    }
+    },
+    isGuestUser() {
+      return this.$store.getters.isGuestUser;
+    },
   },
+
 }
 
 </script>

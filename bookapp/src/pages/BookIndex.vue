@@ -96,14 +96,13 @@ export default {
   },
   methods: {
     deleteBook(bookId) {
-      // const isDeleted = 'データを削除してもいいですか？'
+      const isDeleted = 'データを削除してもいいですか？'
       // 削除前に確認
-      // if(window.confirm(isDeleted)) {
+      if(window.confirm(isDeleted)) {
         booksRef.child(bookId).remove();
-        console.log('called delete=>', bookId);
-        // window.location.reload();
+        window.location.reload();
       }
-    // },
+    },
   },
   
   computed: {
