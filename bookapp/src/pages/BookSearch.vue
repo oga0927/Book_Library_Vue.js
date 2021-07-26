@@ -29,8 +29,12 @@
     <v-row>
       <!-- カードを表示 -->
       <v-col 
-        cols="12" md="6"
-        v-for="(book,index) in searchResults" :key="book.index">
+        cols="12" 
+        md="6"
+        class="mb-5"
+        v-for="(book,index) in searchResults" 
+        :key="book.index"
+      >
         <!-- mx-autoでmargin横幅の自動調整 -->
         <v-card class="mx-auto">
           <v-row>
@@ -50,7 +54,6 @@
                   class="mx-2" 
                   fab dark color="indigo"
                   @click="addBookList(index)"
-                  
                 >
                   <v-icon dark>
                     mdi-plus

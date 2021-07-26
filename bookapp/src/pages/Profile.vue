@@ -13,6 +13,7 @@
       </v-btn>
     </p>
     <p>
+      <!-- ゲストユーザーログイン時はアカウント削除を表示しない -->
       <v-btn v-if="!isGuestUser"
         color="error"
         class="delete-btn"
@@ -93,8 +94,7 @@ export default {
     }
   },
   computed: {
-    // mapgettersヘルパー
-    // https://vuex.vuejs.org/ja/guide/getters.html#mapgetters-%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC
+    
     getStateUser() {
       return this.$store.getters.getStateUser;
     },

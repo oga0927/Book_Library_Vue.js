@@ -140,6 +140,7 @@ export default new Vuex.Store({
     isSignedIn(state) {
       return state.status;
     },
+    // ゲストユーザー専用
     isGuestUser(state) {
       return state.userId === '31T2YgABKVfL8ElQuyI7JaI70xq1';
     },
