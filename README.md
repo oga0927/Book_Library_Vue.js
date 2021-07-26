@@ -194,9 +194,9 @@ export default new Vuex.Store({
 - 読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
   （本来は質問事項がもっと多い、一部抜粋）
 
-  <br>
-  <br>
-  <br>
+<br>
+<br>
+<br>
 
 ### 5. 投稿一覧
 
@@ -374,10 +374,12 @@ this.books.push(bookAdd);
 });
 ```
 
+<br><br>
+
 #### ② 非同期処理で削除
 
 ```Vue.js
-//子コンポーネント側
+//子コンポーネント側(BookIndex)
 export default {
   props: {
     books: Array,
@@ -389,7 +391,7 @@ methods: {
    }
   },
 
-//親コンポーネント
+//親コンポーネント(App.Vue)
 booksRef.on('child_removed', (snapshot) => {
 //filterメソッドで削除した本以外を引数のbookに入れ、this.bookに新しい配列として格納
   this.books = this.books.filter((book) => book.id !== snapshot.key)
