@@ -27,7 +27,7 @@ Qiita に詳細を執筆しております。
 
 ## インフラ構成図
 
-![Untitled Diagram (1).png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/8e3abb13-2242-5fa6-5671-cd9bf2b2fa47.png)
+![インフラ構成図.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/cb5c036e-398e-7e77-22f4-296a0b16c2da.png)
 <br>
 <br>
 
@@ -42,10 +42,10 @@ Qiita に詳細を執筆しております。
 - CSS
 - GoogleBooksAPI
 - WEB サーバー: Netlify
-- DB: WebStorage(LocalStorage)
-- DB(認証のみ): Firebase(Authentication)
-  <br>
-  <br>
+- DB: Firebase( Authentication、Realtime Database )
+
+<br>
+<br>
 
 ## 機能一覧
 
@@ -360,26 +360,39 @@ export default {
 
 ### 10. 工夫したところ（実装面）
 
-#### ① データの永続化
+#### ① snapshot.key で発行された ID を book の配列に追加
 
-・再描画で LocalStorage のデータが初期化されないよう設定<br>
-・vuex-persistedstate をインストールで、vuex の state の中身を維持<br>
-・vuex-persistedstate の設定を vuex の Store の plugins に設定<br>
-<br>
+```Vue.js
 
-```store.js
+booksRef.on('child_added', (snapshot) => {
 
-import createPersistedState from 'vuex-persistedstate';
+const getData = snapshot.val();
+const bookAdd = getData;
 
+bookAdd.id = snapshot.key;
+this.books.push(bookAdd);
+});
+```
 
-export default new Vuex.Store({
+#### ② 非同期処理で削除
 
+```Vue.js
+//子コンポーネント側
+export default {
+  props: {
+    books: Array,
   },
-  plugins: [
-    createPersistedState({
-　　　 key: 'example',
-    　storage: window.sessionStorage
-  })]
+}
+methods: {
+  deleteBook(bookId) {
+    booksRef.child(bookId).remove();
+   }
+  },
+
+//親コンポーネント
+booksRef.on('child_removed', (snapshot) => {
+//filterメソッドで削除した本以外を引数のbookに入れ、this.bookに新しい配列として格納
+  this.books = this.books.filter((book) => book.id !== snapshot.key)
 });
 ```
 
@@ -397,62 +410,59 @@ export default new Vuex.Store({
 ```vue
 <template>
   <div>
+    <p class="login__message" v-if="getStateUserName">
+      こんにちは！ {{ getStateUserName }}さん
+    </p>
+    <p class="login__message" v-else>こんにちは！ゲストユーザーさん！</p>
+    <p>
+      <v-btn color="orange lighten-1" to="/search"> 本を投稿する </v-btn>
+    </p>
+    <p>
+      <v-btn
+        v-if="!isGuestUser"
+        color="error"
+        class="delete-btn"
+        @click="deleteUser"
+      >
+        アカウントを削除
+      </v-btn>
+    </p>
     <v-row>
-      <v-col cols="12">
-        <p v-if="getStateUserName">こんにちは！ {{ getStateUserName }}さん</p>
-        <p v-else>こんにちは！ゲストユーザーさん</p>
-        <p>
-          <v-btn color="orange lighten-1" to="/search"> 本を投稿する </v-btn>
-        </p>
-        <p>
-          <v-btn color="error" class="delete-btn" @click="deleteUser">
-            アカウントを削除
-          </v-btn>
-        </p>
-        <v-col
-          cols="12"
-          sm="6"
-          md="6"
-          v-for="(book, index) in books"
-          :key="index"
-        >
-          <!-- 自分が投稿した本の一覧 -->
-          <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
-          <v-card v-if="book.userId === $store.state.userId" class="mb-8">
-            <v-row>
-              <v-col cols="3">
-                <!-- 画像が表示される -->
-                <v-img :src="book.image"></v-img>
-              </v-col>
-              <v-col cols="9">
-                <v-card-title>{{ book.title }}</v-card-title>
+      <v-col cols="12" sm="6" v-for="(book, index) in books" :key="index">
+        <!-- 自分が投稿した本の一覧 -->
+        <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
+        <v-card v-if="book.userId === $store.state.userId" class="mb-8">
+          <v-row>
+            <v-col cols="5">
+              <!-- 画像が表示される -->
+              <v-img :src="book.image"></v-img>
+            </v-col>
+            <v-col cols="7">
+              <v-card-title>{{ book.title }}</v-card-title>
+              <v-spacer></v-spacer>
+              <v-card-actions>
+                <!-- 書き込み -->
+                <v-btn
+                  :to="{ name: 'BookEdit', params: { id: index } }"
+                  color="primary"
+                  class="mx-1"
+                >
+                  編集する
+                </v-btn>
                 <v-spacer></v-spacer>
-                <v-card-actions>
-                  <!-- 書き込み -->
-                  <v-btn
-                    :to="{ name: 'BookEdit', params: { id: index } }"
-                    color="primary"
-                    class="mx-1"
-                  >
-                    編集する
-                  </v-btn>
-                  <v-spacer></v-spacer>
-
-                  <v-btn color="error" @click="deliteLocalStorage(index)">
-                    削除
-                  </v-btn>
-                </v-card-actions>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
+                <v-btn color="error" @click="deleteBook(book.id)"> 削除 </v-btn>
+              </v-card-actions>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-const STORAGE_KEY = "books";
+import firebase from "@/plugins/firebase";
+const booksRef = firebase.database().ref("books");
 
 export default {
   props: {
@@ -469,18 +479,9 @@ export default {
     deleteUser() {
       this.$store.dispatch("userDelete");
     },
-    saveBooks() {
-      const parsed = JSON.stringify(this.books);
-      localStorage.setItem(STORAGE_KEY, parsed);
-    },
-    deliteLocalStorage(index) {
-      const isDeleted = "データを削除してもいいですか？";
-      if (window.confirm(isDeleted)) {
-        this.books.splice(index, 1);
-        this.saveBooks();
-        this.books = [];
-        window.location.reload();
-      }
+    //本の削除
+    deleteBook(bookId) {
+      booksRef.child(bookId).remove();
     },
   },
   computed: {
@@ -492,6 +493,9 @@ export default {
     },
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
+    },
+    isGuestUser() {
+      return this.$store.getters.isGuestUser;
     },
   },
 };

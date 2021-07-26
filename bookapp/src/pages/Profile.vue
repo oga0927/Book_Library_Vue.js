@@ -51,7 +51,7 @@
                 <v-spacer></v-spacer>
                 <v-btn 
                   color="error"
-                  @click="deliteLocalStorage(index)"
+                  @click="deleteBook(book.id)"
                 >
                 削除
                 </v-btn>
@@ -66,8 +66,8 @@
 
 <script>
 
-// import firebase from '@/plugins/firebase'
-// const booksRef = firebase.database().ref('books')
+import firebase from '@/plugins/firebase'
+const booksRef = firebase.database().ref('books')
 
 export default {
   props: {
@@ -84,20 +84,13 @@ export default {
     deleteUser() {
       this.$store.dispatch("userDelete");
     },
-    // saveBooks() {
-    //   const parsed = JSON.stringify(this.books);
-    //   localStorage.setItem(STORAGE_KEY, parsed);
-    // },
-    deliteLocalStorage(index) {
-      const isDeleted = 'データを削除してもいいですか？'
-      if(window.confirm(isDeleted)) {
-
-        this.books.splice(index, 1)
-        this.saveBooks();
-        this.books = []
-        window.location.reload()
-      }
-    },
+    deleteBook(bookId) {
+    // const isDeleted = 'データを削除してもいいですか？'
+    // 削除前に確認
+    // if(window.confirm(isDeleted)) {
+      booksRef.child(bookId).remove();
+      // window.location.reload();
+    }
   },
   computed: {
     // mapgettersヘルパー

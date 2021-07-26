@@ -128,6 +128,18 @@ export default {
   padding: 10px;
   line-height: 20px;
 }
-}
+};
+
+/* @media (min-width: px) {
+  .home {
+  background: url("~@/assets/mv.png");
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 55vh;
+  }
+} */
 
 </style>

@@ -40,11 +40,11 @@ export default new Vuex.Store({
     },
     setUserName(state, payload) {
       state.userName = payload;
-      console.log(state.userName);
+      // console.log(state.userName);
     },
     setUserId(state, payload) {
       state.userId = payload;
-      console.log(state.userId);
+      // console.log(state.userId);
     },
     setUpdateBookInfo(state, payload) {
       state.updateBookInfo = payload;
