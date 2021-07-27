@@ -21,7 +21,7 @@ export default {
 <style>
   .footer {
     margin-bottom: -5vh !important;
-    height: 50px;
+    height: 80px;
   }
 
 @media (max-width: 576px) {

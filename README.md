@@ -360,7 +360,7 @@ export default {
 
 ### 10. 工夫したところ（実装面）
 
-#### ① snapshot.key で発行された ID を book の配列に追加
+#### ① 発行された ID を snapshot.key で を book の配列に追加
 
 ```Vue.js
 

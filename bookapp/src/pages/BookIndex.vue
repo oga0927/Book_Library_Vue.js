@@ -39,8 +39,6 @@
         sm="6" 
         v-for="(book, index) in books" 
         :key="index"
-        class="mb-5"
-        
       >
         <v-card class="mb-1">
           <v-row>
@@ -48,7 +46,7 @@
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col >
+            <v-col>
               <v-card-title class="book__title">{{ book.title }}</v-card-title>
               <v-spacer></v-spacer>
               <v-card-actions>
@@ -122,6 +120,10 @@ export default {
   }
   .book__title {
     font-size: 0.8rem;
+  }
+
+  .row {
+    margin: 10px;
   }
 
 @media (max-width: 576px) {

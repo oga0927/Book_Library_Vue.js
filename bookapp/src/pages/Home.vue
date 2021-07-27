@@ -4,8 +4,10 @@
     <v-main>
       <div class="discription">
         <h2>SHALIBOとは</h2>
-        <p class="discription__comment">SHALIBOは読書内容を記録したり、読書が終わったら質問テンプレートに答えてアウトプットできます。<br>
-        本で得た知識を投稿して自分のものに！
+        <p class="discription__comment">
+          読書した内容を 1 ページにまとめるシンプルな「読書記録アプリ」です。<br>
+          本の内容をWEB 上で投稿・管理し、他のユーザーと知識を共有し合うことで、<br>
+          同じ本を要約することに時間をかけずに、まだ要約されていない書籍に専念することができます。<br>
         </p>
       </div>
       <div class="features">
@@ -69,6 +71,7 @@ export default {
 
 .discription {
   width: 100%;
+  height: 150px;
   color: #232323;
   font-size: 1rem;
   line-height: 35px;
@@ -82,7 +85,7 @@ export default {
 
 .features{
   width: 100%;
-  height: 350px;
+  height: 360px;
   margin: 50px 0 0 0;
   padding: 48px 0 0 0;
   text-align: center;

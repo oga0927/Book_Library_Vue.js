@@ -31,14 +31,14 @@
         >
         <!-- 自分が投稿した本の一覧 -->
         <!-- 投稿した本のuseIdとログイン中のuserIdが同じのを表示 -->
-        <v-card  v-if="book.userId === $store.state.userId" class="mb-8">
+        <v-card  v-if="book.userId === $store.state.userId">
           <v-row>
-            <v-col cols="5">
+            <v-col cols="4">
               <!-- 画像が表示される -->
               <v-img :src="book.image"></v-img>
             </v-col>
-            <v-col cols="7">
-              <v-card-title >{{ book.title }}</v-card-title>
+            <v-col>
+              <v-card-title>{{ book.title }}</v-card-title>
               <v-spacer></v-spacer>
               <v-card-actions>
                 <!-- 書き込み -->

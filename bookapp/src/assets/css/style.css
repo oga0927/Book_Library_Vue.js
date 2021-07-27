@@ -1,6 +1,6 @@
 /* 共通部分 */
 .container {
-  padding: 20px;
+  padding: 0px;
   max-width: 100%;
   position: relative;
 }
@@ -36,6 +36,10 @@ a {
 
   width: 100%;
   height: 50vmax;
+}
+
+.book__title {
+  font-size: 0.8rem;
 }
 
 body {
