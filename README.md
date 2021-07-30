@@ -194,8 +194,7 @@ export default new Vuex.Store({
 
 ![質問内容.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/953175/9b5eb1c0-81fd-ef23-050f-994884bf4cc7.png)
 
-- 読んだ本が記憶に残る読書術、読書ビジュアライジング法をアプリに取り入れました。
-  （本来は質問事項がもっと多い、一部抜粋）
+- テンプレートに沿って記述するだけで本が要約され、アウトプットに繋がります。
 
 <br>
 <br>
