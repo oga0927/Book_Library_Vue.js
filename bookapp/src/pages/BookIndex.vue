@@ -100,7 +100,7 @@ export default {
       // 削除前に確認
       if(window.confirm(isDeleted)) {
         booksRef.child(bookId).remove();
-        window.location.reload();
+        // window.location.reload();
       }
     },
   },

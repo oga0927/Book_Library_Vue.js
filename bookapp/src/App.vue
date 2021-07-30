@@ -38,18 +38,19 @@ created() {
 booksRef.on('child_added', (snapshot) => {
 
 const getData = snapshot.val();
-const bookAdd = {
-  title: getData.title,
-  image: getData.image,
-  id: getData.id,
-  readDate: getData.readDate,
-  memo: getData.memo,
-  learn: getData.learn,
-  important: getData.important,
-  examples: getData.examples,
-  different: getData.different,
-  userId: this.$store.state.userId,
-}
+// const bookAdd = {
+//   title: getData.title,
+//   image: getData.image,
+//   id: getData.id,
+//   readDate: getData.readDate,
+//   memo: getData.memo,
+//   learn: getData.learn,
+//   important: getData.important,
+//   examples: getData.examples,
+//   different: getData.different,
+//   userId: this.$store.state.userId,
+// }
+const bookAdd = getData;
 // child_addedでsanpshot.keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
@@ -64,7 +65,8 @@ booksRef.on('child_changed', (snapshot) => {
 // this.booksの削除
 booksRef.on('child_removed', (snapshot) => {
   // this.booksのデータの書き換え。削除した本以外をbookに入れる
-  this.books.remove(snapshot.val());
+  // this.books.remove(snapshot.val());
+  this.books = this.books.filter((book) => book.id !== snapshot.key);
 });
 },
 
