@@ -37,7 +37,7 @@ created() {
   // child_added イベントは通常、データベースからアイテムのリストを取得
 booksRef.on('child_added', (snapshot) => {
 
-const getData = snapshot.val();
+// const getData = snapshot.val();
 // const bookAdd = {
 //   title: getData.title,
 //   image: getData.image,
@@ -50,7 +50,7 @@ const getData = snapshot.val();
 //   different: getData.different,
 //   userId: this.$store.state.userId,
 // }
-const bookAdd = getData;
+const bookAdd = snapshot.val();
 // child_addedでsanpshot.keyとすると
 // そのデータのキーが取得できるので、それをそのままidに
 bookAdd.id = snapshot.key;
